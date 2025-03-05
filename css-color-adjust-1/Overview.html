@@ -8,7 +8,7 @@
   <meta content="Bikeshed version 60c422380, updated Thu Feb 20 19:11:22 2025 -0800" name="generator">
   <link href="https://www.w3.org/TR/css-color-adjust-1/" rel="canonical">
   <link href="https://drafts.csswg.org/csslogo.ico" rel="icon">
-  <meta content="d50b0fd35d8654bd42b5d88bd2f34a6871ec358f" name="revision">
+  <meta content="c72ed076bbd26bb41d0b3992f36ce887b072b71a" name="revision">
   <meta content="dark light" name="color-scheme">
   <link href="https://www.w3.org/StyleSheets/TR/2021/dark.css" media="(prefers-color-scheme: dark)" rel="stylesheet" type="text/css">
   <link href="style.css" rel="stylesheet">
@@ -2027,19 +2027,18 @@ svg|foreignObject <c- p>{</c-> <c- k>forced-color-adjust</c-><c- p>:</c-> auto<c
 variables</em> and <em>parameters</em> are:</p>
    <ol>
     <li data-md>
-     <p>If <em>parameters</em> is not a JSON <a data-link-type="dfn" href="https://w3c.github.io/rdf-concepts/spec/#dfn-object" id="ref-for-dfn-object">Object</a>, return a WebDriver <a data-link-type="dfn" href="https://w3c.github.io/webdriver/#dfn-error" id="ref-for-dfn-error">error</a> with
-WebDriver <a data-link-type="dfn" href="https://w3c.github.io/webdriver/#dfn-error-code" id="ref-for-dfn-error-code">error code</a> <a data-link-type="dfn" href="https://w3c.github.io/webdriver/#dfn-invalid-argument" id="ref-for-dfn-invalid-argument">invalid argument</a>.</p>
+     <p>If <em>parameters</em> is not a JSON <a data-link-type="dfn" href="https://w3c.github.io/rdf-concepts/spec/#dfn-object" id="ref-for-dfn-object">Object</a>, return a WebDriver <a data-link-type="dfn" href="https://w3c.github.io/webdriver/#dfn-error" id="ref-for-dfn-error">error</a> with WebDriver <a data-link-type="dfn" href="https://w3c.github.io/webdriver/#dfn-error-code" id="ref-for-dfn-error-code">error code</a> <a data-link-type="dfn" href="https://w3c.github.io/webdriver/#dfn-invalid-argument" id="ref-for-dfn-invalid-argument">invalid argument</a>.</p>
     <li data-md>
      <p>Let <em>theme</em> be the result of <a data-link-type="dfn" href="https://w3c.github.io/webdriver/#dfn-getting-properties" id="ref-for-dfn-getting-properties">getting a property</a> named <code>"theme"</code> from <em>parameters</em>.</p>
     <li data-md>
-     <p>If <em>theme</em> is <a data-link-type="dfn">undefined</a> or is not a member of <code class="idl"><a data-link-type="idl" href="#enumdef-forcedcolorsmodeautomationtheme" id="ref-for-enumdef-forcedcolorsmodeautomationtheme①">ForcedColorsModeAutomationTheme</a></code>,
-return a WebDriver <a data-link-type="dfn" href="https://w3c.github.io/webdriver/#dfn-error" id="ref-for-dfn-error①">error</a> with WebDriver <a data-link-type="dfn" href="https://w3c.github.io/webdriver/#dfn-error-code" id="ref-for-dfn-error-code①">error code</a> <a data-link-type="dfn" href="https://w3c.github.io/webdriver/#dfn-invalid-argument" id="ref-for-dfn-invalid-argument①">invalid argument</a>.</p>
+     <p>If <em>theme</em> is <code class="idl"><a data-link-type="idl" href="https://tc39.es/ecma262/multipage/global-object.html#sec-undefined" id="ref-for-sec-undefined">undefined</a></code> or is not a member of <code class="idl"><a data-link-type="idl" href="#enumdef-forcedcolorsmodeautomationtheme" id="ref-for-enumdef-forcedcolorsmodeautomationtheme①">ForcedColorsModeAutomationTheme</a></code>, return a WebDriver <a data-link-type="dfn" href="https://w3c.github.io/webdriver/#dfn-error" id="ref-for-dfn-error①">error</a> with
+WebDriver <a data-link-type="dfn" href="https://w3c.github.io/webdriver/#dfn-error-code" id="ref-for-dfn-error-code①">error code</a> <a data-link-type="dfn" href="https://w3c.github.io/webdriver/#dfn-invalid-argument" id="ref-for-dfn-invalid-argument①">invalid argument</a>.</p>
     <li data-md>
      <p>Set the <a data-link-type="dfn" href="#current-forced-colors-mode-automation-theme" id="ref-for-current-forced-colors-mode-automation-theme②">current forced colors mode automation theme</a> to <em>theme</em>.</p>
     <li data-md>
      <p>Signal to the browser that styles need to be recalculated.</p>
     <li data-md>
-     <p>Return <a data-link-type="dfn" href="https://w3c.github.io/webdriver/#dfn-success" id="ref-for-dfn-success">success</a> with data <a data-link-type="dfn">null</a>.</p>
+     <p>Return <a data-link-type="dfn" href="https://w3c.github.io/webdriver/#dfn-success" id="ref-for-dfn-success">success</a> with data <a href="https://262.ecma-international.org/5.1/#sec-4.3.11">null</a>.</p>
    </ol>
    <h2 class="heading settled" data-level="6" id="privacy"><span class="secno">6. </span><span class="content">Privacy Considerations</span><a class="self-link" href="#privacy"></a></h2>
    <p>Applying user color preferences via <a data-link-type="dfn" href="#color-scheme" id="ref-for-color-scheme①⑨">color schemes</a> or <a data-link-type="dfn" href="#forced-colors-mode" id="ref-for-forced-colors-mode①⑧">forced colors mode</a> exposes the user’s color preferences to the page
@@ -2335,6 +2334,11 @@ being unreadable when used with the <em>actual</em> system colors.</p>
      <li><span class="dfn-paneled" id="b203675a">getComputedStyle(elt)</span>
     </ul>
    <li>
+    <a data-link-type="biblio">[ECMASCRIPT]</a> defines the following terms:
+    <ul>
+     <li><span class="dfn-paneled" id="f5f075a6">undefined</span>
+    </ul>
+   <li>
     <a data-link-type="biblio">[FILL-STROKE-3]</a> defines the following terms:
     <ul>
      <li><span class="dfn-paneled" id="890a8358">fill</span>
@@ -2416,6 +2420,8 @@ being unreadable when used with the <em>actual</em> system colors.</p>
    <dd>Bert Bos; et al. <a href="https://drafts.csswg.org/css2/"><cite>Cascading Style Sheets Level 2 Revision 1 (CSS 2.1) Specification</cite></a>. URL: <a href="https://drafts.csswg.org/css2/">https://drafts.csswg.org/css2/</a>
    <dt id="biblio-cssom-1">[CSSOM-1]
    <dd>Daniel Glazman; Emilio Cobos Álvarez. <a href="https://drafts.csswg.org/cssom/"><cite>CSS Object Model (CSSOM)</cite></a>. URL: <a href="https://drafts.csswg.org/cssom/">https://drafts.csswg.org/cssom/</a>
+   <dt id="biblio-ecmascript">[ECMASCRIPT]
+   <dd><a href="https://tc39.es/ecma262/multipage/"><cite>ECMAScript Language Specification</cite></a>. URL: <a href="https://tc39.es/ecma262/multipage/">https://tc39.es/ecma262/multipage/</a>
    <dt id="biblio-fill-stroke-3">[FILL-STROKE-3]
    <dd>Elika Etemad; Tab Atkins Jr.. <a href="https://drafts.fxtf.org/fill-stroke/"><cite>CSS Fill and Stroke Module Level 3</cite></a>. URL: <a href="https://drafts.fxtf.org/fill-stroke/">https://drafts.fxtf.org/fill-stroke/</a>
    <dt id="biblio-filter-effects-1">[FILTER-EFFECTS-1]
@@ -2847,6 +2853,7 @@ let dfnPanelData = {
 "f0811ff8": {"dfnID":"f0811ff8","dfnText":"img","external":true,"refSections":[{"refs":[{"id":"ref-for-the-img-element"}],"title":"2.2. Effects of the Used Color Scheme"}],"url":"https://html.spec.whatwg.org/multipage/embedded-content.html#the-img-element"},
 "f338a9f0": {"dfnID":"f338a9f0","dfnText":"text-shadow","external":true,"refSections":[{"refs":[{"id":"ref-for-propdef-text-shadow"}],"title":"3.1. Properties Affected by Forced Colors Mode"}],"url":"https://drafts.csswg.org/css-text-decor-4/#propdef-text-shadow"},
 "f5bd1fd7": {"dfnID":"f5bd1fd7","dfnText":"CanvasText","external":true,"refSections":[{"refs":[{"id":"ref-for-valdef-color-canvastext"},{"id":"ref-for-valdef-color-canvastext\u2460"}],"title":"3. Forced Color Palettes"},{"refs":[{"id":"ref-for-valdef-color-canvastext\u2461"},{"id":"ref-for-valdef-color-canvastext\u2462"},{"id":"ref-for-valdef-color-canvastext\u2463"}],"title":"3.1. Properties Affected by Forced Colors Mode"}],"url":"https://drafts.csswg.org/css-color-4/#valdef-color-canvastext"},
+"f5f075a6": {"dfnID":"f5f075a6","dfnText":"undefined","external":true,"refSections":[{"refs":[{"id":"ref-for-sec-undefined"}],"title":"5.1. Emulate Forced Colors Mode"}],"url":"https://tc39.es/ecma262/multipage/global-object.html#sec-undefined"},
 "f831c141": {"dfnID":"f831c141","dfnText":"background-image","external":true,"refSections":[{"refs":[{"id":"ref-for-propdef-background-image"}],"title":"3.1. Properties Affected by Forced Colors Mode"}],"url":"https://drafts.csswg.org/css-backgrounds-3/#propdef-background-image"},
 "f94cfee7": {"dfnID":"f94cfee7","dfnText":"mark","external":true,"refSections":[{"refs":[{"id":"ref-for-valdef-color-mark"},{"id":"ref-for-valdef-color-mark\u2460"}],"title":"3. Forced Color Palettes"}],"url":"https://drafts.csswg.org/css-color-4/#valdef-color-mark"},
 "fe9654f1": {"dfnID":"fe9654f1","dfnText":"AccentColor","external":true,"refSections":[{"refs":[{"id":"ref-for-valdef-color-accentcolor"},{"id":"ref-for-valdef-color-accentcolor\u2460"}],"title":"3. Forced Color Palettes"}],"url":"https://drafts.csswg.org/css-color-4/#valdef-color-accentcolor"},
@@ -3413,6 +3420,7 @@ let refsData = {
 "https://html.spec.whatwg.org/multipage/semantics.html#meta-color-scheme": {"displayText":"color-scheme","export":true,"for_":["meta/name"],"level":"","normative":true,"shortname":"html","spec":"html","status":"anchor-block","text":"color-scheme","type":"attr-value","url":"https://html.spec.whatwg.org/multipage/semantics.html#meta-color-scheme"},
 "https://html.spec.whatwg.org/multipage/text-level-semantics.html#the-em-element": {"displayText":"em","export":true,"for_":[],"level":"1","normative":true,"shortname":"html","spec":"html","status":"current","text":"em","type":"element","url":"https://html.spec.whatwg.org/multipage/text-level-semantics.html#the-em-element"},
 "https://svgwg.org/svg2-draft/pservers.html#StopColorProperty": {"displayText":"stop-color","export":true,"for_":["stop"],"level":"2","normative":true,"shortname":"svg","spec":"svg2","status":"current","text":"stop-color","type":"property","url":"https://svgwg.org/svg2-draft/pservers.html#StopColorProperty"},
+"https://tc39.es/ecma262/multipage/global-object.html#sec-undefined": {"displayText":"undefined","export":true,"for_":["globalThis"],"level":"1","normative":true,"shortname":"ecmascript","spec":"ecmascript","status":"current","text":"undefined","type":"attribute","url":"https://tc39.es/ecma262/multipage/global-object.html#sec-undefined"},
 "https://w3c.github.io/rdf-concepts/spec/#dfn-object": {"displayText":"object","export":true,"for_":[],"level":"1","normative":true,"shortname":"rdf-concepts","spec":"rdf12-concepts","status":"current","text":"object","type":"dfn","url":"https://w3c.github.io/rdf-concepts/spec/#dfn-object"},
 "https://w3c.github.io/webdriver/#dfn-error": {"displayText":"error","export":true,"for_":[],"level":"2","normative":true,"shortname":"webdriver","spec":"webdriver2","status":"current","text":"error","type":"dfn","url":"https://w3c.github.io/webdriver/#dfn-error"},
 "https://w3c.github.io/webdriver/#dfn-error-code": {"displayText":"error code","export":true,"for_":[],"level":"2","normative":true,"shortname":"webdriver","spec":"webdriver2","status":"current","text":"error code","type":"dfn","url":"https://w3c.github.io/webdriver/#dfn-error-code"},
