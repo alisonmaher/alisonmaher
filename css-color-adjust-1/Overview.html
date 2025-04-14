@@ -8,7 +8,7 @@
   <meta content="Bikeshed version 60c422380, updated Thu Feb 20 19:11:22 2025 -0800" name="generator">
   <link href="https://www.w3.org/TR/css-color-adjust-1/" rel="canonical">
   <link href="https://drafts.csswg.org/csslogo.ico" rel="icon">
-  <meta content="c72ed076bbd26bb41d0b3992f36ce887b072b71a" name="revision">
+  <meta content="d97712013d3635593e17b93b6b136d866201cce4" name="revision">
   <meta content="dark light" name="color-scheme">
   <link href="https://www.w3.org/StyleSheets/TR/2021/dark.css" media="(prefers-color-scheme: dark)" rel="stylesheet" type="text/css">
   <link href="style.css" rel="stylesheet">
@@ -1058,7 +1058,7 @@ dd:not(:last-child) > .wpt-tests-block:not([open]):last-child {
   <div class="head">
    <p data-fill-with="logo"><a class="logo" href="https://www.w3.org/"> <img alt="W3C" height="48" src="https://www.w3.org/StyleSheets/TR/2021/logos/W3C" width="72"> </a> </p>
    <h1 class="p-name no-ref" id="title">CSS Color Adjustment Module Level 1</h1>
-   <p id="w3c-state"><a href="https://www.w3.org/standards/types/#ED">Editor’s Draft</a>, <time class="dt-updated" datetime="2025-03-04">4 March 2025</time></p>
+   <p id="w3c-state"><a href="https://www.w3.org/standards/types/#ED">Editor’s Draft</a>, <time class="dt-updated" datetime="2025-04-14">14 April 2025</time></p>
    <details open>
     <summary>More details about this document</summary>
     <div data-fill-with="spec-metadata">
@@ -1140,7 +1140,7 @@ on screen, on paper, etc.
       <li><a href="#color-adjust"><span class="secno">4.2</span> <span class="content">The <span class="property">color-adjust</span> Shorthand</span></a>
      </ol>
     <li>
-     <a href="#color-adjust-automation"><span class="secno">5</span> <span class="content">Automation</span></a>
+     <a href="#color-adjust-emulation"><span class="secno">5</span> <span class="content">Emulation</span></a>
      <ol class="toc">
       <li><a href="#emualte-forced-colors-mode"><span class="secno">5.1</span> <span class="content"><span>Emulate Forced Colors Mode</span></span></a>
      </ol>
@@ -1543,11 +1543,9 @@ to conform to either a <a data-link-type="dfn" href="#dark-color-scheme" id="ref
 	Behavior between the above dark vs. light thresholds
 	is UA-defined,
 	and may result in assuming either <span class="css">light</span> or <span class="css">dark</span> as the user’s preferred color scheme.</p>
-   <p>If the <a data-link-type="dfn" href="#current-forced-colors-mode-automation-theme" id="ref-for-current-forced-colors-mode-automation-theme">current forced colors mode automation theme</a> is not
-	"<code class="idl"><a data-link-type="idl" href="#dom-forcedcolorsmodeautomationtheme-none" id="ref-for-dom-forcedcolorsmodeautomationtheme-none">none</a></code>", the user agent should first verify that
-	it is in an automation context (see <a href="https://w3c.github.io/webdriver/#security">WebDriver’s Security
-	considerations</a>). The user agent should then bypass the above operating system
-	color themes, and instead do the following based on the value of the <span id="ref-for-current-forced-colors-mode-automation-theme①">current forced colors mode automation theme</span>:</p>
+   <p>If <a data-link-type="dfn" href="#get-emulated-forced-colors-theme-data" id="ref-for-get-emulated-forced-colors-theme-data">get emulated forced colors theme data</a> is not "<code class="idl"><a data-link-type="idl" href="#dom-forcedcolorsmodeautomationtheme-none" id="ref-for-dom-forcedcolorsmodeautomationtheme-none">none</a></code>",
+	the user agent should bypass the above operating system color themes,
+	and instead do the following based on the resulting value of <a data-link-type="dfn" href="#emulated-forced-colors-theme-data" id="ref-for-emulated-forced-colors-theme-data">emulated forced colors theme data</a>:</p>
    <dl>
     <dt data-md>"<code class="idl"><a data-link-type="idl" href="#dom-forcedcolorsmodeautomationtheme-light" id="ref-for-dom-forcedcolorsmodeautomationtheme-light">light</a></code>"
     <dd data-md>
@@ -1998,50 +1996,47 @@ svg|foreignObject <c- p>{</c-> <c- k>forced-color-adjust</c-><c- p>:</c-> auto<c
      <li class="wpt-test"><a class="wpt-name" href="https://wpt.fyi/results/css/css-color-adjust/inheritance.html" title="css/css-color-adjust/inheritance.html">inheritance.html</a> <a class="wpt-live" href="http://wpt.live/css/css-color-adjust/inheritance.html"><small>(live test)</small></a> <a class="wpt-source" href="https://github.com/web-platform-tests/wpt/blob/master/css/css-color-adjust/inheritance.html"><small>(source)</small></a>
     </ul>
    </details>
-   <h2 class="heading settled" data-level="5" id="color-adjust-automation"><span class="secno">5. </span><span class="content">Automation</span><a class="self-link" href="#color-adjust-automation"></a></h2>
-    For the purposes of user agent automation and website testing, this document
-	defines the below <a data-link-type="biblio" href="#biblio-webdriver" title="WebDriver">[WebDriver]</a> <a data-link-type="dfn" href="https://w3c.github.io/webdriver/#dfn-extension-commands" id="ref-for-dfn-extension-commands">extension commands</a>. 
-   <h3 class="heading settled" data-level="5.1" id="emualte-forced-colors-mode"><span class="secno">5.1. </span><span class="content"><dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport id="emulate-forced-colors-mode">Emulate Forced Colors Mode</dfn></span><a class="self-link" href="#emualte-forced-colors-mode"></a></h3>
-   <p>The <a data-link-type="dfn" href="#emulate-forced-colors-mode" id="ref-for-emulate-forced-colors-mode">Emulate Forced Colors Mode</a> <a data-link-type="dfn" href="https://w3c.github.io/webdriver/#dfn-extension-commands" id="ref-for-dfn-extension-commands①">extension command</a> simulates <a data-link-type="dfn" href="#forced-colors-mode" id="ref-for-forced-colors-mode①⑦">Forced Colors Mode</a> for the purposes of testing.</p>
-   <p>The <dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport id="current-forced-colors-mode-automation-theme">current forced colors mode automation theme</dfn> tracks what <code class="idl"><a data-link-type="idl" href="#enumdef-forcedcolorsmodeautomationtheme" id="ref-for-enumdef-forcedcolorsmodeautomationtheme">ForcedColorsModeAutomationTheme</a></code> is currently active. It defaults to
-	"<code class="idl"><a data-link-type="idl" href="#dom-forcedcolorsmodeautomationtheme-none" id="ref-for-dom-forcedcolorsmodeautomationtheme-none①">none</a></code>".</p>
+   <h2 class="heading settled" data-level="5" id="color-adjust-emulation"><span class="secno">5. </span><span class="content">Emulation</span><a class="self-link" href="#color-adjust-emulation"></a></h2>
+    For the purposes of user agent automation and application testing, this document
+	defines the below emulations. 
+   <h3 class="heading settled" data-level="5.1" id="emualte-forced-colors-mode"><span class="secno">5.1. </span><span class="content"><dfn class="dfn-paneled" data-dfn-type="dfn" data-export id="emulate-forced-colors-mode">Emulate Forced Colors Mode</dfn></span><a class="self-link" href="#emualte-forced-colors-mode"></a></h3>
+   <p>Each <a data-link-type="dfn" href="https://html.spec.whatwg.org/multipage/document-sequences.html#top-level-traversable" id="ref-for-top-level-traversable">top-level traversable</a> has an associated <dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport id="emulated-forced-colors-theme-data">emulated forced colors theme data</dfn>, which is data representing <code class="idl"><a data-link-type="idl" href="#enumdef-forcedcolorsmodeautomationtheme" id="ref-for-enumdef-forcedcolorsmodeautomationtheme">ForcedColorsModeAutomationTheme</a></code>, initially "<code class="idl"><a data-link-type="idl" href="#dom-forcedcolorsmodeautomationtheme-none" id="ref-for-dom-forcedcolorsmodeautomationtheme-none①">none</a></code>".</p>
 <pre class="idl highlight def"><c- b>enum</c-> <dfn class="dfn-paneled idl-code" data-dfn-type="enum" data-export id="enumdef-forcedcolorsmodeautomationtheme"><code><c- g>ForcedColorsModeAutomationTheme</c-></code></dfn> {
   <dfn class="dfn-paneled idl-code" data-dfn-for="ForcedColorsModeAutomationTheme" data-dfn-type="enum-value" data-export id="dom-forcedcolorsmodeautomationtheme-none"><code><c- s>"none"</c-></code></dfn>,
   <dfn class="dfn-paneled idl-code" data-dfn-for="ForcedColorsModeAutomationTheme" data-dfn-type="enum-value" data-export id="dom-forcedcolorsmodeautomationtheme-light"><code><c- s>"light"</c-></code></dfn>,
   <dfn class="dfn-paneled idl-code" data-dfn-for="ForcedColorsModeAutomationTheme" data-dfn-type="enum-value" data-export id="dom-forcedcolorsmodeautomationtheme-dark"><code><c- s>"dark"</c-></code></dfn>
 };
 </pre>
-   <figure class="table" id="table-setForcedColorsModeAutomationTheme">
-    <table class="data">
-     <thead>
-      <tr>
-       <th>HTTP Method
-       <th>URI Template
-     <tbody>
-      <tr>
-       <td>POST
-       <td>/session/<em>{session id}</em>/emulate/forced-colors-mode/<em>{theme}</em>
-    </table>
-   </figure>
-   <p>The <a data-link-type="dfn" href="https://w3c.github.io/webdriver/#dfn-remote-end-steps" id="ref-for-dfn-remote-end-steps">remote end steps</a>, given <em>session</em>, <em>URL
-variables</em> and <em>parameters</em> are:</p>
+   <p>To <dfn class="dfn-paneled" data-dfn-type="dfn" data-export id="set-emulated-forced-colors-theme-data">set emulated forced colors theme data</dfn>, given <a data-link-type="dfn" href="https://html.spec.whatwg.org/multipage/nav-history-apis.html#window-navigable" id="ref-for-window-navigable">navigable</a> <var>navigable</var> and an <var>emulatedThemeData</var>:</p>
    <ol>
     <li data-md>
-     <p>If <em>parameters</em> is not a JSON <a data-link-type="dfn" href="https://w3c.github.io/rdf-concepts/spec/#dfn-object" id="ref-for-dfn-object">Object</a>, return a WebDriver <a data-link-type="dfn" href="https://w3c.github.io/webdriver/#dfn-error" id="ref-for-dfn-error">error</a> with WebDriver <a data-link-type="dfn" href="https://w3c.github.io/webdriver/#dfn-error-code" id="ref-for-dfn-error-code">error code</a> <a data-link-type="dfn" href="https://w3c.github.io/webdriver/#dfn-invalid-argument" id="ref-for-dfn-invalid-argument">invalid argument</a>.</p>
+     <p>Assert <var>emulatedThemeData</var> is <code class="idl"><a data-link-type="idl" href="#enumdef-forcedcolorsmodeautomationtheme" id="ref-for-enumdef-forcedcolorsmodeautomationtheme①">ForcedColorsModeAutomationTheme</a></code>.</p>
     <li data-md>
-     <p>Let <em>theme</em> be the result of <a data-link-type="dfn" href="https://w3c.github.io/webdriver/#dfn-getting-properties" id="ref-for-dfn-getting-properties">getting a property</a> named <code>"theme"</code> from <em>parameters</em>.</p>
+     <p>Let <var>traversable</var> be <var>navigable</var>’s <a data-link-type="dfn" href="https://html.spec.whatwg.org/multipage/document-sequences.html#nav-top" id="ref-for-nav-top">top-level traversable</a>.</p>
     <li data-md>
-     <p>If <em>theme</em> is <code class="idl"><a data-link-type="idl" href="https://tc39.es/ecma262/multipage/global-object.html#sec-undefined" id="ref-for-sec-undefined">undefined</a></code> or is not a member of <code class="idl"><a data-link-type="idl" href="#enumdef-forcedcolorsmodeautomationtheme" id="ref-for-enumdef-forcedcolorsmodeautomationtheme①">ForcedColorsModeAutomationTheme</a></code>, return a WebDriver <a data-link-type="dfn" href="https://w3c.github.io/webdriver/#dfn-error" id="ref-for-dfn-error①">error</a> with
-WebDriver <a data-link-type="dfn" href="https://w3c.github.io/webdriver/#dfn-error-code" id="ref-for-dfn-error-code①">error code</a> <a data-link-type="dfn" href="https://w3c.github.io/webdriver/#dfn-invalid-argument" id="ref-for-dfn-invalid-argument①">invalid argument</a>.</p>
+     <p>If <var>traversable</var> is not null:</p>
+     <ol>
+      <li data-md>
+       <p>Set <var>traversable</var>’s associated <a data-link-type="dfn" href="#emulated-forced-colors-theme-data" id="ref-for-emulated-forced-colors-theme-data①">emulated forced colors theme data</a> to <var>emulatedThemeData</var>.</p>
+      <li data-md>
+       <p>UAs must consider this a change that requires style recalculation.</p>
+     </ol>
+   </ol>
+   <p>To <dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport id="get-emulated-forced-colors-theme-data">get emulated forced colors theme data</dfn>, given <code class="idl"><a data-link-type="idl" href="#enumdef-forcedcolorsmodeautomationtheme" id="ref-for-enumdef-forcedcolorsmodeautomationtheme②">ForcedColorsModeAutomationTheme</a></code> <var>theme</var>:</p>
+   <ol>
     <li data-md>
-     <p>Set the <a data-link-type="dfn" href="#current-forced-colors-mode-automation-theme" id="ref-for-current-forced-colors-mode-automation-theme②">current forced colors mode automation theme</a> to <em>theme</em>.</p>
+     <p>Let <var>navigable</var> be <var>theme</var>’s <a data-link-type="dfn" href="https://html.spec.whatwg.org/multipage/webappapis.html#concept-relevant-global" id="ref-for-concept-relevant-global">relevant global object</a>’s <a data-link-type="dfn" href="https://html.spec.whatwg.org/multipage/nav-history-apis.html#concept-document-window" id="ref-for-concept-document-window">associated Document</a>’s <a data-link-type="dfn" href="https://html.spec.whatwg.org/multipage/document-sequences.html#node-navigable" id="ref-for-node-navigable">node navigable</a>.</p>
     <li data-md>
-     <p>Signal to the browser that styles need to be recalculated.</p>
+     <p>If <var>navigable</var> is null, return null.</p>
     <li data-md>
-     <p>Return <a data-link-type="dfn" href="https://w3c.github.io/webdriver/#dfn-success" id="ref-for-dfn-success">success</a> with data <a href="https://262.ecma-international.org/5.1/#sec-4.3.11">null</a>.</p>
+     <p>Let <var>traversable</var> be <var>navigable</var>’s <a data-link-type="dfn" href="https://html.spec.whatwg.org/multipage/document-sequences.html#nav-top" id="ref-for-nav-top①">top-level traversable</a>.</p>
+    <li data-md>
+     <p>If <var>traversable</var> is null, return null.</p>
+    <li data-md>
+     <p>Return <var>traversable</var>’s associated <a data-link-type="dfn" href="#emulated-forced-colors-theme-data" id="ref-for-emulated-forced-colors-theme-data②">emulated forced colors theme data</a>.</p>
    </ol>
    <h2 class="heading settled" data-level="6" id="privacy"><span class="secno">6. </span><span class="content">Privacy Considerations</span><a class="self-link" href="#privacy"></a></h2>
-   <p>Applying user color preferences via <a data-link-type="dfn" href="#color-scheme" id="ref-for-color-scheme①⑨">color schemes</a> or <a data-link-type="dfn" href="#forced-colors-mode" id="ref-for-forced-colors-mode①⑧">forced colors mode</a> exposes the user’s color preferences to the page
+   <p>Applying user color preferences via <a data-link-type="dfn" href="#color-scheme" id="ref-for-color-scheme①⑨">color schemes</a> or <a data-link-type="dfn" href="#forced-colors-mode" id="ref-for-forced-colors-mode①⑦">forced colors mode</a> exposes the user’s color preferences to the page
 	via <code class="idl"><a data-link-type="idl" href="https://drafts.csswg.org/cssom-1/#dom-window-getcomputedstyle" id="ref-for-dom-window-getcomputedstyle">getComputedStyle()</a></code>,
 	which can increase fingerprinting surface.</p>
    <div class="note" role="note">
@@ -2181,7 +2176,6 @@ being unreadable when used with the <em>actual</em> system colors.</p>
    <li><a href="#propdef-color-adjust">color-adjust</a><span>, in § 4.2</span>
    <li><a href="#color-scheme">color scheme</a><span>, in § 2</span>
    <li><a href="#propdef-color-scheme">color-scheme</a><span>, in § 2.1</span>
-   <li><a href="#current-forced-colors-mode-automation-theme">current forced colors mode automation theme</a><span>, in § 5.1</span>
    <li><a href="#valdef-color-scheme-custom-ident">&lt;custom-ident></a><span>, in § 2.1</span>
    <li><a href="#dom-forcedcolorsmodeautomationtheme-dark">"dark"</a><span>, in § 5.1</span>
    <li>
@@ -2193,11 +2187,13 @@ being unreadable when used with the <em>actual</em> system colors.</p>
    <li><a href="#dark-color-scheme">dark color scheme</a><span>, in § 2</span>
    <li><a href="#determine-the-used-color-scheme">determine the used color scheme</a><span>, in § 2.1</span>
    <li><a href="#valdef-print-color-adjust-economy">economy</a><span>, in § 4.1</span>
+   <li><a href="#emulated-forced-colors-theme-data">emulated forced colors theme data</a><span>, in § 5.1</span>
    <li><a href="#emulate-forced-colors-mode">Emulate Forced Colors Mode</a><span>, in § 5.1</span>
    <li><a href="#valdef-print-color-adjust-exact">exact</a><span>, in § 4.1</span>
    <li><a href="#propdef-forced-color-adjust">forced-color-adjust</a><span>, in § 3.2</span>
    <li><a href="#forced-colors-mode">Forced colors mode</a><span>, in § 3</span>
    <li><a href="#enumdef-forcedcolorsmodeautomationtheme">ForcedColorsModeAutomationTheme</a><span>, in § 5.1</span>
+   <li><a href="#get-emulated-forced-colors-theme-data">get emulated forced colors theme data</a><span>, in § 5.1</span>
    <li><a href="#dom-forcedcolorsmodeautomationtheme-light">"light"</a><span>, in § 5.1</span>
    <li>
     light
@@ -2215,6 +2211,7 @@ being unreadable when used with the <em>actual</em> system colors.</p>
    <li><a href="#preferred-color-scheme">preferred color scheme</a><span>, in § 2</span>
    <li><a href="#valdef-forced-color-adjust-preserve-parent-color">preserve-parent-color</a><span>, in § 3.2</span>
    <li><a href="#propdef-print-color-adjust">print-color-adjust</a><span>, in § 4.1</span>
+   <li><a href="#set-emulated-forced-colors-theme-data">set emulated forced colors theme data</a><span>, in § 5.1</span>
    <li><a href="#used-color-scheme">used color scheme</a><span>, in § 2.1</span>
   </ul>
   <h3 class="no-num no-ref heading settled" id="index-defined-elsewhere"><span class="content">Terms defined by reference</span><a class="self-link" href="#index-defined-elsewhere"></a></h3>
@@ -2334,11 +2331,6 @@ being unreadable when used with the <em>actual</em> system colors.</p>
      <li><span class="dfn-paneled" id="b203675a">getComputedStyle(elt)</span>
     </ul>
    <li>
-    <a data-link-type="biblio">[ECMASCRIPT]</a> defines the following terms:
-    <ul>
-     <li><span class="dfn-paneled" id="f5f075a6">undefined</span>
-    </ul>
-   <li>
     <a data-link-type="biblio">[FILL-STROKE-3]</a> defines the following terms:
     <ul>
      <li><span class="dfn-paneled" id="890a8358">fill</span>
@@ -2353,6 +2345,7 @@ being unreadable when used with the <em>actual</em> system colors.</p>
    <li>
     <a data-link-type="biblio">[HTML]</a> defines the following terms:
     <ul>
+     <li><span class="dfn-paneled" id="3349d69f">associated Document</span>
      <li><span class="dfn-paneled" id="2f0492ac">body</span>
      <li><span class="dfn-paneled" id="bfff6250">button</span>
      <li><span class="dfn-paneled" id="84ee7ae3">color-scheme</span>
@@ -2360,6 +2353,11 @@ being unreadable when used with the <em>actual</em> system colors.</p>
      <li><span class="dfn-paneled" id="87fcd40c">iframe</span>
      <li><span class="dfn-paneled" id="f0811ff8">img</span>
      <li><span class="dfn-paneled" id="64b89595">meta</span>
+     <li><span class="dfn-paneled" id="228be966">navigable</span>
+     <li><span class="dfn-paneled" id="13dd6cae">node navigable</span>
+     <li><span class="dfn-paneled" id="e99bd18e">relevant global object</span>
+     <li><span class="dfn-paneled" id="bd736ec6">top-level traversable</span>
+     <li><span class="dfn-paneled" id="30717154">top-level traversable <small>(for navigable)</small></span>
     </ul>
    <li>
     <a data-link-type="biblio">[MEDIAQUERIES-5]</a> defines the following terms:
@@ -2370,25 +2368,9 @@ being unreadable when used with the <em>actual</em> system colors.</p>
      <li><span class="dfn-paneled" id="488ae577">prefers-color-scheme</span>
     </ul>
    <li>
-    <a data-link-type="biblio">[RDF12-CONCEPTS]</a> defines the following terms:
-    <ul>
-     <li><span class="dfn-paneled" id="166572aa">object</span>
-    </ul>
-   <li>
     <a data-link-type="biblio">[SVG2]</a> defines the following terms:
     <ul>
      <li><span class="dfn-paneled" id="37328630">stop-color</span>
-    </ul>
-   <li>
-    <a data-link-type="biblio">[WEBDRIVER2]</a> defines the following terms:
-    <ul>
-     <li><span class="dfn-paneled" id="bb4c269e">error</span>
-     <li><span class="dfn-paneled" id="c8ff8493">error code</span>
-     <li><span class="dfn-paneled" id="09daa25c">extension commands</span>
-     <li><span class="dfn-paneled" id="5b668531">getting a property</span>
-     <li><span class="dfn-paneled" id="8da4d1e3">invalid argument</span>
-     <li><span class="dfn-paneled" id="82c23298">remote end steps</span>
-     <li><span class="dfn-paneled" id="4be6272b">success</span>
     </ul>
   </ul>
   <h2 class="no-num no-ref heading settled" id="references"><span class="content">References</span><a class="self-link" href="#references"></a></h2>
@@ -2420,8 +2402,6 @@ being unreadable when used with the <em>actual</em> system colors.</p>
    <dd>Bert Bos; et al. <a href="https://drafts.csswg.org/css2/"><cite>Cascading Style Sheets Level 2 Revision 1 (CSS 2.1) Specification</cite></a>. URL: <a href="https://drafts.csswg.org/css2/">https://drafts.csswg.org/css2/</a>
    <dt id="biblio-cssom-1">[CSSOM-1]
    <dd>Daniel Glazman; Emilio Cobos Álvarez. <a href="https://drafts.csswg.org/cssom/"><cite>CSS Object Model (CSSOM)</cite></a>. URL: <a href="https://drafts.csswg.org/cssom/">https://drafts.csswg.org/cssom/</a>
-   <dt id="biblio-ecmascript">[ECMASCRIPT]
-   <dd><a href="https://tc39.es/ecma262/multipage/"><cite>ECMAScript Language Specification</cite></a>. URL: <a href="https://tc39.es/ecma262/multipage/">https://tc39.es/ecma262/multipage/</a>
    <dt id="biblio-fill-stroke-3">[FILL-STROKE-3]
    <dd>Elika Etemad; Tab Atkins Jr.. <a href="https://drafts.fxtf.org/fill-stroke/"><cite>CSS Fill and Stroke Module Level 3</cite></a>. URL: <a href="https://drafts.fxtf.org/fill-stroke/">https://drafts.fxtf.org/fill-stroke/</a>
    <dt id="biblio-filter-effects-1">[FILTER-EFFECTS-1]
@@ -2430,14 +2410,10 @@ being unreadable when used with the <em>actual</em> system colors.</p>
    <dd>Anne van Kesteren; et al. <a href="https://html.spec.whatwg.org/multipage/"><cite>HTML Standard</cite></a>. Living Standard. URL: <a href="https://html.spec.whatwg.org/multipage/">https://html.spec.whatwg.org/multipage/</a>
    <dt id="biblio-mediaqueries-5">[MEDIAQUERIES-5]
    <dd>Dean Jackson; et al. <a href="https://drafts.csswg.org/mediaqueries-5/"><cite>Media Queries Level 5</cite></a>. URL: <a href="https://drafts.csswg.org/mediaqueries-5/">https://drafts.csswg.org/mediaqueries-5/</a>
-   <dt id="biblio-rdf12-concepts">[RDF12-CONCEPTS]
-   <dd>Olaf Hartig; et al. <a href="https://w3c.github.io/rdf-concepts/spec/"><cite>RDF 1.2 Concepts and Abstract Syntax</cite></a>. URL: <a href="https://w3c.github.io/rdf-concepts/spec/">https://w3c.github.io/rdf-concepts/spec/</a>
    <dt id="biblio-rfc2119">[RFC2119]
    <dd>S. Bradner. <a href="https://datatracker.ietf.org/doc/html/rfc2119"><cite>Key words for use in RFCs to Indicate Requirement Levels</cite></a>. March 1997. Best Current Practice. URL: <a href="https://datatracker.ietf.org/doc/html/rfc2119">https://datatracker.ietf.org/doc/html/rfc2119</a>
    <dt id="biblio-svg2">[SVG2]
    <dd>Amelia Bellamy-Royds; et al. <a href="https://svgwg.org/svg2-draft/"><cite>Scalable Vector Graphics (SVG) 2</cite></a>. URL: <a href="https://svgwg.org/svg2-draft/">https://svgwg.org/svg2-draft/</a>
-   <dt id="biblio-webdriver2">[WEBDRIVER2]
-   <dd>Simon Stewart; David Burns. <a href="https://w3c.github.io/webdriver/"><cite>WebDriver</cite></a>. URL: <a href="https://w3c.github.io/webdriver/">https://w3c.github.io/webdriver/</a>
   </dl>
   <h3 class="no-num no-ref heading settled" id="informative"><span class="content">Informative References</span><a class="self-link" href="#informative"></a></h3>
   <dl>
@@ -2447,8 +2423,6 @@ being unreadable when used with the <em>actual</em> system colors.</p>
    <dd>Tab Atkins Jr.; François Remy. <a href="https://drafts.css-houdini.org/css-typed-om-1/"><cite>CSS Typed OM Level 1</cite></a>. URL: <a href="https://drafts.css-houdini.org/css-typed-om-1/">https://drafts.css-houdini.org/css-typed-om-1/</a>
    <dt id="biblio-wcag21">[WCAG21]
    <dd>Michael Cooper; et al. <a href="https://w3c.github.io/wcag/guidelines/"><cite>Web Content Accessibility Guidelines (WCAG) 2.1</cite></a>. URL: <a href="https://w3c.github.io/wcag/guidelines/">https://w3c.github.io/wcag/guidelines/</a>
-   <dt id="biblio-webdriver">[WebDriver]
-   <dd>Simon Stewart; David Burns. <a href="https://w3c.github.io/webdriver/"><cite>WebDriver</cite></a>. URL: <a href="https://w3c.github.io/webdriver/">https://w3c.github.io/webdriver/</a>
   </dl>
   <h2 class="no-num no-ref heading settled" id="property-index"><span class="content">Property Index</span><a class="self-link" href="#property-index"></a></h2>
   <div class="big-element-wrapper">
@@ -2771,28 +2745,28 @@ let dfnPanelData = {
 "031aa878": {"dfnID":"031aa878","dfnText":"VisitedText","external":true,"refSections":[{"refs":[{"id":"ref-for-valdef-color-visitedtext"},{"id":"ref-for-valdef-color-visitedtext\u2460"}],"title":"3. Forced Color Palettes"}],"url":"https://drafts.csswg.org/css-color-4/#valdef-color-visitedtext"},
 "03eee7b4": {"dfnID":"03eee7b4","dfnText":"color()","external":true,"refSections":[{"refs":[{"id":"ref-for-funcdef-color"}],"title":"9. Changes"}],"url":"https://drafts.csswg.org/css-color-5/#funcdef-color"},
 "044536a2": {"dfnID":"044536a2","dfnText":"text-decoration-color","external":true,"refSections":[{"refs":[{"id":"ref-for-propdef-text-decoration-color"}],"title":"3.1. Properties Affected by Forced Colors Mode"}],"url":"https://drafts.csswg.org/css-text-decor-4/#propdef-text-decoration-color"},
-"09daa25c": {"dfnID":"09daa25c","dfnText":"extension commands","external":true,"refSections":[{"refs":[{"id":"ref-for-dfn-extension-commands"}],"title":"5. Automation"},{"refs":[{"id":"ref-for-dfn-extension-commands\u2460"}],"title":"5.1. Emulate Forced Colors Mode"}],"url":"https://w3c.github.io/webdriver/#dfn-extension-commands"},
 "0b6c96fb": {"dfnID":"0b6c96fb","dfnText":"AccentColorText","external":true,"refSections":[{"refs":[{"id":"ref-for-valdef-color-accentcolortext"},{"id":"ref-for-valdef-color-accentcolortext\u2460"}],"title":"3. Forced Color Palettes"}],"url":"https://drafts.csswg.org/css-color-4/#valdef-color-accentcolortext"},
 "11fb4d5b": {"dfnID":"11fb4d5b","dfnText":"background-color","external":true,"refSections":[{"refs":[{"id":"ref-for-propdef-background-color"},{"id":"ref-for-propdef-background-color\u2460"},{"id":"ref-for-propdef-background-color\u2461"},{"id":"ref-for-propdef-background-color\u2462"},{"id":"ref-for-propdef-background-color\u2463"}],"title":"3.1. Properties Affected by Forced Colors Mode"}],"url":"https://drafts.csswg.org/css-backgrounds-3/#propdef-background-color"},
-"166572aa": {"dfnID":"166572aa","dfnText":"object","external":true,"refSections":[{"refs":[{"id":"ref-for-dfn-object"}],"title":"5.1. Emulate Forced Colors Mode"}],"url":"https://w3c.github.io/rdf-concepts/spec/#dfn-object"},
+"13dd6cae": {"dfnID":"13dd6cae","dfnText":"node navigable","external":true,"refSections":[{"refs":[{"id":"ref-for-node-navigable"}],"title":"5.1. Emulate Forced Colors Mode"}],"url":"https://html.spec.whatwg.org/multipage/document-sequences.html#node-navigable"},
 "1ac78a6d": {"dfnID":"1ac78a6d","dfnText":"auto","external":true,"refSections":[{"refs":[{"id":"ref-for-valdef-accent-color-auto"}],"title":"3.1. Properties Affected by Forced Colors Mode"}],"url":"https://drafts.csswg.org/css-ui-4/#valdef-accent-color-auto"},
 "1ee7f091": {"dfnID":"1ee7f091","dfnText":"outline-color","external":true,"refSections":[{"refs":[{"id":"ref-for-propdef-outline-color"}],"title":"3.1. Properties Affected by Forced Colors Mode"}],"url":"https://drafts.csswg.org/css-ui-4/#propdef-outline-color"},
 "21ff7f1a": {"dfnID":"21ff7f1a","dfnText":"highlight","external":true,"refSections":[{"refs":[{"id":"ref-for-valdef-color-highlight"},{"id":"ref-for-valdef-color-highlight\u2460"}],"title":"3. Forced Color Palettes"}],"url":"https://drafts.csswg.org/css-color-4/#valdef-color-highlight"},
+"228be966": {"dfnID":"228be966","dfnText":"navigable","external":true,"refSections":[{"refs":[{"id":"ref-for-window-navigable"}],"title":"5.1. Emulate Forced Colors Mode"}],"url":"https://html.spec.whatwg.org/multipage/nav-history-apis.html#window-navigable"},
 "294ef7d0": {"dfnID":"294ef7d0","dfnText":"lighting-color","external":true,"refSections":[{"refs":[{"id":"ref-for-propdef-lighting-color"}],"title":"3.1. Properties Affected by Forced Colors Mode"}],"url":"https://drafts.fxtf.org/filter-effects-1/#propdef-lighting-color"},
 "29c5760c": {"dfnID":"29c5760c","dfnText":"LinkText","external":true,"refSections":[{"refs":[{"id":"ref-for-valdef-color-linktext"},{"id":"ref-for-valdef-color-linktext\u2460"}],"title":"3. Forced Color Palettes"}],"url":"https://drafts.csswg.org/css-color-4/#valdef-color-linktext"},
 "2c891dc3": {"dfnID":"2c891dc3","dfnText":"FieldText","external":true,"refSections":[{"refs":[{"id":"ref-for-valdef-color-fieldtext"},{"id":"ref-for-valdef-color-fieldtext\u2460"}],"title":"3. Forced Color Palettes"}],"url":"https://drafts.csswg.org/css-color-4/#valdef-color-fieldtext"},
 "2f0492ac": {"dfnID":"2f0492ac","dfnText":"body","external":true,"refSections":[{"refs":[{"id":"ref-for-the-body-element"}],"title":"3.2. Opting Out of a Forced Color Palette: the forced-color-adjust property"},{"refs":[{"id":"ref-for-the-body-element\u2460"}],"title":"4.1. Ink Economy: the print-color-adjust property"}],"url":"https://html.spec.whatwg.org/multipage/sections.html#the-body-element"},
+"30717154": {"dfnID":"30717154","dfnText":"top-level traversable (for navigable)","external":true,"refSections":[{"refs":[{"id":"ref-for-nav-top"},{"id":"ref-for-nav-top\u2460"}],"title":"5.1. Emulate Forced Colors Mode"}],"url":"https://html.spec.whatwg.org/multipage/document-sequences.html#nav-top"},
+"3349d69f": {"dfnID":"3349d69f","dfnText":"associated Document","external":true,"refSections":[{"refs":[{"id":"ref-for-concept-document-window"}],"title":"5.1. Emulate Forced Colors Mode"}],"url":"https://html.spec.whatwg.org/multipage/nav-history-apis.html#concept-document-window"},
 "358fd6ff": {"dfnID":"358fd6ff","dfnText":"CSS-wide keywords","external":true,"refSections":[{"refs":[{"id":"ref-for-css-wide-keywords"}],"title":"1.1. Value Definitions"}],"url":"https://drafts.csswg.org/css-values-4/#css-wide-keywords"},
 "37328630": {"dfnID":"37328630","dfnText":"stop-color","external":true,"refSections":[{"refs":[{"id":"ref-for-StopColorProperty"}],"title":"3.1. Properties Affected by Forced Colors Mode"}],"url":"https://svgwg.org/svg2-draft/pservers.html#StopColorProperty"},
 "398f0864": {"dfnID":"398f0864","dfnText":"GrayText","external":true,"refSections":[{"refs":[{"id":"ref-for-valdef-color-graytext"},{"id":"ref-for-valdef-color-graytext\u2460"}],"title":"3. Forced Color Palettes"}],"url":"https://drafts.csswg.org/css-color-4/#valdef-color-graytext"},
 "488ae577": {"dfnID":"488ae577","dfnText":"prefers-color-scheme","external":true,"refSections":[{"refs":[{"id":"ref-for-descdef-media-prefers-color-scheme"},{"id":"ref-for-descdef-media-prefers-color-scheme\u2460"}],"title":"2. Preferred Color Schemes"},{"refs":[{"id":"ref-for-descdef-media-prefers-color-scheme\u2461"}],"title":"3. Forced Color Palettes"}],"url":"https://drafts.csswg.org/mediaqueries-5/#descdef-media-prefers-color-scheme"},
 "4aadd289": {"dfnID":"4aadd289","dfnText":"flood-color","external":true,"refSections":[{"refs":[{"id":"ref-for-propdef-flood-color"}],"title":"3.1. Properties Affected by Forced Colors Mode"}],"url":"https://drafts.fxtf.org/filter-effects-1/#propdef-flood-color"},
-"4be6272b": {"dfnID":"4be6272b","dfnText":"success","external":true,"refSections":[{"refs":[{"id":"ref-for-dfn-success"}],"title":"5.1. Emulate Forced Colors Mode"}],"url":"https://w3c.github.io/webdriver/#dfn-success"},
 "4e4ba8b4": {"dfnID":"4e4ba8b4","dfnText":"scrollbar-color","external":true,"refSections":[{"refs":[{"id":"ref-for-propdef-scrollbar-color"},{"id":"ref-for-propdef-scrollbar-color\u2460"}],"title":"3.1. Properties Affected by Forced Colors Mode"}],"url":"https://drafts.csswg.org/css-scrollbars-1/#propdef-scrollbar-color"},
 "533df3d1": {"dfnID":"533df3d1","dfnText":"MarkText","external":true,"refSections":[{"refs":[{"id":"ref-for-valdef-color-marktext"},{"id":"ref-for-valdef-color-marktext\u2460"}],"title":"3. Forced Color Palettes"}],"url":"https://drafts.csswg.org/css-color-4/#valdef-color-marktext"},
 "537cf076": {"dfnID":"537cf076","dfnText":"?","external":true,"refSections":[{"refs":[{"id":"ref-for-mult-opt"}],"title":"2.1. Opting Into a Preferred Color Scheme: the color-scheme property"}],"url":"https://drafts.csswg.org/css-values-4/#mult-opt"},
 "5a2f7ea1": {"dfnID":"5a2f7ea1","dfnText":"url()","external":true,"refSections":[{"refs":[{"id":"ref-for-funcdef-url"}],"title":"3.1. Properties Affected by Forced Colors Mode"}],"url":"https://drafts.csswg.org/css-values-4/#funcdef-url"},
-"5b668531": {"dfnID":"5b668531","dfnText":"getting a property","external":true,"refSections":[{"refs":[{"id":"ref-for-dfn-getting-properties"}],"title":"5.1. Emulate Forced Colors Mode"}],"url":"https://w3c.github.io/webdriver/#dfn-getting-properties"},
 "5f1b7f60": {"dfnID":"5f1b7f60","dfnText":"@media","external":true,"refSections":[{"refs":[{"id":"ref-for-at-ruledef-media"}],"title":"2.1. Opting Into a Preferred Color Scheme: the color-scheme property"}],"url":"https://drafts.csswg.org/css-conditional-3/#at-ruledef-media"},
 "64b89595": {"dfnID":"64b89595","dfnText":"meta","external":true,"refSections":[{"refs":[{"id":"ref-for-meta"}],"title":"2.1. Opting Into a Preferred Color Scheme: the color-scheme property"},{"refs":[{"id":"ref-for-meta\u2460"}],"title":"2.3. Overriding the Color Scheme"}],"url":"https://html.spec.whatwg.org/multipage/semantics.html#meta"},
 "6916104d": {"dfnID":"6916104d","dfnText":"box-shadow","external":true,"refSections":[{"refs":[{"id":"ref-for-propdef-box-shadow"}],"title":"3.1. Properties Affected by Forced Colors Mode"}],"url":"https://drafts.csswg.org/css-backgrounds-3/#propdef-box-shadow"},
@@ -2806,12 +2780,10 @@ let dfnPanelData = {
 "7b5f3ed1": {"dfnID":"7b5f3ed1","dfnText":"canvas","external":true,"refSections":[{"refs":[{"id":"ref-for-valdef-color-canvas"}],"title":"2.2. Effects of the Used Color Scheme"},{"refs":[{"id":"ref-for-valdef-color-canvas\u2460"},{"id":"ref-for-valdef-color-canvas\u2461"},{"id":"ref-for-valdef-color-canvas\u2462"}],"title":"3. Forced Color Palettes"},{"refs":[{"id":"ref-for-valdef-color-canvas\u2463"},{"id":"ref-for-valdef-color-canvas\u2464"}],"title":"3.1. Properties Affected by Forced Colors Mode"}],"url":"https://drafts.csswg.org/css-color-4/#valdef-color-canvas"},
 "7b70d28c": {"dfnID":"7b70d28c","dfnText":"none (for background-image)","external":true,"refSections":[{"refs":[{"id":"ref-for-valdef-background-image-none"}],"title":"3.1. Properties Affected by Forced Colors Mode"}],"url":"https://drafts.csswg.org/css-backgrounds-3/#valdef-background-image-none"},
 "8025f703": {"dfnID":"8025f703","dfnText":"text-emphasis-color","external":true,"refSections":[{"refs":[{"id":"ref-for-propdef-text-emphasis-color"}],"title":"3.1. Properties Affected by Forced Colors Mode"}],"url":"https://drafts.csswg.org/css-text-decor-4/#propdef-text-emphasis-color"},
-"82c23298": {"dfnID":"82c23298","dfnText":"remote end steps","external":true,"refSections":[{"refs":[{"id":"ref-for-dfn-remote-end-steps"}],"title":"5.1. Emulate Forced Colors Mode"}],"url":"https://w3c.github.io/webdriver/#dfn-remote-end-steps"},
 "84ee7ae3": {"dfnID":"84ee7ae3","dfnText":"color-scheme","external":true,"refSections":[{"refs":[{"id":"color-scheme-meta"}],"title":"2.1. Opting Into a Preferred Color Scheme: the color-scheme property"},{"refs":[{"id":"ref-for-meta-color-scheme"}],"title":"2.3. Overriding the Color Scheme"}],"url":"https://html.spec.whatwg.org/multipage/semantics.html#meta-color-scheme"},
 "87fcd40c": {"dfnID":"87fcd40c","dfnText":"iframe","external":true,"refSections":[{"refs":[{"id":"ref-for-the-iframe-element"}],"title":"2.2. Effects of the Used Color Scheme"},{"refs":[{"id":"ref-for-the-iframe-element\u2460"}],"title":"7. Security Considerations"}],"url":"https://html.spec.whatwg.org/multipage/iframe-embed-object.html#the-iframe-element"},
 "890a8358": {"dfnID":"890a8358","dfnText":"fill","external":true,"refSections":[{"refs":[{"id":"ref-for-propdef-fill"}],"title":"3.1. Properties Affected by Forced Colors Mode"}],"url":"https://drafts.fxtf.org/fill-stroke-3/#propdef-fill"},
 "8bcc6e67": {"dfnID":"8bcc6e67","dfnText":"::selection","external":true,"refSections":[{"refs":[{"id":"ref-for-selectordef-selection"}],"title":"3. Forced Color Palettes"}],"url":"https://drafts.csswg.org/css-pseudo-4/#selectordef-selection"},
-"8da4d1e3": {"dfnID":"8da4d1e3","dfnText":"invalid argument","external":true,"refSections":[{"refs":[{"id":"ref-for-dfn-invalid-argument"},{"id":"ref-for-dfn-invalid-argument\u2460"}],"title":"5.1. Emulate Forced Colors Mode"}],"url":"https://w3c.github.io/webdriver/#dfn-invalid-argument"},
 "8e0f26cc": {"dfnID":"8e0f26cc","dfnText":"caret-color","external":true,"refSections":[{"refs":[{"id":"ref-for-propdef-caret-color"}],"title":"3.1. Properties Affected by Forced Colors Mode"}],"url":"https://drafts.csswg.org/css-ui-4/#propdef-caret-color"},
 "906edadd": {"dfnID":"906edadd","dfnText":"accent-color","external":true,"refSections":[{"refs":[{"id":"ref-for-propdef-accent-color"}],"title":"3.1. Properties Affected by Forced Colors Mode"}],"url":"https://drafts.csswg.org/css-ui-4/#propdef-accent-color"},
 "9a333d95": {"dfnID":"9a333d95","dfnText":"field","external":true,"refSections":[{"refs":[{"id":"ref-for-valdef-color-field"},{"id":"ref-for-valdef-color-field\u2460"}],"title":"3. Forced Color Palettes"}],"url":"https://drafts.csswg.org/css-color-4/#valdef-color-field"},
@@ -2821,19 +2793,17 @@ let dfnPanelData = {
 "afc7bb9f": {"dfnID":"afc7bb9f","dfnText":"ActiveText","external":true,"refSections":[{"refs":[{"id":"ref-for-valdef-color-activetext"},{"id":"ref-for-valdef-color-activetext\u2460"}],"title":"3. Forced Color Palettes"}],"url":"https://drafts.csswg.org/css-color-4/#valdef-color-activetext"},
 "b203675a": {"dfnID":"b203675a","dfnText":"getComputedStyle(elt)","external":true,"refSections":[{"refs":[{"id":"ref-for-dom-window-getcomputedstyle"}],"title":"6. Privacy Considerations"}],"url":"https://drafts.csswg.org/cssom-1/#dom-window-getcomputedstyle"},
 "b58bf640": {"dfnID":"b58bf640","dfnText":"auto","external":true,"refSections":[{"refs":[{"id":"ref-for-valdef-scrollbar-color-auto"}],"title":"3.1. Properties Affected by Forced Colors Mode"}],"url":"https://drafts.csswg.org/css-scrollbars-1/#valdef-scrollbar-color-auto"},
-"bb4c269e": {"dfnID":"bb4c269e","dfnText":"error","external":true,"refSections":[{"refs":[{"id":"ref-for-dfn-error"},{"id":"ref-for-dfn-error\u2460"}],"title":"5.1. Emulate Forced Colors Mode"}],"url":"https://w3c.github.io/webdriver/#dfn-error"},
 "bd3d9ccd": {"dfnID":"bd3d9ccd","dfnText":"media query","external":true,"refSections":[{"refs":[{"id":"ref-for-media-query"}],"title":"1. Introduction"},{"refs":[{"id":"ref-for-media-query\u2460"}],"title":"2.3. Overriding the Color Scheme"}],"url":"https://drafts.csswg.org/mediaqueries-5/#media-query"},
+"bd736ec6": {"dfnID":"bd736ec6","dfnText":"top-level traversable","external":true,"refSections":[{"refs":[{"id":"ref-for-top-level-traversable"}],"title":"5.1. Emulate Forced Colors Mode"}],"url":"https://html.spec.whatwg.org/multipage/document-sequences.html#top-level-traversable"},
 "bedd9d42": {"dfnID":"bedd9d42","dfnText":"+","external":true,"refSections":[{"refs":[{"id":"ref-for-mult-one-plus"}],"title":"2.1. Opting Into a Preferred Color Scheme: the color-scheme property"}],"url":"https://drafts.csswg.org/css-values-4/#mult-one-plus"},
 "bfff6250": {"dfnID":"bfff6250","dfnText":"button","external":true,"refSections":[{"refs":[{"id":"ref-for-the-button-element"},{"id":"ref-for-the-button-element\u2460"},{"id":"ref-for-the-button-element\u2461"}],"title":"3.1. Properties Affected by Forced Colors Mode"}],"url":"https://html.spec.whatwg.org/multipage/form-elements.html#the-button-element"},
 "c15300b0": {"dfnID":"c15300b0","dfnText":"none (for box-shadow)","external":true,"refSections":[{"refs":[{"id":"ref-for-box-shadow-none"}],"title":"3.1. Properties Affected by Forced Colors Mode"}],"url":"https://drafts.csswg.org/css-backgrounds-3/#box-shadow-none"},
 "c388d253": {"dfnID":"c388d253","dfnText":"inherit","external":true,"refSections":[{"refs":[{"id":"ref-for-valdef-all-inherit"}],"title":"3.2. Opting Out of a Forced Color Palette: the forced-color-adjust property"}],"url":"https://drafts.csswg.org/css-cascade-5/#valdef-all-inherit"},
 "c665612f": {"dfnID":"c665612f","dfnText":"cascaded value","external":true,"refSections":[{"refs":[{"id":"ref-for-cascaded-value"},{"id":"ref-for-cascaded-value\u2460"}],"title":"3.2. Opting Out of a Forced Color Palette: the forced-color-adjust property"}],"url":"https://drafts.csswg.org/css-cascade-5/#cascaded-value"},
-"c8ff8493": {"dfnID":"c8ff8493","dfnText":"error code","external":true,"refSections":[{"refs":[{"id":"ref-for-dfn-error-code"},{"id":"ref-for-dfn-error-code\u2460"}],"title":"5.1. Emulate Forced Colors Mode"}],"url":"https://w3c.github.io/webdriver/#dfn-error-code"},
 "cad72d2f": {"dfnID":"cad72d2f","dfnText":"currentcolor","external":true,"refSections":[{"refs":[{"id":"ref-for-valdef-color-currentcolor"}],"title":"3.2. Opting Out of a Forced Color Palette: the forced-color-adjust property"}],"url":"https://drafts.csswg.org/css-color-4/#valdef-color-currentcolor"},
 "cf493b79": {"dfnID":"cf493b79","dfnText":"canvas","external":true,"refSections":[{"refs":[{"id":"ref-for-canvas"},{"id":"ref-for-canvas\u2460"},{"id":"ref-for-canvas\u2461"}],"title":"2.2. Effects of the Used Color Scheme"}],"url":"https://drafts.csswg.org/css2/#canvas"},
 "cfdf030c": {"dfnID":"cfdf030c","dfnText":"color-mix()","external":true,"refSections":[{"refs":[{"id":"ref-for-funcdef-color-mix"}],"title":"3.1. Properties Affected by Forced Colors Mode"}],"url":"https://drafts.csswg.org/css-color-5/#funcdef-color-mix"},
 "color-scheme": {"dfnID":"color-scheme","dfnText":"color scheme","external":false,"refSections":[{"refs":[{"id":"ref-for-color-scheme"},{"id":"ref-for-color-scheme\u2460"}],"title":"1. Introduction"},{"refs":[{"id":"ref-for-color-scheme\u2461"},{"id":"ref-for-color-scheme\u2462"},{"id":"ref-for-color-scheme\u2463"},{"id":"ref-for-color-scheme\u2464"},{"id":"ref-for-color-scheme\u2465"}],"title":"2. Preferred Color Schemes"},{"refs":[{"id":"ref-for-color-scheme\u2466"},{"id":"ref-for-color-scheme\u2467"},{"id":"ref-for-color-scheme\u2468"},{"id":"ref-for-color-scheme\u2460\u24ea"},{"id":"ref-for-color-scheme\u2460\u2460"},{"id":"ref-for-color-scheme\u2460\u2461"},{"id":"ref-for-color-scheme\u2460\u2462"},{"id":"ref-for-color-scheme\u2460\u2463"},{"id":"ref-for-color-scheme\u2460\u2464"}],"title":"2.1. Opting Into a Preferred Color Scheme: the color-scheme property"},{"refs":[{"id":"ref-for-color-scheme\u2460\u2465"}],"title":"2.2. Effects of the Used Color Scheme"},{"refs":[{"id":"ref-for-color-scheme\u2460\u2466"},{"id":"ref-for-color-scheme\u2460\u2467"}],"title":"2.3. Overriding the Color Scheme"},{"refs":[{"id":"ref-for-color-scheme\u2460\u2468"}],"title":"6. Privacy Considerations"}],"url":"#color-scheme"},
-"current-forced-colors-mode-automation-theme": {"dfnID":"current-forced-colors-mode-automation-theme","dfnText":"current forced colors mode automation theme","external":false,"refSections":[{"refs":[{"id":"ref-for-current-forced-colors-mode-automation-theme"},{"id":"ref-for-current-forced-colors-mode-automation-theme\u2460"}],"title":"3. Forced Color Palettes"},{"refs":[{"id":"ref-for-current-forced-colors-mode-automation-theme\u2461"}],"title":"5.1. Emulate Forced Colors Mode"}],"url":"#current-forced-colors-mode-automation-theme"},
 "d2332066": {"dfnID":"d2332066","dfnText":"dark","external":true,"refSections":[{"refs":[{"id":"ref-for-valdef-media-prefers-color-scheme-dark"}],"title":"2.3. Overriding the Color Scheme"}],"url":"https://drafts.csswg.org/mediaqueries-5/#valdef-media-prefers-color-scheme-dark"},
 "da1de473": {"dfnID":"da1de473","dfnText":"column-rule-color","external":true,"refSections":[{"refs":[{"id":"ref-for-propdef-column-rule-color"}],"title":"3.1. Properties Affected by Forced Colors Mode"}],"url":"https://drafts.csswg.org/css-gaps-1/#propdef-column-rule-color"},
 "dark-color-scheme": {"dfnID":"dark-color-scheme","dfnText":"dark color scheme","external":false,"refSections":[{"refs":[{"id":"ref-for-dark-color-scheme"}],"title":"2. Preferred Color Schemes"},{"refs":[{"id":"ref-for-dark-color-scheme\u2460"},{"id":"ref-for-dark-color-scheme\u2461"}],"title":"2.1. Opting Into a Preferred Color Scheme: the color-scheme property"},{"refs":[{"id":"ref-for-dark-color-scheme\u2462"},{"id":"ref-for-dark-color-scheme\u2463"},{"id":"ref-for-dark-color-scheme\u2464"},{"id":"ref-for-dark-color-scheme\u2465"},{"id":"ref-for-dark-color-scheme\u2466"},{"id":"ref-for-dark-color-scheme\u2467"}],"title":"2.3. Overriding the Color Scheme"}],"url":"#dark-color-scheme"},
@@ -2846,18 +2816,20 @@ let dfnPanelData = {
 "e1f343f3": {"dfnID":"e1f343f3","dfnText":"SelectedItem","external":true,"refSections":[{"refs":[{"id":"ref-for-valdef-color-selecteditem"},{"id":"ref-for-valdef-color-selecteditem\u2460"}],"title":"3. Forced Color Palettes"}],"url":"https://drafts.csswg.org/css-color-4/#valdef-color-selecteditem"},
 "e274345c": {"dfnID":"e274345c","dfnText":"<custom-ident>","external":true,"refSections":[{"refs":[{"id":"ref-for-identifier-value"},{"id":"ref-for-identifier-value\u2460"},{"id":"ref-for-identifier-value\u2461"},{"id":"ref-for-identifier-value\u2462"},{"id":"ref-for-identifier-value\u2463"},{"id":"ref-for-identifier-value\u2464"}],"title":"2.1. Opting Into a Preferred Color Scheme: the color-scheme property"}],"url":"https://drafts.csswg.org/css-values-4/#identifier-value"},
 "e66d7d26": {"dfnID":"e66d7d26","dfnText":"ButtonText","external":true,"refSections":[{"refs":[{"id":"ref-for-valdef-color-buttontext"},{"id":"ref-for-valdef-color-buttontext\u2460"}],"title":"3. Forced Color Palettes"}],"url":"https://drafts.csswg.org/css-color-4/#valdef-color-buttontext"},
+"e99bd18e": {"dfnID":"e99bd18e","dfnText":"relevant global object","external":true,"refSections":[{"refs":[{"id":"ref-for-concept-relevant-global"}],"title":"5.1. Emulate Forced Colors Mode"}],"url":"https://html.spec.whatwg.org/multipage/webappapis.html#concept-relevant-global"},
 "ee7998a4": {"dfnID":"ee7998a4","dfnText":"system color pairings","external":true,"refSections":[{"refs":[{"id":"ref-for-system-color-pairings"}],"title":"3.1. Properties Affected by Forced Colors Mode"}],"url":"https://drafts.csswg.org/css-color-4/#system-color-pairings"},
-"emulate-forced-colors-mode": {"dfnID":"emulate-forced-colors-mode","dfnText":"Emulate Forced Colors Mode","external":false,"refSections":[{"refs":[{"id":"ref-for-emulate-forced-colors-mode"}],"title":"5.1. Emulate Forced Colors Mode"}],"url":"#emulate-forced-colors-mode"},
-"enumdef-forcedcolorsmodeautomationtheme": {"dfnID":"enumdef-forcedcolorsmodeautomationtheme","dfnText":"ForcedColorsModeAutomationTheme","external":false,"refSections":[{"refs":[{"id":"ref-for-enumdef-forcedcolorsmodeautomationtheme"},{"id":"ref-for-enumdef-forcedcolorsmodeautomationtheme\u2460"}],"title":"5.1. Emulate Forced Colors Mode"}],"url":"#enumdef-forcedcolorsmodeautomationtheme"},
+"emulate-forced-colors-mode": {"dfnID":"emulate-forced-colors-mode","dfnText":"Emulate Forced Colors Mode","external":false,"refSections":[],"url":"#emulate-forced-colors-mode"},
+"emulated-forced-colors-theme-data": {"dfnID":"emulated-forced-colors-theme-data","dfnText":"emulated forced colors theme data","external":false,"refSections":[{"refs":[{"id":"ref-for-emulated-forced-colors-theme-data"}],"title":"3. Forced Color Palettes"},{"refs":[{"id":"ref-for-emulated-forced-colors-theme-data\u2460"},{"id":"ref-for-emulated-forced-colors-theme-data\u2461"}],"title":"5.1. Emulate Forced Colors Mode"}],"url":"#emulated-forced-colors-theme-data"},
+"enumdef-forcedcolorsmodeautomationtheme": {"dfnID":"enumdef-forcedcolorsmodeautomationtheme","dfnText":"ForcedColorsModeAutomationTheme","external":false,"refSections":[{"refs":[{"id":"ref-for-enumdef-forcedcolorsmodeautomationtheme"},{"id":"ref-for-enumdef-forcedcolorsmodeautomationtheme\u2460"},{"id":"ref-for-enumdef-forcedcolorsmodeautomationtheme\u2461"}],"title":"5.1. Emulate Forced Colors Mode"}],"url":"#enumdef-forcedcolorsmodeautomationtheme"},
 "f0809abc": {"dfnID":"f0809abc","dfnText":"&&","external":true,"refSections":[{"refs":[{"id":"ref-for-comb-all"}],"title":"2.1. Opting Into a Preferred Color Scheme: the color-scheme property"}],"url":"https://drafts.csswg.org/css-values-4/#comb-all"},
 "f0811ff8": {"dfnID":"f0811ff8","dfnText":"img","external":true,"refSections":[{"refs":[{"id":"ref-for-the-img-element"}],"title":"2.2. Effects of the Used Color Scheme"}],"url":"https://html.spec.whatwg.org/multipage/embedded-content.html#the-img-element"},
 "f338a9f0": {"dfnID":"f338a9f0","dfnText":"text-shadow","external":true,"refSections":[{"refs":[{"id":"ref-for-propdef-text-shadow"}],"title":"3.1. Properties Affected by Forced Colors Mode"}],"url":"https://drafts.csswg.org/css-text-decor-4/#propdef-text-shadow"},
 "f5bd1fd7": {"dfnID":"f5bd1fd7","dfnText":"CanvasText","external":true,"refSections":[{"refs":[{"id":"ref-for-valdef-color-canvastext"},{"id":"ref-for-valdef-color-canvastext\u2460"}],"title":"3. Forced Color Palettes"},{"refs":[{"id":"ref-for-valdef-color-canvastext\u2461"},{"id":"ref-for-valdef-color-canvastext\u2462"},{"id":"ref-for-valdef-color-canvastext\u2463"}],"title":"3.1. Properties Affected by Forced Colors Mode"}],"url":"https://drafts.csswg.org/css-color-4/#valdef-color-canvastext"},
-"f5f075a6": {"dfnID":"f5f075a6","dfnText":"undefined","external":true,"refSections":[{"refs":[{"id":"ref-for-sec-undefined"}],"title":"5.1. Emulate Forced Colors Mode"}],"url":"https://tc39.es/ecma262/multipage/global-object.html#sec-undefined"},
 "f831c141": {"dfnID":"f831c141","dfnText":"background-image","external":true,"refSections":[{"refs":[{"id":"ref-for-propdef-background-image"}],"title":"3.1. Properties Affected by Forced Colors Mode"}],"url":"https://drafts.csswg.org/css-backgrounds-3/#propdef-background-image"},
 "f94cfee7": {"dfnID":"f94cfee7","dfnText":"mark","external":true,"refSections":[{"refs":[{"id":"ref-for-valdef-color-mark"},{"id":"ref-for-valdef-color-mark\u2460"}],"title":"3. Forced Color Palettes"}],"url":"https://drafts.csswg.org/css-color-4/#valdef-color-mark"},
 "fe9654f1": {"dfnID":"fe9654f1","dfnText":"AccentColor","external":true,"refSections":[{"refs":[{"id":"ref-for-valdef-color-accentcolor"},{"id":"ref-for-valdef-color-accentcolor\u2460"}],"title":"3. Forced Color Palettes"}],"url":"https://drafts.csswg.org/css-color-4/#valdef-color-accentcolor"},
-"forced-colors-mode": {"dfnID":"forced-colors-mode","dfnText":"Forced colors mode","external":false,"refSections":[{"refs":[{"id":"ref-for-forced-colors-mode"},{"id":"ref-for-forced-colors-mode\u2460"}],"title":"1. Introduction"},{"refs":[{"id":"ref-for-forced-colors-mode\u2461"}],"title":"2.3. Overriding the Color Scheme"},{"refs":[{"id":"ref-for-forced-colors-mode\u2462"},{"id":"ref-for-forced-colors-mode\u2463"},{"id":"ref-for-forced-colors-mode\u2464"},{"id":"ref-for-forced-colors-mode\u2465"}],"title":"3. Forced Color Palettes"},{"refs":[{"id":"ref-for-forced-colors-mode\u2466"},{"id":"ref-for-forced-colors-mode\u2467"},{"id":"ref-for-forced-colors-mode\u2468"},{"id":"ref-for-forced-colors-mode\u2460\u24ea"}],"title":"3.1. Properties Affected by Forced Colors Mode"},{"refs":[{"id":"ref-for-forced-colors-mode\u2460\u2460"},{"id":"ref-for-forced-colors-mode\u2460\u2461"},{"id":"ref-for-forced-colors-mode\u2460\u2462"},{"id":"ref-for-forced-colors-mode\u2460\u2463"},{"id":"ref-for-forced-colors-mode\u2460\u2464"},{"id":"ref-for-forced-colors-mode\u2460\u2465"}],"title":"3.2. Opting Out of a Forced Color Palette: the forced-color-adjust property"},{"refs":[{"id":"ref-for-forced-colors-mode\u2460\u2466"}],"title":"5.1. Emulate Forced Colors Mode"},{"refs":[{"id":"ref-for-forced-colors-mode\u2460\u2467"}],"title":"6. Privacy Considerations"}],"url":"#forced-colors-mode"},
+"forced-colors-mode": {"dfnID":"forced-colors-mode","dfnText":"Forced colors mode","external":false,"refSections":[{"refs":[{"id":"ref-for-forced-colors-mode"},{"id":"ref-for-forced-colors-mode\u2460"}],"title":"1. Introduction"},{"refs":[{"id":"ref-for-forced-colors-mode\u2461"}],"title":"2.3. Overriding the Color Scheme"},{"refs":[{"id":"ref-for-forced-colors-mode\u2462"},{"id":"ref-for-forced-colors-mode\u2463"},{"id":"ref-for-forced-colors-mode\u2464"},{"id":"ref-for-forced-colors-mode\u2465"}],"title":"3. Forced Color Palettes"},{"refs":[{"id":"ref-for-forced-colors-mode\u2466"},{"id":"ref-for-forced-colors-mode\u2467"},{"id":"ref-for-forced-colors-mode\u2468"},{"id":"ref-for-forced-colors-mode\u2460\u24ea"}],"title":"3.1. Properties Affected by Forced Colors Mode"},{"refs":[{"id":"ref-for-forced-colors-mode\u2460\u2460"},{"id":"ref-for-forced-colors-mode\u2460\u2461"},{"id":"ref-for-forced-colors-mode\u2460\u2462"},{"id":"ref-for-forced-colors-mode\u2460\u2463"},{"id":"ref-for-forced-colors-mode\u2460\u2464"},{"id":"ref-for-forced-colors-mode\u2460\u2465"}],"title":"3.2. Opting Out of a Forced Color Palette: the forced-color-adjust property"},{"refs":[{"id":"ref-for-forced-colors-mode\u2460\u2466"}],"title":"6. Privacy Considerations"}],"url":"#forced-colors-mode"},
+"get-emulated-forced-colors-theme-data": {"dfnID":"get-emulated-forced-colors-theme-data","dfnText":"get emulated forced colors theme data","external":false,"refSections":[{"refs":[{"id":"ref-for-get-emulated-forced-colors-theme-data"}],"title":"3. Forced Color Palettes"}],"url":"#get-emulated-forced-colors-theme-data"},
 "light-color-scheme": {"dfnID":"light-color-scheme","dfnText":"light color scheme","external":false,"refSections":[{"refs":[{"id":"ref-for-light-color-scheme"}],"title":"2. Preferred Color Schemes"},{"refs":[{"id":"ref-for-light-color-scheme\u2460"},{"id":"ref-for-light-color-scheme\u2461"},{"id":"ref-for-light-color-scheme\u2462"}],"title":"2.1. Opting Into a Preferred Color Scheme: the color-scheme property"},{"refs":[{"id":"ref-for-light-color-scheme\u2463"}],"title":"2.3. Overriding the Color Scheme"}],"url":"#light-color-scheme"},
 "override-the-color-scheme": {"dfnID":"override-the-color-scheme","dfnText":"override the color scheme","external":false,"refSections":[{"refs":[{"id":"ref-for-override-the-color-scheme"},{"id":"ref-for-override-the-color-scheme\u2460"}],"title":"2.1. Opting Into a Preferred Color Scheme: the color-scheme property"}],"url":"#override-the-color-scheme"},
 "pages-supported-color-schemes": {"dfnID":"pages-supported-color-schemes","dfnText":"page\u2019s supported color schemes","external":false,"refSections":[{"refs":[{"id":"ref-for-pages-supported-color-schemes"},{"id":"ref-for-pages-supported-color-schemes\u2460"}],"title":"2.1. Opting Into a Preferred Color Scheme: the color-scheme property"}],"url":"#pages-supported-color-schemes"},
@@ -2866,6 +2838,7 @@ let dfnPanelData = {
 "propdef-color-scheme": {"dfnID":"propdef-color-scheme","dfnText":"color-scheme","external":false,"refSections":[{"refs":[{"id":"ref-for-propdef-color-scheme"}],"title":"1. Introduction"},{"refs":[{"id":"ref-for-propdef-color-scheme\u2460"},{"id":"ref-for-propdef-color-scheme\u2461"}],"title":"2. Preferred Color Schemes"},{"refs":[{"id":"ref-for-propdef-color-scheme\u2462"},{"id":"ref-for-propdef-color-scheme\u2463"},{"id":"ref-for-propdef-color-scheme\u2464"},{"id":"ref-for-propdef-color-scheme\u2465"},{"id":"ref-for-propdef-color-scheme\u2466"},{"id":"ref-for-propdef-color-scheme\u2467"},{"id":"ref-for-propdef-color-scheme\u2468"},{"id":"ref-for-propdef-color-scheme\u2460\u24ea"}],"title":"2.1. Opting Into a Preferred Color Scheme: the color-scheme property"},{"refs":[{"id":"ref-for-propdef-color-scheme\u2460\u2460"},{"id":"ref-for-propdef-color-scheme\u2460\u2461"}],"title":"2.3. Overriding the Color Scheme"},{"refs":[{"id":"ref-for-propdef-color-scheme\u2460\u2462"}],"title":"3. Forced Color Palettes"},{"refs":[{"id":"ref-for-propdef-color-scheme\u2460\u2463"}],"title":"3.1. Properties Affected by Forced Colors Mode"},{"refs":[{"id":"ref-for-propdef-color-scheme\u2460\u2464"}],"title":"7. Security Considerations"}],"url":"#propdef-color-scheme"},
 "propdef-forced-color-adjust": {"dfnID":"propdef-forced-color-adjust","dfnText":"forced-color-adjust","external":false,"refSections":[{"refs":[{"id":"ref-for-propdef-forced-color-adjust"}],"title":"1. Introduction"},{"refs":[{"id":"ref-for-propdef-forced-color-adjust\u2460"}],"title":"3.1. Properties Affected by Forced Colors Mode"},{"refs":[{"id":"ref-for-propdef-forced-color-adjust\u2461"},{"id":"ref-for-propdef-forced-color-adjust\u2462"},{"id":"ref-for-propdef-forced-color-adjust\u2463"},{"id":"ref-for-propdef-forced-color-adjust\u2464"}],"title":"3.2. Opting Out of a Forced Color Palette: the forced-color-adjust property"}],"url":"#propdef-forced-color-adjust"},
 "propdef-print-color-adjust": {"dfnID":"propdef-print-color-adjust","dfnText":"print-color-adjust","external":false,"refSections":[{"refs":[{"id":"ref-for-propdef-print-color-adjust"}],"title":"1. Introduction"},{"refs":[{"id":"ref-for-propdef-print-color-adjust\u2460"},{"id":"ref-for-propdef-print-color-adjust\u2461"},{"id":"ref-for-propdef-print-color-adjust\u2462"},{"id":"ref-for-propdef-print-color-adjust\u2463"},{"id":"ref-for-propdef-print-color-adjust\u2464"}],"title":"4.1. Ink Economy: the print-color-adjust property"},{"refs":[{"id":"ref-for-propdef-print-color-adjust\u2465"},{"id":"ref-for-propdef-print-color-adjust\u2466"},{"id":"ref-for-propdef-print-color-adjust\u2467"}],"title":"4.2. The color-adjust Shorthand"}],"url":"#propdef-print-color-adjust"},
+"set-emulated-forced-colors-theme-data": {"dfnID":"set-emulated-forced-colors-theme-data","dfnText":"set emulated forced colors theme data","external":false,"refSections":[],"url":"#set-emulated-forced-colors-theme-data"},
 "used-color-scheme": {"dfnID":"used-color-scheme","dfnText":"used color scheme","external":false,"refSections":[{"refs":[{"id":"ref-for-used-color-scheme"},{"id":"ref-for-used-color-scheme\u2460"},{"id":"ref-for-used-color-scheme\u2461"}],"title":"2.1. Opting Into a Preferred Color Scheme: the color-scheme property"},{"refs":[{"id":"ref-for-used-color-scheme\u2462"},{"id":"ref-for-used-color-scheme\u2463"},{"id":"ref-for-used-color-scheme\u2464"},{"id":"ref-for-used-color-scheme\u2465"},{"id":"ref-for-used-color-scheme\u2466"}],"title":"2.2. Effects of the Used Color Scheme"},{"refs":[{"id":"ref-for-used-color-scheme\u2467"},{"id":"ref-for-used-color-scheme\u2468"}],"title":"2.3. Overriding the Color Scheme"}],"url":"#used-color-scheme"},
 "valdef-color-scheme-custom-ident": {"dfnID":"valdef-color-scheme-custom-ident","dfnText":"<custom-ident>","external":false,"refSections":[],"url":"#valdef-color-scheme-custom-ident"},
 "valdef-color-scheme-dark": {"dfnID":"valdef-color-scheme-dark","dfnText":"dark","external":false,"refSections":[{"refs":[{"id":"ref-for-valdef-color-scheme-dark"},{"id":"ref-for-valdef-color-scheme-dark\u2460"}],"title":"2.1. Opting Into a Preferred Color Scheme: the color-scheme property"}],"url":"#valdef-color-scheme-dark"},
@@ -3323,14 +3296,14 @@ window.addEventListener("resize", repositionAnnoPanels);
 {
 let refsData = {
 "#color-scheme": {"displayText":"color scheme","export":true,"for_":[],"level":"1","normative":true,"shortname":"css-color-adjust","spec":"css-color-adjust-1","status":"local","text":"color scheme","type":"dfn","url":"#color-scheme"},
-"#current-forced-colors-mode-automation-theme": {"displayText":"current forced colors mode automation theme","export":true,"for_":[],"level":"1","normative":true,"shortname":"css-color-adjust","spec":"css-color-adjust-1","status":"local","text":"current forced colors mode automation theme","type":"dfn","url":"#current-forced-colors-mode-automation-theme"},
 "#dark-color-scheme": {"displayText":"dark color scheme","export":true,"for_":[],"level":"1","normative":true,"shortname":"css-color-adjust","spec":"css-color-adjust-1","status":"local","text":"dark color scheme","type":"dfn","url":"#dark-color-scheme"},
 "#dom-forcedcolorsmodeautomationtheme-dark": {"displayText":"\"dark\"","export":true,"for_":["ForcedColorsModeAutomationTheme"],"level":"1","normative":true,"shortname":"css-color-adjust","spec":"css-color-adjust-1","status":"local","text":"\"dark\"","type":"enum-value","url":"#dom-forcedcolorsmodeautomationtheme-dark"},
 "#dom-forcedcolorsmodeautomationtheme-light": {"displayText":"\"light\"","export":true,"for_":["ForcedColorsModeAutomationTheme"],"level":"1","normative":true,"shortname":"css-color-adjust","spec":"css-color-adjust-1","status":"local","text":"\"light\"","type":"enum-value","url":"#dom-forcedcolorsmodeautomationtheme-light"},
 "#dom-forcedcolorsmodeautomationtheme-none": {"displayText":"\"none\"","export":true,"for_":["ForcedColorsModeAutomationTheme"],"level":"1","normative":true,"shortname":"css-color-adjust","spec":"css-color-adjust-1","status":"local","text":"\"none\"","type":"enum-value","url":"#dom-forcedcolorsmodeautomationtheme-none"},
-"#emulate-forced-colors-mode": {"displayText":"emulate forced colors mode","export":true,"for_":[],"level":"1","normative":true,"shortname":"css-color-adjust","spec":"css-color-adjust-1","status":"local","text":"emulate forced colors mode","type":"dfn","url":"#emulate-forced-colors-mode"},
+"#emulated-forced-colors-theme-data": {"displayText":"emulated forced colors theme data","export":true,"for_":[],"level":"1","normative":true,"shortname":"css-color-adjust","spec":"css-color-adjust-1","status":"local","text":"emulated forced colors theme data","type":"dfn","url":"#emulated-forced-colors-theme-data"},
 "#enumdef-forcedcolorsmodeautomationtheme": {"displayText":"ForcedColorsModeAutomationTheme","export":true,"for_":[],"level":"1","normative":true,"shortname":"css-color-adjust","spec":"css-color-adjust-1","status":"local","text":"ForcedColorsModeAutomationTheme","type":"enum","url":"#enumdef-forcedcolorsmodeautomationtheme"},
 "#forced-colors-mode": {"displayText":"forced colors mode","export":true,"for_":[],"level":"1","normative":true,"shortname":"css-color-adjust","spec":"css-color-adjust-1","status":"local","text":"forced colors mode","type":"dfn","url":"#forced-colors-mode"},
+"#get-emulated-forced-colors-theme-data": {"displayText":"get emulated forced colors theme data","export":true,"for_":[],"level":"1","normative":true,"shortname":"css-color-adjust","spec":"css-color-adjust-1","status":"local","text":"get emulated forced colors theme data","type":"dfn","url":"#get-emulated-forced-colors-theme-data"},
 "#light-color-scheme": {"displayText":"light","export":true,"for_":[],"level":"1","normative":true,"shortname":"css-color-adjust","spec":"css-color-adjust-1","status":"local","text":"light","type":"dfn","url":"#light-color-scheme"},
 "#override-the-color-scheme": {"displayText":"override the color scheme","export":true,"for_":[],"level":"1","normative":true,"shortname":"css-color-adjust","spec":"css-color-adjust-1","status":"local","text":"override the color scheme","type":"dfn","url":"#override-the-color-scheme"},
 "#pages-supported-color-schemes": {"displayText":"page's supported color schemes","export":true,"for_":[],"level":"1","normative":true,"shortname":"css-color-adjust","spec":"css-color-adjust-1","status":"local","text":"page's supported color schemes","type":"dfn","url":"#pages-supported-color-schemes"},
@@ -3412,23 +3385,20 @@ let refsData = {
 "https://drafts.fxtf.org/fill-stroke-3/#propdef-stroke": {"displayText":"stroke","export":true,"for_":[],"level":"3","normative":true,"shortname":"fill-stroke","spec":"fill-stroke-3","status":"current","text":"stroke","type":"property","url":"https://drafts.fxtf.org/fill-stroke-3/#propdef-stroke"},
 "https://drafts.fxtf.org/filter-effects-1/#propdef-flood-color": {"displayText":"flood-color","export":true,"for_":[],"level":"1","normative":true,"shortname":"filter-effects","spec":"filter-effects-1","status":"current","text":"flood-color","type":"property","url":"https://drafts.fxtf.org/filter-effects-1/#propdef-flood-color"},
 "https://drafts.fxtf.org/filter-effects-1/#propdef-lighting-color": {"displayText":"lighting-color","export":true,"for_":[],"level":"1","normative":true,"shortname":"filter-effects","spec":"filter-effects-1","status":"current","text":"lighting-color","type":"property","url":"https://drafts.fxtf.org/filter-effects-1/#propdef-lighting-color"},
+"https://html.spec.whatwg.org/multipage/document-sequences.html#nav-top": {"displayText":"top-level traversable","export":true,"for_":["navigable"],"level":"1","normative":true,"shortname":"html","spec":"html","status":"current","text":"top-level traversable","type":"dfn","url":"https://html.spec.whatwg.org/multipage/document-sequences.html#nav-top"},
+"https://html.spec.whatwg.org/multipage/document-sequences.html#node-navigable": {"displayText":"node navigable","export":true,"for_":[],"level":"1","normative":true,"shortname":"html","spec":"html","status":"current","text":"node navigable","type":"dfn","url":"https://html.spec.whatwg.org/multipage/document-sequences.html#node-navigable"},
+"https://html.spec.whatwg.org/multipage/document-sequences.html#top-level-traversable": {"displayText":"top-level traversable","export":true,"for_":[],"level":"1","normative":true,"shortname":"html","spec":"html","status":"current","text":"top-level traversable","type":"dfn","url":"https://html.spec.whatwg.org/multipage/document-sequences.html#top-level-traversable"},
 "https://html.spec.whatwg.org/multipage/embedded-content.html#the-img-element": {"displayText":"img","export":true,"for_":[],"level":"1","normative":true,"shortname":"html","spec":"html","status":"current","text":"img","type":"element","url":"https://html.spec.whatwg.org/multipage/embedded-content.html#the-img-element"},
 "https://html.spec.whatwg.org/multipage/form-elements.html#the-button-element": {"displayText":"button","export":true,"for_":[],"level":"1","normative":true,"shortname":"html","spec":"html","status":"current","text":"button","type":"element","url":"https://html.spec.whatwg.org/multipage/form-elements.html#the-button-element"},
 "https://html.spec.whatwg.org/multipage/iframe-embed-object.html#the-iframe-element": {"displayText":"iframe","export":true,"for_":[],"level":"1","normative":true,"shortname":"html","spec":"html","status":"current","text":"iframe","type":"element","url":"https://html.spec.whatwg.org/multipage/iframe-embed-object.html#the-iframe-element"},
+"https://html.spec.whatwg.org/multipage/nav-history-apis.html#concept-document-window": {"displayText":"associated Document","export":true,"for_":[],"level":"1","normative":true,"shortname":"html","spec":"html","status":"current","text":"associated document","type":"dfn","url":"https://html.spec.whatwg.org/multipage/nav-history-apis.html#concept-document-window"},
+"https://html.spec.whatwg.org/multipage/nav-history-apis.html#window-navigable": {"displayText":"navigable","export":true,"for_":["Window"],"level":"1","normative":true,"shortname":"html","spec":"html","status":"current","text":"navigable","type":"dfn","url":"https://html.spec.whatwg.org/multipage/nav-history-apis.html#window-navigable"},
 "https://html.spec.whatwg.org/multipage/sections.html#the-body-element": {"displayText":"body","export":true,"for_":[],"level":"1","normative":true,"shortname":"html","spec":"html","status":"current","text":"body","type":"element","url":"https://html.spec.whatwg.org/multipage/sections.html#the-body-element"},
 "https://html.spec.whatwg.org/multipage/semantics.html#meta": {"displayText":"meta","export":true,"for_":[],"level":"1","normative":true,"shortname":"html","spec":"html","status":"current","text":"meta","type":"element","url":"https://html.spec.whatwg.org/multipage/semantics.html#meta"},
 "https://html.spec.whatwg.org/multipage/semantics.html#meta-color-scheme": {"displayText":"color-scheme","export":true,"for_":["meta/name"],"level":"","normative":true,"shortname":"html","spec":"html","status":"anchor-block","text":"color-scheme","type":"attr-value","url":"https://html.spec.whatwg.org/multipage/semantics.html#meta-color-scheme"},
 "https://html.spec.whatwg.org/multipage/text-level-semantics.html#the-em-element": {"displayText":"em","export":true,"for_":[],"level":"1","normative":true,"shortname":"html","spec":"html","status":"current","text":"em","type":"element","url":"https://html.spec.whatwg.org/multipage/text-level-semantics.html#the-em-element"},
+"https://html.spec.whatwg.org/multipage/webappapis.html#concept-relevant-global": {"displayText":"relevant global object","export":true,"for_":[],"level":"1","normative":true,"shortname":"html","spec":"html","status":"current","text":"relevant global object","type":"dfn","url":"https://html.spec.whatwg.org/multipage/webappapis.html#concept-relevant-global"},
 "https://svgwg.org/svg2-draft/pservers.html#StopColorProperty": {"displayText":"stop-color","export":true,"for_":["stop"],"level":"2","normative":true,"shortname":"svg","spec":"svg2","status":"current","text":"stop-color","type":"property","url":"https://svgwg.org/svg2-draft/pservers.html#StopColorProperty"},
-"https://tc39.es/ecma262/multipage/global-object.html#sec-undefined": {"displayText":"undefined","export":true,"for_":["globalThis"],"level":"1","normative":true,"shortname":"ecmascript","spec":"ecmascript","status":"current","text":"undefined","type":"attribute","url":"https://tc39.es/ecma262/multipage/global-object.html#sec-undefined"},
-"https://w3c.github.io/rdf-concepts/spec/#dfn-object": {"displayText":"object","export":true,"for_":[],"level":"1","normative":true,"shortname":"rdf-concepts","spec":"rdf12-concepts","status":"current","text":"object","type":"dfn","url":"https://w3c.github.io/rdf-concepts/spec/#dfn-object"},
-"https://w3c.github.io/webdriver/#dfn-error": {"displayText":"error","export":true,"for_":[],"level":"2","normative":true,"shortname":"webdriver","spec":"webdriver2","status":"current","text":"error","type":"dfn","url":"https://w3c.github.io/webdriver/#dfn-error"},
-"https://w3c.github.io/webdriver/#dfn-error-code": {"displayText":"error code","export":true,"for_":[],"level":"2","normative":true,"shortname":"webdriver","spec":"webdriver2","status":"current","text":"error code","type":"dfn","url":"https://w3c.github.io/webdriver/#dfn-error-code"},
-"https://w3c.github.io/webdriver/#dfn-extension-commands": {"displayText":"extension commands","export":true,"for_":[],"level":"2","normative":true,"shortname":"webdriver","spec":"webdriver2","status":"current","text":"extension commands","type":"dfn","url":"https://w3c.github.io/webdriver/#dfn-extension-commands"},
-"https://w3c.github.io/webdriver/#dfn-getting-properties": {"displayText":"getting a property","export":false,"for_":[],"level":"2","normative":true,"shortname":"webdriver","spec":"webdriver2","status":"current","text":"getting a property","type":"dfn","url":"https://w3c.github.io/webdriver/#dfn-getting-properties"},
-"https://w3c.github.io/webdriver/#dfn-invalid-argument": {"displayText":"invalid argument","export":true,"for_":[],"level":"2","normative":true,"shortname":"webdriver","spec":"webdriver2","status":"current","text":"invalid argument","type":"dfn","url":"https://w3c.github.io/webdriver/#dfn-invalid-argument"},
-"https://w3c.github.io/webdriver/#dfn-remote-end-steps": {"displayText":"remote end steps","export":true,"for_":[],"level":"2","normative":true,"shortname":"webdriver","spec":"webdriver2","status":"current","text":"remote end steps","type":"dfn","url":"https://w3c.github.io/webdriver/#dfn-remote-end-steps"},
-"https://w3c.github.io/webdriver/#dfn-success": {"displayText":"success","export":true,"for_":[],"level":"2","normative":true,"shortname":"webdriver","spec":"webdriver2","status":"current","text":"success","type":"dfn","url":"https://w3c.github.io/webdriver/#dfn-success"},
 };
 
 function mkRefHint(link, ref) {
