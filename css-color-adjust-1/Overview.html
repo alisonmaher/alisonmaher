@@ -8,7 +8,7 @@
   <meta content="Bikeshed version 60c422380, updated Thu Feb 20 19:11:22 2025 -0800" name="generator">
   <link href="https://www.w3.org/TR/css-color-adjust-1/" rel="canonical">
   <link href="https://drafts.csswg.org/csslogo.ico" rel="icon">
-  <meta content="d97712013d3635593e17b93b6b136d866201cce4" name="revision">
+  <meta content="2559778e718da5383feff5da599ca8a57250a89c" name="revision">
   <meta content="dark light" name="color-scheme">
   <link href="https://www.w3.org/StyleSheets/TR/2021/dark.css" media="(prefers-color-scheme: dark)" rel="stylesheet" type="text/css">
   <link href="style.css" rel="stylesheet">
@@ -1058,7 +1058,7 @@ dd:not(:last-child) > .wpt-tests-block:not([open]):last-child {
   <div class="head">
    <p data-fill-with="logo"><a class="logo" href="https://www.w3.org/"> <img alt="W3C" height="48" src="https://www.w3.org/StyleSheets/TR/2021/logos/W3C" width="72"> </a> </p>
    <h1 class="p-name no-ref" id="title">CSS Color Adjustment Module Level 1</h1>
-   <p id="w3c-state"><a href="https://www.w3.org/standards/types/#ED">Editor’s Draft</a>, <time class="dt-updated" datetime="2025-04-14">14 April 2025</time></p>
+   <p id="w3c-state"><a href="https://www.w3.org/standards/types/#ED">Editor’s Draft</a>, <time class="dt-updated" datetime="2025-05-05">5 May 2025</time></p>
    <details open>
     <summary>More details about this document</summary>
     <div data-fill-with="spec-metadata">
@@ -1689,25 +1689,31 @@ following color mappings:</p>
    <p>When <a data-link-type="dfn" href="#forced-colors-mode" id="ref-for-forced-colors-mode⑦">forced colors mode</a> is active
 	and <a class="property css" data-link-type="property" href="#propdef-forced-color-adjust" id="ref-for-propdef-forced-color-adjust①">forced-color-adjust</a> is <a class="css" data-link-type="maybe" href="#valdef-forced-color-adjust-auto" id="ref-for-valdef-forced-color-adjust-auto">auto</a> (see below) on an element,
 	colors on the element are force-adjusted to the user’s preferred color palette.</p>
-   <p>Specifically, for each of the following properties:</p>
-   <ul>
-    <li><a class="property css" data-link-type="property" href="https://drafts.csswg.org/css-color-4/#propdef-color" id="ref-for-propdef-color">color</a> 
-    <li><a class="property css" data-link-type="property" href="https://drafts.fxtf.org/fill-stroke-3/#propdef-fill" id="ref-for-propdef-fill">fill</a> 
-    <li><a class="property css" data-link-type="property" href="https://drafts.fxtf.org/fill-stroke-3/#propdef-stroke" id="ref-for-propdef-stroke">stroke</a> 
-    <li><a class="property css" data-link-type="property" href="https://drafts.csswg.org/css-text-decor-4/#propdef-text-decoration-color" id="ref-for-propdef-text-decoration-color">text-decoration-color</a> 
-    <li><a class="property css" data-link-type="property" href="https://drafts.csswg.org/css-text-decor-4/#propdef-text-emphasis-color" id="ref-for-propdef-text-emphasis-color">text-emphasis-color</a> 
-    <li><a class="property css" data-link-type="property" href="https://drafts.csswg.org/css-backgrounds-3/#propdef-border-color" id="ref-for-propdef-border-color">border-color</a> 
-    <li><a class="property css" data-link-type="property" href="https://drafts.csswg.org/css-ui-4/#propdef-outline-color" id="ref-for-propdef-outline-color">outline-color</a> 
-    <li><a class="property css" data-link-type="property" href="https://drafts.csswg.org/css-gaps-1/#propdef-column-rule-color" id="ref-for-propdef-column-rule-color">column-rule-color</a> 
-    <li><a class="property css" data-link-type="property" href="https://drafts.csswg.org/css-scrollbars-1/#propdef-scrollbar-color" id="ref-for-propdef-scrollbar-color">scrollbar-color</a> 
-    <li><a class="property css" data-link-type="property">-webkit-tap-highlight-color</a> 
-    <li><a class="property css" data-link-type="property" href="https://drafts.csswg.org/css-backgrounds-3/#propdef-background-color" id="ref-for-propdef-background-color">background-color</a> 
-    <li><a class="property css" data-link-type="property" href="https://drafts.csswg.org/css-ui-4/#propdef-caret-color" id="ref-for-propdef-caret-color">caret-color</a> 
-    <li><a class="property css" data-link-type="property" href="https://drafts.fxtf.org/filter-effects-1/#propdef-flood-color" id="ref-for-propdef-flood-color">flood-color</a> 
-    <li><a class="property css" data-link-type="property" href="https://drafts.fxtf.org/filter-effects-1/#propdef-lighting-color" id="ref-for-propdef-lighting-color">lighting-color</a> 
-    <li><a class="property css" data-link-type="property" href="https://svgwg.org/svg2-draft/pservers.html#StopColorProperty" id="ref-for-StopColorProperty">stop-color</a> 
-   </ul>
-   <p>if its <a data-link-type="dfn" href="https://drafts.csswg.org/css-cascade-5/#computed-value" id="ref-for-computed-value">computed value</a> is a color other than a <a data-link-type="dfn">system color</a>,
+   <div class="note" role="note">
+     Specifically, <a data-link-type="dfn" href="#forced-colors-mode" id="ref-for-forced-colors-mode⑧">forced colors mode</a> applies to the following color properties,
+		along with their shorthands.
+		This is the list of color properties existing at the time of writing,
+		but it may not be an exhaustive list as more properties get added over time: 
+    <ul>
+     <li><a class="property css" data-link-type="property" href="https://drafts.csswg.org/css-backgrounds-3/#propdef-background-color" id="ref-for-propdef-background-color">background-color</a> 
+     <li><a class="property css" data-link-type="property" href="https://drafts.csswg.org/css-backgrounds-3/#propdef-border-color" id="ref-for-propdef-border-color">border-color</a> 
+     <li><a class="property css" data-link-type="property" href="https://drafts.csswg.org/css-ui-4/#propdef-caret-color" id="ref-for-propdef-caret-color">caret-color</a> 
+     <li><a class="property css" data-link-type="property" href="https://drafts.csswg.org/css-color-4/#propdef-color" id="ref-for-propdef-color">color</a> 
+     <li><a class="property css" data-link-type="property" href="https://drafts.fxtf.org/filter-effects-1/#propdef-flood-color" id="ref-for-propdef-flood-color">flood-color</a> 
+     <li><a class="property css" data-link-type="property" href="https://drafts.fxtf.org/fill-stroke-3/#propdef-fill" id="ref-for-propdef-fill">fill</a> 
+     <li><a class="property css" data-link-type="property" href="https://drafts.fxtf.org/filter-effects-1/#propdef-lighting-color" id="ref-for-propdef-lighting-color">lighting-color</a> 
+     <li><a class="property css" data-link-type="property" href="https://drafts.csswg.org/css-ui-4/#propdef-outline-color" id="ref-for-propdef-outline-color">outline-color</a> 
+     <li><a class="property css" data-link-type="property" href="https://drafts.csswg.org/css-gaps-1/#propdef-rule-color" id="ref-for-propdef-rule-color">rule-color</a> 
+     <li><a class="property css" data-link-type="property" href="https://drafts.csswg.org/css-scrollbars-1/#propdef-scrollbar-color" id="ref-for-propdef-scrollbar-color">scrollbar-color</a> 
+     <li><a class="property css" data-link-type="property" href="https://svgwg.org/svg2-draft/pservers.html#StopColorProperty" id="ref-for-StopColorProperty">stop-color</a> 
+     <li><a class="property css" data-link-type="property" href="https://drafts.fxtf.org/fill-stroke-3/#propdef-stroke" id="ref-for-propdef-stroke">stroke</a> 
+     <li><a class="property css" data-link-type="property" href="https://drafts.csswg.org/css-text-decor-4/#propdef-text-decoration-color" id="ref-for-propdef-text-decoration-color">text-decoration-color</a> 
+     <li><a class="property css" data-link-type="property" href="https://drafts.csswg.org/css-text-decor-4/#propdef-text-emphasis-color" id="ref-for-propdef-text-emphasis-color">text-emphasis-color</a> 
+     <li><a class="property css" data-link-type="property">-webkit-tap-highlight-color</a> 
+    </ul>
+   </div>
+   <p>For each relevant color property,
+	if its <a data-link-type="dfn" href="https://drafts.csswg.org/css-cascade-5/#computed-value" id="ref-for-computed-value">computed value</a> is a color other than a <a data-link-type="dfn">system color</a>,
 	its <a data-link-type="dfn" href="https://drafts.csswg.org/css-cascade-5/#used-value" id="ref-for-used-value">used value</a> is instead forced to a <span>system color</span> as follows:</p>
    <ul>
     <li data-md>
@@ -1733,7 +1739,7 @@ are likewise UA-determined.</p>
 </pre>
       <p>Normally, <code><a data-link-type="element" href="https://html.spec.whatwg.org/multipage/text-level-semantics.html#the-em-element" id="ref-for-the-em-element">em</a></code> will inherit from <code><a data-link-type="element" href="https://html.spec.whatwg.org/multipage/form-elements.html#the-button-element" id="ref-for-the-button-element">button</a></code>,
 	ensuring its readability.
-	However in <a data-link-type="dfn" href="#forced-colors-mode" id="ref-for-forced-colors-mode⑧">forced colors mode</a>,
+	However in <a data-link-type="dfn" href="#forced-colors-mode" id="ref-for-forced-colors-mode⑨">forced colors mode</a>,
 	the <a class="property css" data-link-type="property" href="https://drafts.csswg.org/css-color-4/#propdef-color" id="ref-for-propdef-color④">color</a> of both <code><a data-link-type="element" href="https://html.spec.whatwg.org/multipage/form-elements.html#the-button-element" id="ref-for-the-button-element①">button</a></code> and <code><a data-link-type="element" href="https://html.spec.whatwg.org/multipage/text-level-semantics.html#the-em-element" id="ref-for-the-em-element①">em</a></code> will need to be forced.
 	It’s easy to see that <code><a data-link-type="element" href="https://html.spec.whatwg.org/multipage/form-elements.html#the-button-element" id="ref-for-the-button-element②">button</a></code>’s color should be forced to the button color,
 	but <code><a data-link-type="element" href="https://html.spec.whatwg.org/multipage/text-level-semantics.html#the-em-element" id="ref-for-the-em-element②">em</a></code> also needs to be forced to the button color;
@@ -1754,10 +1760,10 @@ are likewise UA-determined.</p>
     <li data-md>
      <p><a class="property css" data-link-type="property" href="https://drafts.csswg.org/css-ui-4/#propdef-accent-color" id="ref-for-propdef-accent-color">accent-color</a> computed to <a class="css" data-link-type="maybe" href="https://drafts.csswg.org/css-ui-4/#valdef-accent-color-auto" id="ref-for-valdef-accent-color-auto">auto</a></p>
    </ul>
-   <p>UAs may further tweak these <a data-link-type="dfn" href="#forced-colors-mode" id="ref-for-forced-colors-mode⑨">forced colors mode</a> heuristics
+   <p>UAs may further tweak these <a data-link-type="dfn" href="#forced-colors-mode" id="ref-for-forced-colors-mode①⓪">forced colors mode</a> heuristics
 	to provide better user experience.</p>
    <div class="example" id="example-9e389b59">
-    <a class="self-link" href="#example-9e389b59"></a> Authors may still use features such as <a class="css" data-link-type="maybe" href="https://drafts.csswg.org/css-color-5/#funcdef-color-mix" id="ref-for-funcdef-color-mix">color-mix()</a> in <a data-link-type="dfn" href="#forced-colors-mode" id="ref-for-forced-colors-mode①⓪">forced colors mode</a>.
+    <a class="self-link" href="#example-9e389b59"></a> Authors may still use features such as <a class="css" data-link-type="maybe" href="https://drafts.csswg.org/css-color-5/#funcdef-color-mix" id="ref-for-funcdef-color-mix">color-mix()</a> in <a data-link-type="dfn" href="#forced-colors-mode" id="ref-for-forced-colors-mode①①">forced colors mode</a>.
 		In such cases, the <a data-link-type="dfn" href="https://drafts.csswg.org/css-cascade-5/#computed-value" id="ref-for-computed-value①">computed value</a> will behave as it would normally,
 		but the <a data-link-type="dfn" href="https://drafts.csswg.org/css-cascade-5/#used-value" id="ref-for-used-value①">used value</a> will be overridden with an appropriate <a data-link-type="dfn">system color</a>. 
 <pre class="highlight">.example <c- p>{</c->
@@ -1801,18 +1807,18 @@ are likewise UA-determined.</p>
    </table>
    <p>The <a class="property css" data-link-type="property" href="#propdef-forced-color-adjust" id="ref-for-propdef-forced-color-adjust③">forced-color-adjust</a> property
 	allows authors to opt particular elements
-	out of <a data-link-type="dfn" href="#forced-colors-mode" id="ref-for-forced-colors-mode①①">forced colors mode</a>,
+	out of <a data-link-type="dfn" href="#forced-colors-mode" id="ref-for-forced-colors-mode①②">forced colors mode</a>,
 	restoring full control over the colors to CSS.
 	Values have the following meanings:</p>
    <dl>
     <dt data-md><dfn class="dfn-paneled css" data-dfn-for="forced-color-adjust" data-dfn-type="value" data-export id="valdef-forced-color-adjust-auto">auto</dfn>
     <dd data-md>
      <p>The element’s colors are automatically adjusted by the UA
-in <a data-link-type="dfn" href="#forced-colors-mode" id="ref-for-forced-colors-mode①②">forced colors mode</a>.</p>
+in <a data-link-type="dfn" href="#forced-colors-mode" id="ref-for-forced-colors-mode①③">forced colors mode</a>.</p>
     <dt data-md><dfn class="dfn-paneled css" data-dfn-for="forced-color-adjust" data-dfn-type="value" data-export id="valdef-forced-color-adjust-none">none</dfn>
     <dd data-md>
      <p>The element’s colors are not automatically adjusted by the UA
-in <a data-link-type="dfn" href="#forced-colors-mode" id="ref-for-forced-colors-mode①③">forced colors mode</a>.</p>
+in <a data-link-type="dfn" href="#forced-colors-mode" id="ref-for-forced-colors-mode①④">forced colors mode</a>.</p>
      <p><strong class="advisement"> Authors should only use this value
 when they are themselves adjusting the colors
 to support the user’s color and contrast needs
@@ -1821,7 +1827,7 @@ to provide a more appropriate user experience
 for those elements.</strong></p>
     <dt data-md><dfn class="dfn-paneled css" data-dfn-for="forced-color-adjust" data-dfn-type="value" data-export id="valdef-forced-color-adjust-preserve-parent-color">preserve-parent-color</dfn>
     <dd data-md>
-     <p>In <a data-link-type="dfn" href="#forced-colors-mode" id="ref-for-forced-colors-mode①④">forced colors mode</a>,
+     <p>In <a data-link-type="dfn" href="#forced-colors-mode" id="ref-for-forced-colors-mode①⑤">forced colors mode</a>,
 if the <a class="property css" data-link-type="property" href="https://drafts.csswg.org/css-color-4/#propdef-color" id="ref-for-propdef-color⑧">color</a> property inherits from its parent
 (i.e. there is no <a data-link-type="dfn" href="https://drafts.csswg.org/css-cascade-5/#cascaded-value" id="ref-for-cascaded-value">cascaded value</a> or the <span id="ref-for-cascaded-value①">cascaded value</span> is <a class="css" data-link-type="maybe" href="https://drafts.csswg.org/css-color-4/#valdef-color-currentcolor" id="ref-for-valdef-color-currentcolor">currentColor</a>, <a class="css" data-link-type="maybe" href="https://drafts.csswg.org/css-cascade-5/#valdef-all-inherit" id="ref-for-valdef-all-inherit">inherit</a>,
 or another keyword that inherits from the parent),
@@ -1829,10 +1835,10 @@ then it computes to the <a data-link-type="dfn" href="https://drafts.csswg.org/c
      <p>In all other respects, behaves the same as <a class="css" data-link-type="maybe" href="#valdef-forced-color-adjust-none" id="ref-for-valdef-forced-color-adjust-none">none</a>.</p>
      <p class="note" role="note"><span class="marker">Note:</span> This value is intended solely to get a reasonable behavior
 from embedded SVG elements that expect to receive the outer document’s text color
-(and stay consistent with adjustments from <a data-link-type="dfn" href="#forced-colors-mode" id="ref-for-forced-colors-mode①⑤">forced colors mode</a>),
+(and stay consistent with adjustments from <a data-link-type="dfn" href="#forced-colors-mode" id="ref-for-forced-colors-mode①⑥">forced colors mode</a>),
 while otherwise defaulting SVGs
 to preserving their exact colors,
-as <span id="ref-for-forced-colors-mode①⑥">forced colors mode</span> can’t generally be usefully applied to illustrations.</p>
+as <span id="ref-for-forced-colors-mode①⑦">forced colors mode</span> can’t generally be usefully applied to illustrations.</p>
    </dl>
    <p>In order to not break SVG content,
 	UAs are expected to add the following rules to their UA style sheet:</p>
@@ -2036,7 +2042,7 @@ svg|foreignObject <c- p>{</c-> <c- k>forced-color-adjust</c-><c- p>:</c-> auto<c
      <p>Return <var>traversable</var>’s associated <a data-link-type="dfn" href="#emulated-forced-colors-theme-data" id="ref-for-emulated-forced-colors-theme-data②">emulated forced colors theme data</a>.</p>
    </ol>
    <h2 class="heading settled" data-level="6" id="privacy"><span class="secno">6. </span><span class="content">Privacy Considerations</span><a class="self-link" href="#privacy"></a></h2>
-   <p>Applying user color preferences via <a data-link-type="dfn" href="#color-scheme" id="ref-for-color-scheme①⑨">color schemes</a> or <a data-link-type="dfn" href="#forced-colors-mode" id="ref-for-forced-colors-mode①⑦">forced colors mode</a> exposes the user’s color preferences to the page
+   <p>Applying user color preferences via <a data-link-type="dfn" href="#color-scheme" id="ref-for-color-scheme①⑨">color schemes</a> or <a data-link-type="dfn" href="#forced-colors-mode" id="ref-for-forced-colors-mode①⑧">forced colors mode</a> exposes the user’s color preferences to the page
 	via <code class="idl"><a data-link-type="idl" href="https://drafts.csswg.org/cssom-1/#dom-window-getcomputedstyle" id="ref-for-dom-window-getcomputedstyle">getComputedStyle()</a></code>,
 	which can increase fingerprinting surface.</p>
    <div class="note" role="note">
@@ -2276,7 +2282,7 @@ being unreadable when used with the <em>actual</em> system colors.</p>
    <li>
     <a data-link-type="biblio">[CSS-GAPS-1]</a> defines the following terms:
     <ul>
-     <li><span class="dfn-paneled" id="da1de473">column-rule-color</span>
+     <li><span class="dfn-paneled" id="1648b687">rule-color</span>
     </ul>
    <li>
     <a data-link-type="biblio">[CSS-PSEUDO-4]</a> defines the following terms:
@@ -2384,8 +2390,6 @@ being unreadable when used with the <em>actual</em> system colors.</p>
    <dd>Chris Lilley; Tab Atkins Jr.; Lea Verou. <a href="https://drafts.csswg.org/css-color-4/"><cite>CSS Color Module Level 4</cite></a>. URL: <a href="https://drafts.csswg.org/css-color-4/">https://drafts.csswg.org/css-color-4/</a>
    <dt id="biblio-css-color-5">[CSS-COLOR-5]
    <dd>Chris Lilley; et al. <a href="https://drafts.csswg.org/css-color-5/"><cite>CSS Color Module Level 5</cite></a>. URL: <a href="https://drafts.csswg.org/css-color-5/">https://drafts.csswg.org/css-color-5/</a>
-   <dt id="biblio-css-gaps-1">[CSS-GAPS-1]
-   <dd><a href="https://drafts.csswg.org/css-gaps-1/"><cite>CSS Gap Decorations Module Level 1</cite></a>. Editor's Draft. URL: <a href="https://drafts.csswg.org/css-gaps-1/">https://drafts.csswg.org/css-gaps-1/</a>
    <dt id="biblio-css-pseudo-4">[CSS-PSEUDO-4]
    <dd>Daniel Glazman; Elika Etemad; Alan Stearns. <a href="https://drafts.csswg.org/css-pseudo-4/"><cite>CSS Pseudo-Elements Module Level 4</cite></a>. URL: <a href="https://drafts.csswg.org/css-pseudo-4/">https://drafts.csswg.org/css-pseudo-4/</a>
    <dt id="biblio-css-scrollbars-1">[CSS-SCROLLBARS-1]
@@ -2402,25 +2406,27 @@ being unreadable when used with the <em>actual</em> system colors.</p>
    <dd>Bert Bos; et al. <a href="https://drafts.csswg.org/css2/"><cite>Cascading Style Sheets Level 2 Revision 1 (CSS 2.1) Specification</cite></a>. URL: <a href="https://drafts.csswg.org/css2/">https://drafts.csswg.org/css2/</a>
    <dt id="biblio-cssom-1">[CSSOM-1]
    <dd>Daniel Glazman; Emilio Cobos Álvarez. <a href="https://drafts.csswg.org/cssom/"><cite>CSS Object Model (CSSOM)</cite></a>. URL: <a href="https://drafts.csswg.org/cssom/">https://drafts.csswg.org/cssom/</a>
-   <dt id="biblio-fill-stroke-3">[FILL-STROKE-3]
-   <dd>Elika Etemad; Tab Atkins Jr.. <a href="https://drafts.fxtf.org/fill-stroke/"><cite>CSS Fill and Stroke Module Level 3</cite></a>. URL: <a href="https://drafts.fxtf.org/fill-stroke/">https://drafts.fxtf.org/fill-stroke/</a>
-   <dt id="biblio-filter-effects-1">[FILTER-EFFECTS-1]
-   <dd>Dirk Schulze; Dean Jackson. <a href="https://drafts.fxtf.org/filter-effects-1/"><cite>Filter Effects Module Level 1</cite></a>. URL: <a href="https://drafts.fxtf.org/filter-effects-1/">https://drafts.fxtf.org/filter-effects-1/</a>
    <dt id="biblio-html">[HTML]
    <dd>Anne van Kesteren; et al. <a href="https://html.spec.whatwg.org/multipage/"><cite>HTML Standard</cite></a>. Living Standard. URL: <a href="https://html.spec.whatwg.org/multipage/">https://html.spec.whatwg.org/multipage/</a>
    <dt id="biblio-mediaqueries-5">[MEDIAQUERIES-5]
    <dd>Dean Jackson; et al. <a href="https://drafts.csswg.org/mediaqueries-5/"><cite>Media Queries Level 5</cite></a>. URL: <a href="https://drafts.csswg.org/mediaqueries-5/">https://drafts.csswg.org/mediaqueries-5/</a>
    <dt id="biblio-rfc2119">[RFC2119]
    <dd>S. Bradner. <a href="https://datatracker.ietf.org/doc/html/rfc2119"><cite>Key words for use in RFCs to Indicate Requirement Levels</cite></a>. March 1997. Best Current Practice. URL: <a href="https://datatracker.ietf.org/doc/html/rfc2119">https://datatracker.ietf.org/doc/html/rfc2119</a>
-   <dt id="biblio-svg2">[SVG2]
-   <dd>Amelia Bellamy-Royds; et al. <a href="https://svgwg.org/svg2-draft/"><cite>Scalable Vector Graphics (SVG) 2</cite></a>. URL: <a href="https://svgwg.org/svg2-draft/">https://svgwg.org/svg2-draft/</a>
   </dl>
   <h3 class="no-num no-ref heading settled" id="informative"><span class="content">Informative References</span><a class="self-link" href="#informative"></a></h3>
   <dl>
    <dt id="biblio-css-conditional-3">[CSS-CONDITIONAL-3]
    <dd>Chris Lilley; David Baron; Elika Etemad. <a href="https://drafts.csswg.org/css-conditional-3/"><cite>CSS Conditional Rules Module Level 3</cite></a>. URL: <a href="https://drafts.csswg.org/css-conditional-3/">https://drafts.csswg.org/css-conditional-3/</a>
+   <dt id="biblio-css-gaps-1">[CSS-GAPS-1]
+   <dd>Kevin Babbitt. <a href="https://drafts.csswg.org/css-gaps-1/"><cite>CSS Gap Decorations Module Level 1</cite></a>. URL: <a href="https://drafts.csswg.org/css-gaps-1/">https://drafts.csswg.org/css-gaps-1/</a>
    <dt id="biblio-css-typed-om-1">[CSS-TYPED-OM-1]
    <dd>Tab Atkins Jr.; François Remy. <a href="https://drafts.css-houdini.org/css-typed-om-1/"><cite>CSS Typed OM Level 1</cite></a>. URL: <a href="https://drafts.css-houdini.org/css-typed-om-1/">https://drafts.css-houdini.org/css-typed-om-1/</a>
+   <dt id="biblio-fill-stroke-3">[FILL-STROKE-3]
+   <dd>Elika Etemad; Tab Atkins Jr.. <a href="https://drafts.fxtf.org/fill-stroke/"><cite>CSS Fill and Stroke Module Level 3</cite></a>. URL: <a href="https://drafts.fxtf.org/fill-stroke/">https://drafts.fxtf.org/fill-stroke/</a>
+   <dt id="biblio-filter-effects-1">[FILTER-EFFECTS-1]
+   <dd>Dirk Schulze; Dean Jackson. <a href="https://drafts.fxtf.org/filter-effects-1/"><cite>Filter Effects Module Level 1</cite></a>. URL: <a href="https://drafts.fxtf.org/filter-effects-1/">https://drafts.fxtf.org/filter-effects-1/</a>
+   <dt id="biblio-svg2">[SVG2]
+   <dd>Amelia Bellamy-Royds; et al. <a href="https://svgwg.org/svg2-draft/"><cite>Scalable Vector Graphics (SVG) 2</cite></a>. URL: <a href="https://svgwg.org/svg2-draft/">https://svgwg.org/svg2-draft/</a>
    <dt id="biblio-wcag21">[WCAG21]
    <dd>Michael Cooper; et al. <a href="https://w3c.github.io/wcag/guidelines/"><cite>Web Content Accessibility Guidelines (WCAG) 2.1</cite></a>. URL: <a href="https://w3c.github.io/wcag/guidelines/">https://w3c.github.io/wcag/guidelines/</a>
   </dl>
@@ -2748,6 +2754,7 @@ let dfnPanelData = {
 "0b6c96fb": {"dfnID":"0b6c96fb","dfnText":"AccentColorText","external":true,"refSections":[{"refs":[{"id":"ref-for-valdef-color-accentcolortext"},{"id":"ref-for-valdef-color-accentcolortext\u2460"}],"title":"3. Forced Color Palettes"}],"url":"https://drafts.csswg.org/css-color-4/#valdef-color-accentcolortext"},
 "11fb4d5b": {"dfnID":"11fb4d5b","dfnText":"background-color","external":true,"refSections":[{"refs":[{"id":"ref-for-propdef-background-color"},{"id":"ref-for-propdef-background-color\u2460"},{"id":"ref-for-propdef-background-color\u2461"},{"id":"ref-for-propdef-background-color\u2462"},{"id":"ref-for-propdef-background-color\u2463"}],"title":"3.1. Properties Affected by Forced Colors Mode"}],"url":"https://drafts.csswg.org/css-backgrounds-3/#propdef-background-color"},
 "13dd6cae": {"dfnID":"13dd6cae","dfnText":"node navigable","external":true,"refSections":[{"refs":[{"id":"ref-for-node-navigable"}],"title":"5.1. Emulate Forced Colors Mode"}],"url":"https://html.spec.whatwg.org/multipage/document-sequences.html#node-navigable"},
+"1648b687": {"dfnID":"1648b687","dfnText":"rule-color","external":true,"refSections":[{"refs":[{"id":"ref-for-propdef-rule-color"}],"title":"3.1. Properties Affected by Forced Colors Mode"}],"url":"https://drafts.csswg.org/css-gaps-1/#propdef-rule-color"},
 "1ac78a6d": {"dfnID":"1ac78a6d","dfnText":"auto","external":true,"refSections":[{"refs":[{"id":"ref-for-valdef-accent-color-auto"}],"title":"3.1. Properties Affected by Forced Colors Mode"}],"url":"https://drafts.csswg.org/css-ui-4/#valdef-accent-color-auto"},
 "1ee7f091": {"dfnID":"1ee7f091","dfnText":"outline-color","external":true,"refSections":[{"refs":[{"id":"ref-for-propdef-outline-color"}],"title":"3.1. Properties Affected by Forced Colors Mode"}],"url":"https://drafts.csswg.org/css-ui-4/#propdef-outline-color"},
 "21ff7f1a": {"dfnID":"21ff7f1a","dfnText":"highlight","external":true,"refSections":[{"refs":[{"id":"ref-for-valdef-color-highlight"},{"id":"ref-for-valdef-color-highlight\u2460"}],"title":"3. Forced Color Palettes"}],"url":"https://drafts.csswg.org/css-color-4/#valdef-color-highlight"},
@@ -2805,7 +2812,6 @@ let dfnPanelData = {
 "cfdf030c": {"dfnID":"cfdf030c","dfnText":"color-mix()","external":true,"refSections":[{"refs":[{"id":"ref-for-funcdef-color-mix"}],"title":"3.1. Properties Affected by Forced Colors Mode"}],"url":"https://drafts.csswg.org/css-color-5/#funcdef-color-mix"},
 "color-scheme": {"dfnID":"color-scheme","dfnText":"color scheme","external":false,"refSections":[{"refs":[{"id":"ref-for-color-scheme"},{"id":"ref-for-color-scheme\u2460"}],"title":"1. Introduction"},{"refs":[{"id":"ref-for-color-scheme\u2461"},{"id":"ref-for-color-scheme\u2462"},{"id":"ref-for-color-scheme\u2463"},{"id":"ref-for-color-scheme\u2464"},{"id":"ref-for-color-scheme\u2465"}],"title":"2. Preferred Color Schemes"},{"refs":[{"id":"ref-for-color-scheme\u2466"},{"id":"ref-for-color-scheme\u2467"},{"id":"ref-for-color-scheme\u2468"},{"id":"ref-for-color-scheme\u2460\u24ea"},{"id":"ref-for-color-scheme\u2460\u2460"},{"id":"ref-for-color-scheme\u2460\u2461"},{"id":"ref-for-color-scheme\u2460\u2462"},{"id":"ref-for-color-scheme\u2460\u2463"},{"id":"ref-for-color-scheme\u2460\u2464"}],"title":"2.1. Opting Into a Preferred Color Scheme: the color-scheme property"},{"refs":[{"id":"ref-for-color-scheme\u2460\u2465"}],"title":"2.2. Effects of the Used Color Scheme"},{"refs":[{"id":"ref-for-color-scheme\u2460\u2466"},{"id":"ref-for-color-scheme\u2460\u2467"}],"title":"2.3. Overriding the Color Scheme"},{"refs":[{"id":"ref-for-color-scheme\u2460\u2468"}],"title":"6. Privacy Considerations"}],"url":"#color-scheme"},
 "d2332066": {"dfnID":"d2332066","dfnText":"dark","external":true,"refSections":[{"refs":[{"id":"ref-for-valdef-media-prefers-color-scheme-dark"}],"title":"2.3. Overriding the Color Scheme"}],"url":"https://drafts.csswg.org/mediaqueries-5/#valdef-media-prefers-color-scheme-dark"},
-"da1de473": {"dfnID":"da1de473","dfnText":"column-rule-color","external":true,"refSections":[{"refs":[{"id":"ref-for-propdef-column-rule-color"}],"title":"3.1. Properties Affected by Forced Colors Mode"}],"url":"https://drafts.csswg.org/css-gaps-1/#propdef-column-rule-color"},
 "dark-color-scheme": {"dfnID":"dark-color-scheme","dfnText":"dark color scheme","external":false,"refSections":[{"refs":[{"id":"ref-for-dark-color-scheme"}],"title":"2. Preferred Color Schemes"},{"refs":[{"id":"ref-for-dark-color-scheme\u2460"},{"id":"ref-for-dark-color-scheme\u2461"}],"title":"2.1. Opting Into a Preferred Color Scheme: the color-scheme property"},{"refs":[{"id":"ref-for-dark-color-scheme\u2462"},{"id":"ref-for-dark-color-scheme\u2463"},{"id":"ref-for-dark-color-scheme\u2464"},{"id":"ref-for-dark-color-scheme\u2465"},{"id":"ref-for-dark-color-scheme\u2466"},{"id":"ref-for-dark-color-scheme\u2467"}],"title":"2.3. Overriding the Color Scheme"}],"url":"#dark-color-scheme"},
 "de9e224f": {"dfnID":"de9e224f","dfnText":"stroke","external":true,"refSections":[{"refs":[{"id":"ref-for-propdef-stroke"}],"title":"3.1. Properties Affected by Forced Colors Mode"}],"url":"https://drafts.fxtf.org/fill-stroke-3/#propdef-stroke"},
 "determine-the-used-color-scheme": {"dfnID":"determine-the-used-color-scheme","dfnText":"determine the used color scheme","external":false,"refSections":[],"url":"#determine-the-used-color-scheme"},
@@ -2828,7 +2834,7 @@ let dfnPanelData = {
 "f831c141": {"dfnID":"f831c141","dfnText":"background-image","external":true,"refSections":[{"refs":[{"id":"ref-for-propdef-background-image"}],"title":"3.1. Properties Affected by Forced Colors Mode"}],"url":"https://drafts.csswg.org/css-backgrounds-3/#propdef-background-image"},
 "f94cfee7": {"dfnID":"f94cfee7","dfnText":"mark","external":true,"refSections":[{"refs":[{"id":"ref-for-valdef-color-mark"},{"id":"ref-for-valdef-color-mark\u2460"}],"title":"3. Forced Color Palettes"}],"url":"https://drafts.csswg.org/css-color-4/#valdef-color-mark"},
 "fe9654f1": {"dfnID":"fe9654f1","dfnText":"AccentColor","external":true,"refSections":[{"refs":[{"id":"ref-for-valdef-color-accentcolor"},{"id":"ref-for-valdef-color-accentcolor\u2460"}],"title":"3. Forced Color Palettes"}],"url":"https://drafts.csswg.org/css-color-4/#valdef-color-accentcolor"},
-"forced-colors-mode": {"dfnID":"forced-colors-mode","dfnText":"Forced colors mode","external":false,"refSections":[{"refs":[{"id":"ref-for-forced-colors-mode"},{"id":"ref-for-forced-colors-mode\u2460"}],"title":"1. Introduction"},{"refs":[{"id":"ref-for-forced-colors-mode\u2461"}],"title":"2.3. Overriding the Color Scheme"},{"refs":[{"id":"ref-for-forced-colors-mode\u2462"},{"id":"ref-for-forced-colors-mode\u2463"},{"id":"ref-for-forced-colors-mode\u2464"},{"id":"ref-for-forced-colors-mode\u2465"}],"title":"3. Forced Color Palettes"},{"refs":[{"id":"ref-for-forced-colors-mode\u2466"},{"id":"ref-for-forced-colors-mode\u2467"},{"id":"ref-for-forced-colors-mode\u2468"},{"id":"ref-for-forced-colors-mode\u2460\u24ea"}],"title":"3.1. Properties Affected by Forced Colors Mode"},{"refs":[{"id":"ref-for-forced-colors-mode\u2460\u2460"},{"id":"ref-for-forced-colors-mode\u2460\u2461"},{"id":"ref-for-forced-colors-mode\u2460\u2462"},{"id":"ref-for-forced-colors-mode\u2460\u2463"},{"id":"ref-for-forced-colors-mode\u2460\u2464"},{"id":"ref-for-forced-colors-mode\u2460\u2465"}],"title":"3.2. Opting Out of a Forced Color Palette: the forced-color-adjust property"},{"refs":[{"id":"ref-for-forced-colors-mode\u2460\u2466"}],"title":"6. Privacy Considerations"}],"url":"#forced-colors-mode"},
+"forced-colors-mode": {"dfnID":"forced-colors-mode","dfnText":"Forced colors mode","external":false,"refSections":[{"refs":[{"id":"ref-for-forced-colors-mode"},{"id":"ref-for-forced-colors-mode\u2460"}],"title":"1. Introduction"},{"refs":[{"id":"ref-for-forced-colors-mode\u2461"}],"title":"2.3. Overriding the Color Scheme"},{"refs":[{"id":"ref-for-forced-colors-mode\u2462"},{"id":"ref-for-forced-colors-mode\u2463"},{"id":"ref-for-forced-colors-mode\u2464"},{"id":"ref-for-forced-colors-mode\u2465"}],"title":"3. Forced Color Palettes"},{"refs":[{"id":"ref-for-forced-colors-mode\u2466"},{"id":"ref-for-forced-colors-mode\u2467"},{"id":"ref-for-forced-colors-mode\u2468"},{"id":"ref-for-forced-colors-mode\u2460\u24ea"},{"id":"ref-for-forced-colors-mode\u2460\u2460"}],"title":"3.1. Properties Affected by Forced Colors Mode"},{"refs":[{"id":"ref-for-forced-colors-mode\u2460\u2461"},{"id":"ref-for-forced-colors-mode\u2460\u2462"},{"id":"ref-for-forced-colors-mode\u2460\u2463"},{"id":"ref-for-forced-colors-mode\u2460\u2464"},{"id":"ref-for-forced-colors-mode\u2460\u2465"},{"id":"ref-for-forced-colors-mode\u2460\u2466"}],"title":"3.2. Opting Out of a Forced Color Palette: the forced-color-adjust property"},{"refs":[{"id":"ref-for-forced-colors-mode\u2460\u2467"}],"title":"6. Privacy Considerations"}],"url":"#forced-colors-mode"},
 "get-emulated-forced-colors-theme-data": {"dfnID":"get-emulated-forced-colors-theme-data","dfnText":"get emulated forced colors theme data","external":false,"refSections":[{"refs":[{"id":"ref-for-get-emulated-forced-colors-theme-data"}],"title":"3. Forced Color Palettes"}],"url":"#get-emulated-forced-colors-theme-data"},
 "light-color-scheme": {"dfnID":"light-color-scheme","dfnText":"light color scheme","external":false,"refSections":[{"refs":[{"id":"ref-for-light-color-scheme"}],"title":"2. Preferred Color Schemes"},{"refs":[{"id":"ref-for-light-color-scheme\u2460"},{"id":"ref-for-light-color-scheme\u2461"},{"id":"ref-for-light-color-scheme\u2462"}],"title":"2.1. Opting Into a Preferred Color Scheme: the color-scheme property"},{"refs":[{"id":"ref-for-light-color-scheme\u2463"}],"title":"2.3. Overriding the Color Scheme"}],"url":"#light-color-scheme"},
 "override-the-color-scheme": {"dfnID":"override-the-color-scheme","dfnText":"override the color scheme","external":false,"refSections":[{"refs":[{"id":"ref-for-override-the-color-scheme"},{"id":"ref-for-override-the-color-scheme\u2460"}],"title":"2.1. Opting Into a Preferred Color Scheme: the color-scheme property"}],"url":"#override-the-color-scheme"},
@@ -3357,7 +3363,7 @@ let refsData = {
 "https://drafts.csswg.org/css-color-5/#funcdef-color": {"displayText":"color()","export":true,"for_":[],"level":"5","normative":true,"shortname":"css-color","spec":"css-color-5","status":"current","text":"color()","type":"function","url":"https://drafts.csswg.org/css-color-5/#funcdef-color"},
 "https://drafts.csswg.org/css-color-5/#funcdef-color-mix": {"displayText":"color-mix()","export":true,"for_":[],"level":"5","normative":true,"shortname":"css-color","spec":"css-color-5","status":"current","text":"color-mix()","type":"function","url":"https://drafts.csswg.org/css-color-5/#funcdef-color-mix"},
 "https://drafts.csswg.org/css-conditional-3/#at-ruledef-media": {"displayText":"@media","export":true,"for_":[],"level":"3","normative":true,"shortname":"css-conditional","spec":"css-conditional-3","status":"current","text":"@media","type":"at-rule","url":"https://drafts.csswg.org/css-conditional-3/#at-ruledef-media"},
-"https://drafts.csswg.org/css-gaps-1/#propdef-column-rule-color": {"displayText":"column-rule-color","export":true,"for_":[],"level":"1","normative":true,"shortname":"css-gaps","spec":"css-gaps-1","status":"current","text":"column-rule-color","type":"property","url":"https://drafts.csswg.org/css-gaps-1/#propdef-column-rule-color"},
+"https://drafts.csswg.org/css-gaps-1/#propdef-rule-color": {"displayText":"rule-color","export":true,"for_":[],"level":"1","normative":true,"shortname":"css-gaps","spec":"css-gaps-1","status":"current","text":"rule-color","type":"property","url":"https://drafts.csswg.org/css-gaps-1/#propdef-rule-color"},
 "https://drafts.csswg.org/css-pseudo-4/#selectordef-selection": {"displayText":"::selection","export":true,"for_":[],"level":"4","normative":true,"shortname":"css-pseudo","spec":"css-pseudo-4","status":"current","text":"::selection","type":"selector","url":"https://drafts.csswg.org/css-pseudo-4/#selectordef-selection"},
 "https://drafts.csswg.org/css-scrollbars-1/#propdef-scrollbar-color": {"displayText":"scrollbar-color","export":true,"for_":[],"level":"1","normative":true,"shortname":"css-scrollbars","spec":"css-scrollbars-1","status":"current","text":"scrollbar-color","type":"property","url":"https://drafts.csswg.org/css-scrollbars-1/#propdef-scrollbar-color"},
 "https://drafts.csswg.org/css-scrollbars-1/#valdef-scrollbar-color-auto": {"displayText":"auto","export":true,"for_":["scrollbar-color"],"level":"1","normative":true,"shortname":"css-scrollbars","spec":"css-scrollbars-1","status":"current","text":"auto","type":"value","url":"https://drafts.csswg.org/css-scrollbars-1/#valdef-scrollbar-color-auto"},
