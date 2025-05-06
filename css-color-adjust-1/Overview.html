@@ -8,7 +8,7 @@
   <meta content="Bikeshed version 60c422380, updated Thu Feb 20 19:11:22 2025 -0800" name="generator">
   <link href="https://www.w3.org/TR/css-color-adjust-1/" rel="canonical">
   <link href="https://drafts.csswg.org/csslogo.ico" rel="icon">
-  <meta content="2559778e718da5383feff5da599ca8a57250a89c" name="revision">
+  <meta content="eb2ce0a7fcd6102bd16b00ec13f04a44b5d067a4" name="revision">
   <meta content="dark light" name="color-scheme">
   <link href="https://www.w3.org/StyleSheets/TR/2021/dark.css" media="(prefers-color-scheme: dark)" rel="stylesheet" type="text/css">
   <link href="style.css" rel="stylesheet">
@@ -1058,7 +1058,7 @@ dd:not(:last-child) > .wpt-tests-block:not([open]):last-child {
   <div class="head">
    <p data-fill-with="logo"><a class="logo" href="https://www.w3.org/"> <img alt="W3C" height="48" src="https://www.w3.org/StyleSheets/TR/2021/logos/W3C" width="72"> </a> </p>
    <h1 class="p-name no-ref" id="title">CSS Color Adjustment Module Level 1</h1>
-   <p id="w3c-state"><a href="https://www.w3.org/standards/types/#ED">Editor’s Draft</a>, <time class="dt-updated" datetime="2025-05-05">5 May 2025</time></p>
+   <p id="w3c-state"><a href="https://www.w3.org/standards/types/#ED">Editor’s Draft</a>, <time class="dt-updated" datetime="2025-05-06">6 May 2025</time></p>
    <details open>
     <summary>More details about this document</summary>
     <div data-fill-with="spec-metadata">
@@ -1688,13 +1688,15 @@ following color mappings:</p>
    <h3 class="heading settled" data-level="3.1" id="forced-colors-properties"><span class="secno">3.1. </span><span class="content">Properties Affected by Forced Colors Mode</span><a class="self-link" href="#forced-colors-properties"></a></h3>
    <p>When <a data-link-type="dfn" href="#forced-colors-mode" id="ref-for-forced-colors-mode⑦">forced colors mode</a> is active
 	and <a class="property css" data-link-type="property" href="#propdef-forced-color-adjust" id="ref-for-propdef-forced-color-adjust①">forced-color-adjust</a> is <a class="css" data-link-type="maybe" href="#valdef-forced-color-adjust-auto" id="ref-for-valdef-forced-color-adjust-auto">auto</a> (see below) on an element,
-	colors on the element are force-adjusted to the user’s preferred color palette.</p>
+	the <a class="production css" data-link-type="type" href="https://drafts.csswg.org/css-color-5/#typedef-color" id="ref-for-typedef-color">&lt;color></a> components of all properties on the element
+	are force-adjusted to the user’s preferred color palette.</p>
    <div class="note" role="note">
      Specifically, <a data-link-type="dfn" href="#forced-colors-mode" id="ref-for-forced-colors-mode⑧">forced colors mode</a> applies to the following color properties,
 		along with their shorthands.
 		This is the list of color properties existing at the time of writing,
 		but it may not be an exhaustive list as more properties get added over time: 
     <ul>
+     <li><a class="property css" data-link-type="property" href="https://drafts.csswg.org/css-ui-4/#propdef-accent-color" id="ref-for-propdef-accent-color">accent-color</a> 
      <li><a class="property css" data-link-type="property" href="https://drafts.csswg.org/css-backgrounds-3/#propdef-background-color" id="ref-for-propdef-background-color">background-color</a> 
      <li><a class="property css" data-link-type="property" href="https://drafts.csswg.org/css-backgrounds-3/#propdef-border-color" id="ref-for-propdef-border-color">border-color</a> 
      <li><a class="property css" data-link-type="property" href="https://drafts.csswg.org/css-ui-4/#propdef-caret-color" id="ref-for-propdef-caret-color">caret-color</a> 
@@ -1712,7 +1714,7 @@ following color mappings:</p>
      <li><a class="property css" data-link-type="property">-webkit-tap-highlight-color</a> 
     </ul>
    </div>
-   <p>For each relevant color property,
+   <p>For each <a class="production css" data-link-type="type" href="https://drafts.csswg.org/css-color-5/#typedef-color" id="ref-for-typedef-color①">&lt;color></a> component of a property,
 	if its <a data-link-type="dfn" href="https://drafts.csswg.org/css-cascade-5/#computed-value" id="ref-for-computed-value">computed value</a> is a color other than a <a data-link-type="dfn">system color</a>,
 	its <a data-link-type="dfn" href="https://drafts.csswg.org/css-cascade-5/#used-value" id="ref-for-used-value">used value</a> is instead forced to a <span>system color</span> as follows:</p>
    <ul>
@@ -1756,9 +1758,9 @@ are likewise UA-determined.</p>
     <li data-md>
      <p><a class="property css" data-link-type="property" href="#propdef-color-scheme" id="ref-for-propdef-color-scheme①④">color-scheme</a> computes to <span class="css">light dark</span></p>
     <li data-md>
-     <p><a class="property css" data-link-type="property" href="https://drafts.csswg.org/css-scrollbars-1/#propdef-scrollbar-color" id="ref-for-propdef-scrollbar-color①">scrollbar-color</a> computed to <a class="css" data-link-type="maybe" href="https://drafts.csswg.org/css-scrollbars-1/#valdef-scrollbar-color-auto" id="ref-for-valdef-scrollbar-color-auto">auto</a></p>
+     <p><a class="property css" data-link-type="property" href="https://drafts.csswg.org/css-scrollbars-1/#propdef-scrollbar-color" id="ref-for-propdef-scrollbar-color①">scrollbar-color</a> computes to <a class="css" data-link-type="maybe" href="https://drafts.csswg.org/css-scrollbars-1/#valdef-scrollbar-color-auto" id="ref-for-valdef-scrollbar-color-auto">auto</a></p>
     <li data-md>
-     <p><a class="property css" data-link-type="property" href="https://drafts.csswg.org/css-ui-4/#propdef-accent-color" id="ref-for-propdef-accent-color">accent-color</a> computed to <a class="css" data-link-type="maybe" href="https://drafts.csswg.org/css-ui-4/#valdef-accent-color-auto" id="ref-for-valdef-accent-color-auto">auto</a></p>
+     <p><a class="property css" data-link-type="property" href="https://drafts.csswg.org/css-ui-4/#propdef-accent-color" id="ref-for-propdef-accent-color①">accent-color</a> computes to <a class="css" data-link-type="maybe" href="https://drafts.csswg.org/css-ui-4/#valdef-accent-color-auto" id="ref-for-valdef-accent-color-auto">auto</a></p>
    </ul>
    <p>UAs may further tweak these <a data-link-type="dfn" href="#forced-colors-mode" id="ref-for-forced-colors-mode①⓪">forced colors mode</a> heuristics
 	to provide better user experience.</p>
@@ -2271,6 +2273,7 @@ being unreadable when used with the <em>actual</em> system colors.</p>
    <li>
     <a data-link-type="biblio">[CSS-COLOR-5]</a> defines the following terms:
     <ul>
+     <li><span class="dfn-paneled" id="1548047a">&lt;color></span>
      <li><span class="dfn-paneled" id="03eee7b4">color()</span>
      <li><span class="dfn-paneled" id="cfdf030c">color-mix()</span>
     </ul>
@@ -2754,6 +2757,7 @@ let dfnPanelData = {
 "0b6c96fb": {"dfnID":"0b6c96fb","dfnText":"AccentColorText","external":true,"refSections":[{"refs":[{"id":"ref-for-valdef-color-accentcolortext"},{"id":"ref-for-valdef-color-accentcolortext\u2460"}],"title":"3. Forced Color Palettes"}],"url":"https://drafts.csswg.org/css-color-4/#valdef-color-accentcolortext"},
 "11fb4d5b": {"dfnID":"11fb4d5b","dfnText":"background-color","external":true,"refSections":[{"refs":[{"id":"ref-for-propdef-background-color"},{"id":"ref-for-propdef-background-color\u2460"},{"id":"ref-for-propdef-background-color\u2461"},{"id":"ref-for-propdef-background-color\u2462"},{"id":"ref-for-propdef-background-color\u2463"}],"title":"3.1. Properties Affected by Forced Colors Mode"}],"url":"https://drafts.csswg.org/css-backgrounds-3/#propdef-background-color"},
 "13dd6cae": {"dfnID":"13dd6cae","dfnText":"node navigable","external":true,"refSections":[{"refs":[{"id":"ref-for-node-navigable"}],"title":"5.1. Emulate Forced Colors Mode"}],"url":"https://html.spec.whatwg.org/multipage/document-sequences.html#node-navigable"},
+"1548047a": {"dfnID":"1548047a","dfnText":"<color>","external":true,"refSections":[{"refs":[{"id":"ref-for-typedef-color"},{"id":"ref-for-typedef-color\u2460"}],"title":"3.1. Properties Affected by Forced Colors Mode"}],"url":"https://drafts.csswg.org/css-color-5/#typedef-color"},
 "1648b687": {"dfnID":"1648b687","dfnText":"rule-color","external":true,"refSections":[{"refs":[{"id":"ref-for-propdef-rule-color"}],"title":"3.1. Properties Affected by Forced Colors Mode"}],"url":"https://drafts.csswg.org/css-gaps-1/#propdef-rule-color"},
 "1ac78a6d": {"dfnID":"1ac78a6d","dfnText":"auto","external":true,"refSections":[{"refs":[{"id":"ref-for-valdef-accent-color-auto"}],"title":"3.1. Properties Affected by Forced Colors Mode"}],"url":"https://drafts.csswg.org/css-ui-4/#valdef-accent-color-auto"},
 "1ee7f091": {"dfnID":"1ee7f091","dfnText":"outline-color","external":true,"refSections":[{"refs":[{"id":"ref-for-propdef-outline-color"}],"title":"3.1. Properties Affected by Forced Colors Mode"}],"url":"https://drafts.csswg.org/css-ui-4/#propdef-outline-color"},
@@ -2792,7 +2796,7 @@ let dfnPanelData = {
 "890a8358": {"dfnID":"890a8358","dfnText":"fill","external":true,"refSections":[{"refs":[{"id":"ref-for-propdef-fill"}],"title":"3.1. Properties Affected by Forced Colors Mode"}],"url":"https://drafts.fxtf.org/fill-stroke-3/#propdef-fill"},
 "8bcc6e67": {"dfnID":"8bcc6e67","dfnText":"::selection","external":true,"refSections":[{"refs":[{"id":"ref-for-selectordef-selection"}],"title":"3. Forced Color Palettes"}],"url":"https://drafts.csswg.org/css-pseudo-4/#selectordef-selection"},
 "8e0f26cc": {"dfnID":"8e0f26cc","dfnText":"caret-color","external":true,"refSections":[{"refs":[{"id":"ref-for-propdef-caret-color"}],"title":"3.1. Properties Affected by Forced Colors Mode"}],"url":"https://drafts.csswg.org/css-ui-4/#propdef-caret-color"},
-"906edadd": {"dfnID":"906edadd","dfnText":"accent-color","external":true,"refSections":[{"refs":[{"id":"ref-for-propdef-accent-color"}],"title":"3.1. Properties Affected by Forced Colors Mode"}],"url":"https://drafts.csswg.org/css-ui-4/#propdef-accent-color"},
+"906edadd": {"dfnID":"906edadd","dfnText":"accent-color","external":true,"refSections":[{"refs":[{"id":"ref-for-propdef-accent-color"},{"id":"ref-for-propdef-accent-color\u2460"}],"title":"3.1. Properties Affected by Forced Colors Mode"}],"url":"https://drafts.csswg.org/css-ui-4/#propdef-accent-color"},
 "9a333d95": {"dfnID":"9a333d95","dfnText":"field","external":true,"refSections":[{"refs":[{"id":"ref-for-valdef-color-field"},{"id":"ref-for-valdef-color-field\u2460"}],"title":"3. Forced Color Palettes"}],"url":"https://drafts.csswg.org/css-color-4/#valdef-color-field"},
 "9c4a432b": {"dfnID":"9c4a432b","dfnText":"HighlightText","external":true,"refSections":[{"refs":[{"id":"ref-for-valdef-color-highlighttext"},{"id":"ref-for-valdef-color-highlighttext\u2460"}],"title":"3. Forced Color Palettes"}],"url":"https://drafts.csswg.org/css-color-4/#valdef-color-highlighttext"},
 "9cd25054": {"dfnID":"9cd25054","dfnText":"computed value","external":true,"refSections":[{"refs":[{"id":"ref-for-computed-value"},{"id":"ref-for-computed-value\u2460"},{"id":"ref-for-computed-value\u2461"}],"title":"3.1. Properties Affected by Forced Colors Mode"}],"url":"https://drafts.csswg.org/css-cascade-5/#computed-value"},
@@ -3240,6 +3244,24 @@ function genLinkingSyntaxes(dfn) {
 }
 }
 </script>
+<script>/* Boilerplate: script-link-titles */
+"use strict";
+{
+let linkTitleData = {
+"https://drafts.csswg.org/css-color-5/#typedef-color": "Expands to: <alpha-value> | aliceblue | antiquewhite | aqua | aquamarine | azure | beige | bisque | black | blanchedalmond | blue | blueviolet | brown | burlywood | cadetblue | chartreuse | chocolate | coral | cornflowerblue | cornsilk | crimson | currentcolor | cyan | darkblue | darkcyan | darkgoldenrod | darkgray | darkgreen | darkgrey | darkkhaki | darkmagenta | darkolivegreen | darkorange | darkorchid | darkred | darksalmon | darkseagreen | darkslateblue | darkslategray | darkslategrey | darkturquoise | darkviolet | deeppink | deepskyblue | dimgray | dimgrey | dodgerblue | firebrick | floralwhite | forestgreen | fuchsia | gainsboro | ghostwhite | gold | goldenrod | gray | green | greenyellow | grey | honeydew | hotpink | indianred | indigo | ivory | khaki | lavender | lavenderblush | lawngreen | lemonchiffon | lightblue | lightcoral | lightcyan | lightgoldenrodyellow | lightgray | lightgreen | lightgrey | lightpink | lightsalmon | lightseagreen | lightskyblue | lightslategray | lightslategrey | lightsteelblue | lightyellow | lime | limegreen | linen | magenta | maroon | mediumaquamarine | mediumblue | mediumorchid | mediumpurple | mediumseagreen | mediumslateblue | mediumspringgreen | mediumturquoise | mediumvioletred | midnightblue | mintcream | mistyrose | moccasin | navajowhite | navy | none | oldlace | olive | olivedrab | orange | orangered | orchid | palegoldenrod | palegreen | paleturquoise | palevioletred | papayawhip | peachpuff | peru | pink | plum | powderblue | purple | rebeccapurple | red | rosybrown | royalblue | saddlebrown | salmon | sandybrown | seagreen | seashell | sienna | silver | skyblue | slateblue | slategray | slategrey | snow | springgreen | steelblue | tan | teal | thistle | tomato | transparent | turquoise | violet | wheat | white | whitesmoke | yellow | yellowgreen",
+};
+
+function setTypeTitles() {
+	for(let el of document.querySelectorAll("a[href]")) {
+		if(el.href in linkTitleData && !el.hasAttribute("title")) {
+			el.setAttribute("title", linkTitleData[el.href]);
+		}
+	}
+}
+
+document.addEventListener("DOMContentLoaded", setTypeTitles);
+}
+</script>
 <script>/* Boilerplate: script-position-annos */
 "use strict";
 {
@@ -3362,6 +3384,7 @@ let refsData = {
 "https://drafts.csswg.org/css-color-4/#valdef-color-visitedtext": {"displayText":"VisitedText","export":true,"for_":["<color>","<system-color>"],"level":"4","normative":true,"shortname":"css-color","spec":"css-color-4","status":"current","text":"visitedtext","type":"value","url":"https://drafts.csswg.org/css-color-4/#valdef-color-visitedtext"},
 "https://drafts.csswg.org/css-color-5/#funcdef-color": {"displayText":"color()","export":true,"for_":[],"level":"5","normative":true,"shortname":"css-color","spec":"css-color-5","status":"current","text":"color()","type":"function","url":"https://drafts.csswg.org/css-color-5/#funcdef-color"},
 "https://drafts.csswg.org/css-color-5/#funcdef-color-mix": {"displayText":"color-mix()","export":true,"for_":[],"level":"5","normative":true,"shortname":"css-color","spec":"css-color-5","status":"current","text":"color-mix()","type":"function","url":"https://drafts.csswg.org/css-color-5/#funcdef-color-mix"},
+"https://drafts.csswg.org/css-color-5/#typedef-color": {"displayText":"<color>","export":true,"for_":[],"level":"5","normative":true,"shortname":"css-color","spec":"css-color-5","status":"current","text":"<color>","type":"type","url":"https://drafts.csswg.org/css-color-5/#typedef-color"},
 "https://drafts.csswg.org/css-conditional-3/#at-ruledef-media": {"displayText":"@media","export":true,"for_":[],"level":"3","normative":true,"shortname":"css-conditional","spec":"css-conditional-3","status":"current","text":"@media","type":"at-rule","url":"https://drafts.csswg.org/css-conditional-3/#at-ruledef-media"},
 "https://drafts.csswg.org/css-gaps-1/#propdef-rule-color": {"displayText":"rule-color","export":true,"for_":[],"level":"1","normative":true,"shortname":"css-gaps","spec":"css-gaps-1","status":"current","text":"rule-color","type":"property","url":"https://drafts.csswg.org/css-gaps-1/#propdef-rule-color"},
 "https://drafts.csswg.org/css-pseudo-4/#selectordef-selection": {"displayText":"::selection","export":true,"for_":[],"level":"4","normative":true,"shortname":"css-pseudo","spec":"css-pseudo-4","status":"current","text":"::selection","type":"selector","url":"https://drafts.csswg.org/css-pseudo-4/#selectordef-selection"},
