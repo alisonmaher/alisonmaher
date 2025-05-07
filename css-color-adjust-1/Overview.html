@@ -8,7 +8,7 @@
   <meta content="Bikeshed version 60c422380, updated Thu Feb 20 19:11:22 2025 -0800" name="generator">
   <link href="https://www.w3.org/TR/css-color-adjust-1/" rel="canonical">
   <link href="https://drafts.csswg.org/csslogo.ico" rel="icon">
-  <meta content="eb2ce0a7fcd6102bd16b00ec13f04a44b5d067a4" name="revision">
+  <meta content="5af57996e99da1869f85346c3139f824e8ff4e31" name="revision">
   <meta content="dark light" name="color-scheme">
   <link href="https://www.w3.org/StyleSheets/TR/2021/dark.css" media="(prefers-color-scheme: dark)" rel="stylesheet" type="text/css">
   <link href="style.css" rel="stylesheet">
@@ -1058,7 +1058,7 @@ dd:not(:last-child) > .wpt-tests-block:not([open]):last-child {
   <div class="head">
    <p data-fill-with="logo"><a class="logo" href="https://www.w3.org/"> <img alt="W3C" height="48" src="https://www.w3.org/StyleSheets/TR/2021/logos/W3C" width="72"> </a> </p>
    <h1 class="p-name no-ref" id="title">CSS Color Adjustment Module Level 1</h1>
-   <p id="w3c-state"><a href="https://www.w3.org/standards/types/#ED">Editor’s Draft</a>, <time class="dt-updated" datetime="2025-05-06">6 May 2025</time></p>
+   <p id="w3c-state"><a href="https://www.w3.org/standards/types/#ED">Editor’s Draft</a>, <time class="dt-updated" datetime="2025-05-07">7 May 2025</time></p>
    <details open>
     <summary>More details about this document</summary>
     <div data-fill-with="spec-metadata">
@@ -1196,7 +1196,7 @@ which controls whether the browser is allowed
 to automatically adjust colors to the user’s assumed performance preferences,
 such as suppressing background colors when printing to save ink.</p>
    </ul>
-   <p>Together with the <a class="property css" data-link-type="property">prefers-color-scheme</a>, <span class="property">prefers-contrast</span>, and <span class="property">forced-colors</span> <a data-link-type="dfn" href="https://drafts.csswg.org/mediaqueries-5/#media-query" id="ref-for-media-query">media queries</a> <a data-link-type="biblio" href="#biblio-mediaqueries-5" title="Media Queries Level 5">[MEDIAQUERIES-5]</a>,
+   <p>Together with the <a class="css" data-link-type="descriptor" href="https://drafts.csswg.org/mediaqueries-5/#descdef-media-prefers-color-scheme" id="ref-for-descdef-media-prefers-color-scheme">prefers-color-scheme</a>, <a class="css" data-link-type="descriptor" href="https://drafts.csswg.org/mediaqueries-5/#descdef-media-prefers-contrast" id="ref-for-descdef-media-prefers-contrast">prefers-contrast</a>, and <a class="css" data-link-type="descriptor" href="https://drafts.csswg.org/mediaqueries-5/#descdef-media-forced-colors" id="ref-for-descdef-media-forced-colors">forced-colors</a> <a data-link-type="dfn" href="https://drafts.csswg.org/mediaqueries-5/#media-query" id="ref-for-media-query">media queries</a> <a data-link-type="biblio" href="#biblio-mediaqueries-5" title="Media Queries Level 5">[MEDIAQUERIES-5]</a>,
 	this module allows color scheme negotiation
 	between the author and the user.</p>
    <h3 class="heading settled" data-level="1.1" id="values"><span class="secno">1.1. </span><span class="content">Value Definitions</span><a class="self-link" href="#values"></a></h3>
@@ -1237,13 +1237,13 @@ with dark background colors and light foreground/text colors.</p>
 	it might be necessary to set both foreground and background colors together
 	to ensure legibility <a data-link-type="biblio" href="#biblio-wcag21" title="Web Content Accessibility Guidelines (WCAG) 2.1">[WCAG21]</a>.</strong></p>
    <p>To enable pages to adapt to the user’s <a data-link-type="dfn" href="#preferred-color-scheme" id="ref-for-preferred-color-scheme">preferred color scheme</a>,
-	user agents will match the <a class="property" data-link-type="propdesc" href="https://drafts.csswg.org/mediaqueries-5/#descdef-media-prefers-color-scheme" id="ref-for-descdef-media-prefers-color-scheme">prefers-color-scheme</a> media query
+	user agents will match the <a class="property" data-link-type="propdesc" href="https://drafts.csswg.org/mediaqueries-5/#descdef-media-prefers-color-scheme" id="ref-for-descdef-media-prefers-color-scheme①">prefers-color-scheme</a> media query
 	to the user’s <span id="ref-for-preferred-color-scheme①">preferred color scheme</span>. <a data-link-type="biblio" href="#biblio-mediaqueries-5" title="Media Queries Level 5">[MEDIAQUERIES-5]</a> Complementing this, the <a class="property css" data-link-type="property" href="#propdef-color-scheme" id="ref-for-propdef-color-scheme①">color-scheme</a> property defined here
 	lets the author indicate appropriate <a data-link-type="dfn" href="#color-scheme" id="ref-for-color-scheme④">color schemes</a> for UA-provided UI and colors in the page.</p>
    <p>User agents <em>may</em> support additional <a data-link-type="dfn" href="#color-scheme" id="ref-for-color-scheme⑤">color schemes</a>,
 	however CSS does not support negotiation of additional <span id="ref-for-color-scheme⑥">color schemes</span>:
 	user agents should pursue standardization of these schemes,
-	so that <a class="property" data-link-type="propdesc" href="https://drafts.csswg.org/mediaqueries-5/#descdef-media-prefers-color-scheme" id="ref-for-descdef-media-prefers-color-scheme①">prefers-color-scheme</a> and <a class="property css" data-link-type="property" href="#propdef-color-scheme" id="ref-for-propdef-color-scheme②">color-scheme</a> can reflect the additional values.</p>
+	so that <a class="property" data-link-type="propdesc" href="https://drafts.csswg.org/mediaqueries-5/#descdef-media-prefers-color-scheme" id="ref-for-descdef-media-prefers-color-scheme②">prefers-color-scheme</a> and <a class="property css" data-link-type="property" href="#propdef-color-scheme" id="ref-for-propdef-color-scheme②">color-scheme</a> can reflect the additional values.</p>
    <h3 class="heading settled" data-level="2.1" id="color-scheme-prop"><span class="secno">2.1. </span><span class="content">Opting Into a Preferred Color Scheme: the <a class="property css" data-link-type="property" href="#propdef-color-scheme" id="ref-for-propdef-color-scheme③">color-scheme</a> property</span><a class="self-link" href="#color-scheme-prop"></a></h3>
    <table class="def propdef" data-link-for-hint="color-scheme">
     <tbody>
@@ -1301,7 +1301,7 @@ with dark background colors and light foreground/text colors.</p>
      <li class="wpt-test"><a class="wpt-name" href="https://wpt.fyi/results/css/css-color-adjust/rendering/dark-color-scheme/color-scheme-visited-link-initial.html" title="css/css-color-adjust/rendering/dark-color-scheme/color-scheme-visited-link-initial.html">color-scheme-visited-link-initial.html</a> <a class="wpt-live" href="http://wpt.live/css/css-color-adjust/rendering/dark-color-scheme/color-scheme-visited-link-initial.html"><small>(live test)</small></a> <a class="wpt-source" href="https://github.com/web-platform-tests/wpt/blob/master/css/css-color-adjust/rendering/dark-color-scheme/color-scheme-visited-link-initial.html"><small>(source)</small></a>
     </ul>
    </details>
-   <p>While the <a class="property css" data-link-type="property">prefers-color-scheme</a> media feature
+   <p>While the <a class="css" data-link-type="descriptor" href="https://drafts.csswg.org/mediaqueries-5/#descdef-media-prefers-color-scheme" id="ref-for-descdef-media-prefers-color-scheme③">prefers-color-scheme</a> media feature
 	allows an author to adapt the page’s colors to the user’s preferred color scheme,
 	many parts of the page are not under the author’s control
 	(such as form controls, scrollbars, etc).
@@ -1358,7 +1358,7 @@ are not valid <a class="production css" data-link-type="type" href="https://draf
     <ol>
      <li data-md>
       <p>If the user’s <a data-link-type="dfn" href="#preferred-color-scheme" id="ref-for-preferred-color-scheme②">preferred color scheme</a>,
-as indicated by the <a class="property css" data-link-type="property">prefers-color-scheme</a> media feature,
+as indicated by the <a class="css" data-link-type="descriptor" href="https://drafts.csswg.org/mediaqueries-5/#descdef-media-prefers-color-scheme" id="ref-for-descdef-media-prefers-color-scheme④">prefers-color-scheme</a> media feature,
 is present among the listed <a data-link-type="dfn" href="#color-scheme" id="ref-for-color-scheme①①">color schemes</a>,
 and is supported by the user agent,
 that’s the element’s <a data-link-type="dfn" href="#used-color-scheme" id="ref-for-used-color-scheme">used color scheme</a>.</p>
@@ -1385,7 +1385,7 @@ the <a data-link-type="dfn" href="#used-color-scheme" id="ref-for-used-color-sch
 	to indicate a required <span id="ref-for-color-scheme①⑤">color scheme</span> is still not guaranteed to have any effect on the rendering of the element.</p>
    <div class="example" id="example-2227d120">
     <a class="self-link" href="#example-2227d120"></a> A page that responds to user preferences for light or dark display
-		by using the <a class="property css" data-link-type="property">prefers-color-scheme</a> media feature
+		by using the <a class="css" data-link-type="descriptor" href="https://drafts.csswg.org/mediaqueries-5/#descdef-media-prefers-color-scheme" id="ref-for-descdef-media-prefers-color-scheme⑤">prefers-color-scheme</a> media feature
 		to alter the colors it uses
 		can easily opt the browser-controlled UI
 		(scrollbars, inputs, etc)
@@ -1500,7 +1500,7 @@ to conform to either a <a data-link-type="dfn" href="#dark-color-scheme" id="ref
 	and have indicated so using the <a class="property css" data-link-type="property" href="#propdef-color-scheme" id="ref-for-propdef-color-scheme①①">color-scheme</a> property
 	or <code><a data-link-type="attr-value" href="https://html.spec.whatwg.org/multipage/semantics.html#meta-color-scheme" id="ref-for-meta-color-scheme">color-scheme</a></code> <code><a data-link-type="element" href="https://html.spec.whatwg.org/multipage/semantics.html#meta" id="ref-for-meta①">meta</a></code> name,
 	this has no effect other than reporting a <a class="css" data-link-type="maybe" href="https://drafts.csswg.org/mediaqueries-5/#valdef-media-prefers-color-scheme-dark" id="ref-for-valdef-media-prefers-color-scheme-dark">dark</a> value
-	for the <a class="property css" data-link-type="property">prefers-color-scheme</a> <a data-link-type="dfn" href="https://drafts.csswg.org/mediaqueries-5/#media-query" id="ref-for-media-query①">media query</a> and selecting a <span id="ref-for-dark-color-scheme⑥">dark</span> <a data-link-type="dfn" href="#used-color-scheme" id="ref-for-used-color-scheme⑨">used color scheme</a>.</p>
+	for the <a class="css" data-link-type="descriptor" href="https://drafts.csswg.org/mediaqueries-5/#descdef-media-prefers-color-scheme" id="ref-for-descdef-media-prefers-color-scheme⑥">prefers-color-scheme</a> <a data-link-type="dfn" href="https://drafts.csswg.org/mediaqueries-5/#media-query" id="ref-for-media-query①">media query</a> and selecting a <span id="ref-for-dark-color-scheme⑥">dark</span> <a data-link-type="dfn" href="#used-color-scheme" id="ref-for-used-color-scheme⑨">used color scheme</a>.</p>
     <p>But for pages that do not explicitly support a <a data-link-type="dfn" href="#dark-color-scheme" id="ref-for-dark-color-scheme⑦">dark</a> color scheme,
 	and have not explicitly forbidden this auto-adjustment
 	by specifying <a class="css" data-link-type="propdesc" href="#propdef-color-scheme" id="ref-for-propdef-color-scheme①②">color-scheme: only light</a>,
@@ -1526,7 +1526,7 @@ to conform to either a <a data-link-type="dfn" href="#dark-color-scheme" id="ref
 	It may also enforce a “backplate” underneath text
 	(similar to the way backgrounds are painted on the <a class="css" data-link-type="maybe" href="https://drafts.csswg.org/css-pseudo-4/#selectordef-selection" id="ref-for-selectordef-selection">::selection</a> pseudo-element)
 	to ensure adequate contrast for readability.</p>
-   <p>To enable pages to adapt to <a data-link-type="dfn" href="#forced-colors-mode" id="ref-for-forced-colors-mode④">forced colors mode</a> user agents will match the <a class="property" data-link-type="propdesc" href="https://drafts.csswg.org/mediaqueries-5/#descdef-media-forced-colors" id="ref-for-descdef-media-forced-colors">forced-colors</a> media query
+   <p>To enable pages to adapt to <a data-link-type="dfn" href="#forced-colors-mode" id="ref-for-forced-colors-mode④">forced colors mode</a> user agents will match the <a class="property" data-link-type="propdesc" href="https://drafts.csswg.org/mediaqueries-5/#descdef-media-forced-colors" id="ref-for-descdef-media-forced-colors①">forced-colors</a> media query
 	and must provide the required color palette
 	through the CSS system colors
 	(see <a data-link-type="biblio" href="#biblio-css-color-4" title="CSS Color Module Level 4">[CSS-COLOR-4]</a>).
@@ -1535,7 +1535,7 @@ to conform to either a <a data-link-type="dfn" href="#dark-color-scheme" id="ref
 	that the <a class="css" data-link-type="maybe" href="https://drafts.csswg.org/css-color-4/#valdef-color-canvas" id="ref-for-valdef-color-canvas①">Canvas</a> color
 	is clearly either dark (L &lt; 33%) or light (L > 67%),
 	then it must match the appropriate value
-	of the <a class="property" data-link-type="propdesc" href="https://drafts.csswg.org/mediaqueries-5/#descdef-media-prefers-color-scheme" id="ref-for-descdef-media-prefers-color-scheme②">prefers-color-scheme</a> media query
+	of the <a class="property" data-link-type="propdesc" href="https://drafts.csswg.org/mediaqueries-5/#descdef-media-prefers-color-scheme" id="ref-for-descdef-media-prefers-color-scheme⑦">prefers-color-scheme</a> media query
 	and express a corresponding user preference for <a class="property css" data-link-type="property" href="#propdef-color-scheme" id="ref-for-propdef-color-scheme①③">color-scheme</a>.
 	This will allow pages that support light/dark color schemes
 	to automatically adjust to more closely match
@@ -1761,6 +1761,9 @@ are likewise UA-determined.</p>
      <p><a class="property css" data-link-type="property" href="https://drafts.csswg.org/css-scrollbars-1/#propdef-scrollbar-color" id="ref-for-propdef-scrollbar-color①">scrollbar-color</a> computes to <a class="css" data-link-type="maybe" href="https://drafts.csswg.org/css-scrollbars-1/#valdef-scrollbar-color-auto" id="ref-for-valdef-scrollbar-color-auto">auto</a></p>
     <li data-md>
      <p><a class="property css" data-link-type="property" href="https://drafts.csswg.org/css-ui-4/#propdef-accent-color" id="ref-for-propdef-accent-color①">accent-color</a> computes to <a class="css" data-link-type="maybe" href="https://drafts.csswg.org/css-ui-4/#valdef-accent-color-auto" id="ref-for-valdef-accent-color-auto">auto</a></p>
+    <li data-md>
+     <p>If <a class="property css" data-link-type="property" href="https://drafts.csswg.org/css-fonts-4/#propdef-font-variant-emoji" id="ref-for-propdef-font-variant-emoji">font-variant-emoji</a> computes to <a class="css" data-link-type="maybe" href="https://drafts.csswg.org/css-fonts-4/#valdef-font-variant-emoji-normal" id="ref-for-valdef-font-variant-emoji-normal">normal</a> or <a class="css" data-link-type="maybe" href="https://drafts.csswg.org/css-fonts-4/#valdef-font-variant-emoji-unicode" id="ref-for-valdef-font-variant-emoji-unicode">unicode</a>,
+UAs should force any emoji on the page to its monochrome variant, if available.</p>
    </ul>
    <p>UAs may further tweak these <a data-link-type="dfn" href="#forced-colors-mode" id="ref-for-forced-colors-mode①⓪">forced colors mode</a> heuristics
 	to provide better user experience.</p>
@@ -2283,6 +2286,13 @@ being unreadable when used with the <em>actual</em> system colors.</p>
      <li><span class="dfn-paneled" id="5f1b7f60">@media</span>
     </ul>
    <li>
+    <a data-link-type="biblio">[CSS-FONTS-4]</a> defines the following terms:
+    <ul>
+     <li><span class="dfn-paneled" id="d4611c95">font-variant-emoji</span>
+     <li><span class="dfn-paneled" id="53f46bbb">normal</span>
+     <li><span class="dfn-paneled" id="b9f31842">unicode</span>
+    </ul>
+   <li>
     <a data-link-type="biblio">[CSS-GAPS-1]</a> defines the following terms:
     <ul>
      <li><span class="dfn-paneled" id="1648b687">rule-color</span>
@@ -2375,6 +2385,7 @@ being unreadable when used with the <em>actual</em> system colors.</p>
      <li><span class="dfn-paneled" id="02808af8">forced-colors</span>
      <li><span class="dfn-paneled" id="bd3d9ccd">media query</span>
      <li><span class="dfn-paneled" id="488ae577">prefers-color-scheme</span>
+     <li><span class="dfn-paneled" id="9219048b">prefers-contrast</span>
     </ul>
    <li>
     <a data-link-type="biblio">[SVG2]</a> defines the following terms:
@@ -2393,6 +2404,8 @@ being unreadable when used with the <em>actual</em> system colors.</p>
    <dd>Chris Lilley; Tab Atkins Jr.; Lea Verou. <a href="https://drafts.csswg.org/css-color-4/"><cite>CSS Color Module Level 4</cite></a>. URL: <a href="https://drafts.csswg.org/css-color-4/">https://drafts.csswg.org/css-color-4/</a>
    <dt id="biblio-css-color-5">[CSS-COLOR-5]
    <dd>Chris Lilley; et al. <a href="https://drafts.csswg.org/css-color-5/"><cite>CSS Color Module Level 5</cite></a>. URL: <a href="https://drafts.csswg.org/css-color-5/">https://drafts.csswg.org/css-color-5/</a>
+   <dt id="biblio-css-fonts-4">[CSS-FONTS-4]
+   <dd>Chris Lilley. <a href="https://drafts.csswg.org/css-fonts-4/"><cite>CSS Fonts Module Level 4</cite></a>. URL: <a href="https://drafts.csswg.org/css-fonts-4/">https://drafts.csswg.org/css-fonts-4/</a>
    <dt id="biblio-css-pseudo-4">[CSS-PSEUDO-4]
    <dd>Daniel Glazman; Elika Etemad; Alan Stearns. <a href="https://drafts.csswg.org/css-pseudo-4/"><cite>CSS Pseudo-Elements Module Level 4</cite></a>. URL: <a href="https://drafts.csswg.org/css-pseudo-4/">https://drafts.csswg.org/css-pseudo-4/</a>
    <dt id="biblio-css-scrollbars-1">[CSS-SCROLLBARS-1]
@@ -2748,7 +2761,7 @@ function parseHTML(markup) {
 "use strict";
 {
 let dfnPanelData = {
-"02808af8": {"dfnID":"02808af8","dfnText":"forced-colors","external":true,"refSections":[{"refs":[{"id":"ref-for-descdef-media-forced-colors"}],"title":"3. Forced Color Palettes"}],"url":"https://drafts.csswg.org/mediaqueries-5/#descdef-media-forced-colors"},
+"02808af8": {"dfnID":"02808af8","dfnText":"forced-colors","external":true,"refSections":[{"refs":[{"id":"ref-for-descdef-media-forced-colors"}],"title":"1. Introduction"},{"refs":[{"id":"ref-for-descdef-media-forced-colors\u2460"}],"title":"3. Forced Color Palettes"}],"url":"https://drafts.csswg.org/mediaqueries-5/#descdef-media-forced-colors"},
 "029830f0": {"dfnID":"029830f0","dfnText":"author style sheet","external":true,"refSections":[{"refs":[{"id":"ref-for-cascade-origin-author"}],"title":"3.1. Properties Affected by Forced Colors Mode"}],"url":"https://drafts.csswg.org/css-cascade-5/#cascade-origin-author"},
 "02c921d1": {"dfnID":"02c921d1","dfnText":"<system-color>","external":true,"refSections":[{"refs":[{"id":"ref-for-typedef-system-color"}],"title":"2. Preferred Color Schemes"},{"refs":[{"id":"ref-for-typedef-system-color\u2460"}],"title":"2.1. Opting Into a Preferred Color Scheme: the color-scheme property"},{"refs":[{"id":"ref-for-typedef-system-color\u2461"},{"id":"ref-for-typedef-system-color\u2462"}],"title":"3. Forced Color Palettes"}],"url":"https://drafts.csswg.org/css-color-4/#typedef-system-color"},
 "031aa878": {"dfnID":"031aa878","dfnText":"VisitedText","external":true,"refSections":[{"refs":[{"id":"ref-for-valdef-color-visitedtext"},{"id":"ref-for-valdef-color-visitedtext\u2460"}],"title":"3. Forced Color Palettes"}],"url":"https://drafts.csswg.org/css-color-4/#valdef-color-visitedtext"},
@@ -2772,11 +2785,12 @@ let dfnPanelData = {
 "358fd6ff": {"dfnID":"358fd6ff","dfnText":"CSS-wide keywords","external":true,"refSections":[{"refs":[{"id":"ref-for-css-wide-keywords"}],"title":"1.1. Value Definitions"}],"url":"https://drafts.csswg.org/css-values-4/#css-wide-keywords"},
 "37328630": {"dfnID":"37328630","dfnText":"stop-color","external":true,"refSections":[{"refs":[{"id":"ref-for-StopColorProperty"}],"title":"3.1. Properties Affected by Forced Colors Mode"}],"url":"https://svgwg.org/svg2-draft/pservers.html#StopColorProperty"},
 "398f0864": {"dfnID":"398f0864","dfnText":"GrayText","external":true,"refSections":[{"refs":[{"id":"ref-for-valdef-color-graytext"},{"id":"ref-for-valdef-color-graytext\u2460"}],"title":"3. Forced Color Palettes"}],"url":"https://drafts.csswg.org/css-color-4/#valdef-color-graytext"},
-"488ae577": {"dfnID":"488ae577","dfnText":"prefers-color-scheme","external":true,"refSections":[{"refs":[{"id":"ref-for-descdef-media-prefers-color-scheme"},{"id":"ref-for-descdef-media-prefers-color-scheme\u2460"}],"title":"2. Preferred Color Schemes"},{"refs":[{"id":"ref-for-descdef-media-prefers-color-scheme\u2461"}],"title":"3. Forced Color Palettes"}],"url":"https://drafts.csswg.org/mediaqueries-5/#descdef-media-prefers-color-scheme"},
+"488ae577": {"dfnID":"488ae577","dfnText":"prefers-color-scheme","external":true,"refSections":[{"refs":[{"id":"ref-for-descdef-media-prefers-color-scheme"}],"title":"1. Introduction"},{"refs":[{"id":"ref-for-descdef-media-prefers-color-scheme\u2460"},{"id":"ref-for-descdef-media-prefers-color-scheme\u2461"}],"title":"2. Preferred Color Schemes"},{"refs":[{"id":"ref-for-descdef-media-prefers-color-scheme\u2462"},{"id":"ref-for-descdef-media-prefers-color-scheme\u2463"},{"id":"ref-for-descdef-media-prefers-color-scheme\u2464"}],"title":"2.1. Opting Into a Preferred Color Scheme: the color-scheme property"},{"refs":[{"id":"ref-for-descdef-media-prefers-color-scheme\u2465"}],"title":"2.3. Overriding the Color Scheme"},{"refs":[{"id":"ref-for-descdef-media-prefers-color-scheme\u2466"}],"title":"3. Forced Color Palettes"}],"url":"https://drafts.csswg.org/mediaqueries-5/#descdef-media-prefers-color-scheme"},
 "4aadd289": {"dfnID":"4aadd289","dfnText":"flood-color","external":true,"refSections":[{"refs":[{"id":"ref-for-propdef-flood-color"}],"title":"3.1. Properties Affected by Forced Colors Mode"}],"url":"https://drafts.fxtf.org/filter-effects-1/#propdef-flood-color"},
 "4e4ba8b4": {"dfnID":"4e4ba8b4","dfnText":"scrollbar-color","external":true,"refSections":[{"refs":[{"id":"ref-for-propdef-scrollbar-color"},{"id":"ref-for-propdef-scrollbar-color\u2460"}],"title":"3.1. Properties Affected by Forced Colors Mode"}],"url":"https://drafts.csswg.org/css-scrollbars-1/#propdef-scrollbar-color"},
 "533df3d1": {"dfnID":"533df3d1","dfnText":"MarkText","external":true,"refSections":[{"refs":[{"id":"ref-for-valdef-color-marktext"},{"id":"ref-for-valdef-color-marktext\u2460"}],"title":"3. Forced Color Palettes"}],"url":"https://drafts.csswg.org/css-color-4/#valdef-color-marktext"},
 "537cf076": {"dfnID":"537cf076","dfnText":"?","external":true,"refSections":[{"refs":[{"id":"ref-for-mult-opt"}],"title":"2.1. Opting Into a Preferred Color Scheme: the color-scheme property"}],"url":"https://drafts.csswg.org/css-values-4/#mult-opt"},
+"53f46bbb": {"dfnID":"53f46bbb","dfnText":"normal","external":true,"refSections":[{"refs":[{"id":"ref-for-valdef-font-variant-emoji-normal"}],"title":"3.1. Properties Affected by Forced Colors Mode"}],"url":"https://drafts.csswg.org/css-fonts-4/#valdef-font-variant-emoji-normal"},
 "5a2f7ea1": {"dfnID":"5a2f7ea1","dfnText":"url()","external":true,"refSections":[{"refs":[{"id":"ref-for-funcdef-url"}],"title":"3.1. Properties Affected by Forced Colors Mode"}],"url":"https://drafts.csswg.org/css-values-4/#funcdef-url"},
 "5f1b7f60": {"dfnID":"5f1b7f60","dfnText":"@media","external":true,"refSections":[{"refs":[{"id":"ref-for-at-ruledef-media"}],"title":"2.1. Opting Into a Preferred Color Scheme: the color-scheme property"}],"url":"https://drafts.csswg.org/css-conditional-3/#at-ruledef-media"},
 "64b89595": {"dfnID":"64b89595","dfnText":"meta","external":true,"refSections":[{"refs":[{"id":"ref-for-meta"}],"title":"2.1. Opting Into a Preferred Color Scheme: the color-scheme property"},{"refs":[{"id":"ref-for-meta\u2460"}],"title":"2.3. Overriding the Color Scheme"}],"url":"https://html.spec.whatwg.org/multipage/semantics.html#meta"},
@@ -2797,6 +2811,7 @@ let dfnPanelData = {
 "8bcc6e67": {"dfnID":"8bcc6e67","dfnText":"::selection","external":true,"refSections":[{"refs":[{"id":"ref-for-selectordef-selection"}],"title":"3. Forced Color Palettes"}],"url":"https://drafts.csswg.org/css-pseudo-4/#selectordef-selection"},
 "8e0f26cc": {"dfnID":"8e0f26cc","dfnText":"caret-color","external":true,"refSections":[{"refs":[{"id":"ref-for-propdef-caret-color"}],"title":"3.1. Properties Affected by Forced Colors Mode"}],"url":"https://drafts.csswg.org/css-ui-4/#propdef-caret-color"},
 "906edadd": {"dfnID":"906edadd","dfnText":"accent-color","external":true,"refSections":[{"refs":[{"id":"ref-for-propdef-accent-color"},{"id":"ref-for-propdef-accent-color\u2460"}],"title":"3.1. Properties Affected by Forced Colors Mode"}],"url":"https://drafts.csswg.org/css-ui-4/#propdef-accent-color"},
+"9219048b": {"dfnID":"9219048b","dfnText":"prefers-contrast","external":true,"refSections":[{"refs":[{"id":"ref-for-descdef-media-prefers-contrast"}],"title":"1. Introduction"}],"url":"https://drafts.csswg.org/mediaqueries-5/#descdef-media-prefers-contrast"},
 "9a333d95": {"dfnID":"9a333d95","dfnText":"field","external":true,"refSections":[{"refs":[{"id":"ref-for-valdef-color-field"},{"id":"ref-for-valdef-color-field\u2460"}],"title":"3. Forced Color Palettes"}],"url":"https://drafts.csswg.org/css-color-4/#valdef-color-field"},
 "9c4a432b": {"dfnID":"9c4a432b","dfnText":"HighlightText","external":true,"refSections":[{"refs":[{"id":"ref-for-valdef-color-highlighttext"},{"id":"ref-for-valdef-color-highlighttext\u2460"}],"title":"3. Forced Color Palettes"}],"url":"https://drafts.csswg.org/css-color-4/#valdef-color-highlighttext"},
 "9cd25054": {"dfnID":"9cd25054","dfnText":"computed value","external":true,"refSections":[{"refs":[{"id":"ref-for-computed-value"},{"id":"ref-for-computed-value\u2460"},{"id":"ref-for-computed-value\u2461"}],"title":"3.1. Properties Affected by Forced Colors Mode"}],"url":"https://drafts.csswg.org/css-cascade-5/#computed-value"},
@@ -2804,6 +2819,7 @@ let dfnPanelData = {
 "afc7bb9f": {"dfnID":"afc7bb9f","dfnText":"ActiveText","external":true,"refSections":[{"refs":[{"id":"ref-for-valdef-color-activetext"},{"id":"ref-for-valdef-color-activetext\u2460"}],"title":"3. Forced Color Palettes"}],"url":"https://drafts.csswg.org/css-color-4/#valdef-color-activetext"},
 "b203675a": {"dfnID":"b203675a","dfnText":"getComputedStyle(elt)","external":true,"refSections":[{"refs":[{"id":"ref-for-dom-window-getcomputedstyle"}],"title":"6. Privacy Considerations"}],"url":"https://drafts.csswg.org/cssom-1/#dom-window-getcomputedstyle"},
 "b58bf640": {"dfnID":"b58bf640","dfnText":"auto","external":true,"refSections":[{"refs":[{"id":"ref-for-valdef-scrollbar-color-auto"}],"title":"3.1. Properties Affected by Forced Colors Mode"}],"url":"https://drafts.csswg.org/css-scrollbars-1/#valdef-scrollbar-color-auto"},
+"b9f31842": {"dfnID":"b9f31842","dfnText":"unicode","external":true,"refSections":[{"refs":[{"id":"ref-for-valdef-font-variant-emoji-unicode"}],"title":"3.1. Properties Affected by Forced Colors Mode"}],"url":"https://drafts.csswg.org/css-fonts-4/#valdef-font-variant-emoji-unicode"},
 "bd3d9ccd": {"dfnID":"bd3d9ccd","dfnText":"media query","external":true,"refSections":[{"refs":[{"id":"ref-for-media-query"}],"title":"1. Introduction"},{"refs":[{"id":"ref-for-media-query\u2460"}],"title":"2.3. Overriding the Color Scheme"}],"url":"https://drafts.csswg.org/mediaqueries-5/#media-query"},
 "bd736ec6": {"dfnID":"bd736ec6","dfnText":"top-level traversable","external":true,"refSections":[{"refs":[{"id":"ref-for-top-level-traversable"}],"title":"5.1. Emulate Forced Colors Mode"}],"url":"https://html.spec.whatwg.org/multipage/document-sequences.html#top-level-traversable"},
 "bedd9d42": {"dfnID":"bedd9d42","dfnText":"+","external":true,"refSections":[{"refs":[{"id":"ref-for-mult-one-plus"}],"title":"2.1. Opting Into a Preferred Color Scheme: the color-scheme property"}],"url":"https://drafts.csswg.org/css-values-4/#mult-one-plus"},
@@ -2816,6 +2832,7 @@ let dfnPanelData = {
 "cfdf030c": {"dfnID":"cfdf030c","dfnText":"color-mix()","external":true,"refSections":[{"refs":[{"id":"ref-for-funcdef-color-mix"}],"title":"3.1. Properties Affected by Forced Colors Mode"}],"url":"https://drafts.csswg.org/css-color-5/#funcdef-color-mix"},
 "color-scheme": {"dfnID":"color-scheme","dfnText":"color scheme","external":false,"refSections":[{"refs":[{"id":"ref-for-color-scheme"},{"id":"ref-for-color-scheme\u2460"}],"title":"1. Introduction"},{"refs":[{"id":"ref-for-color-scheme\u2461"},{"id":"ref-for-color-scheme\u2462"},{"id":"ref-for-color-scheme\u2463"},{"id":"ref-for-color-scheme\u2464"},{"id":"ref-for-color-scheme\u2465"}],"title":"2. Preferred Color Schemes"},{"refs":[{"id":"ref-for-color-scheme\u2466"},{"id":"ref-for-color-scheme\u2467"},{"id":"ref-for-color-scheme\u2468"},{"id":"ref-for-color-scheme\u2460\u24ea"},{"id":"ref-for-color-scheme\u2460\u2460"},{"id":"ref-for-color-scheme\u2460\u2461"},{"id":"ref-for-color-scheme\u2460\u2462"},{"id":"ref-for-color-scheme\u2460\u2463"},{"id":"ref-for-color-scheme\u2460\u2464"}],"title":"2.1. Opting Into a Preferred Color Scheme: the color-scheme property"},{"refs":[{"id":"ref-for-color-scheme\u2460\u2465"}],"title":"2.2. Effects of the Used Color Scheme"},{"refs":[{"id":"ref-for-color-scheme\u2460\u2466"},{"id":"ref-for-color-scheme\u2460\u2467"}],"title":"2.3. Overriding the Color Scheme"},{"refs":[{"id":"ref-for-color-scheme\u2460\u2468"}],"title":"6. Privacy Considerations"}],"url":"#color-scheme"},
 "d2332066": {"dfnID":"d2332066","dfnText":"dark","external":true,"refSections":[{"refs":[{"id":"ref-for-valdef-media-prefers-color-scheme-dark"}],"title":"2.3. Overriding the Color Scheme"}],"url":"https://drafts.csswg.org/mediaqueries-5/#valdef-media-prefers-color-scheme-dark"},
+"d4611c95": {"dfnID":"d4611c95","dfnText":"font-variant-emoji","external":true,"refSections":[{"refs":[{"id":"ref-for-propdef-font-variant-emoji"}],"title":"3.1. Properties Affected by Forced Colors Mode"}],"url":"https://drafts.csswg.org/css-fonts-4/#propdef-font-variant-emoji"},
 "dark-color-scheme": {"dfnID":"dark-color-scheme","dfnText":"dark color scheme","external":false,"refSections":[{"refs":[{"id":"ref-for-dark-color-scheme"}],"title":"2. Preferred Color Schemes"},{"refs":[{"id":"ref-for-dark-color-scheme\u2460"},{"id":"ref-for-dark-color-scheme\u2461"}],"title":"2.1. Opting Into a Preferred Color Scheme: the color-scheme property"},{"refs":[{"id":"ref-for-dark-color-scheme\u2462"},{"id":"ref-for-dark-color-scheme\u2463"},{"id":"ref-for-dark-color-scheme\u2464"},{"id":"ref-for-dark-color-scheme\u2465"},{"id":"ref-for-dark-color-scheme\u2466"},{"id":"ref-for-dark-color-scheme\u2467"}],"title":"2.3. Overriding the Color Scheme"}],"url":"#dark-color-scheme"},
 "de9e224f": {"dfnID":"de9e224f","dfnText":"stroke","external":true,"refSections":[{"refs":[{"id":"ref-for-propdef-stroke"}],"title":"3.1. Properties Affected by Forced Colors Mode"}],"url":"https://drafts.fxtf.org/fill-stroke-3/#propdef-stroke"},
 "determine-the-used-color-scheme": {"dfnID":"determine-the-used-color-scheme","dfnText":"determine the used color scheme","external":false,"refSections":[],"url":"#determine-the-used-color-scheme"},
@@ -3386,6 +3403,9 @@ let refsData = {
 "https://drafts.csswg.org/css-color-5/#funcdef-color-mix": {"displayText":"color-mix()","export":true,"for_":[],"level":"5","normative":true,"shortname":"css-color","spec":"css-color-5","status":"current","text":"color-mix()","type":"function","url":"https://drafts.csswg.org/css-color-5/#funcdef-color-mix"},
 "https://drafts.csswg.org/css-color-5/#typedef-color": {"displayText":"<color>","export":true,"for_":[],"level":"5","normative":true,"shortname":"css-color","spec":"css-color-5","status":"current","text":"<color>","type":"type","url":"https://drafts.csswg.org/css-color-5/#typedef-color"},
 "https://drafts.csswg.org/css-conditional-3/#at-ruledef-media": {"displayText":"@media","export":true,"for_":[],"level":"3","normative":true,"shortname":"css-conditional","spec":"css-conditional-3","status":"current","text":"@media","type":"at-rule","url":"https://drafts.csswg.org/css-conditional-3/#at-ruledef-media"},
+"https://drafts.csswg.org/css-fonts-4/#propdef-font-variant-emoji": {"displayText":"font-variant-emoji","export":true,"for_":[],"level":"4","normative":true,"shortname":"css-fonts","spec":"css-fonts-4","status":"current","text":"font-variant-emoji","type":"property","url":"https://drafts.csswg.org/css-fonts-4/#propdef-font-variant-emoji"},
+"https://drafts.csswg.org/css-fonts-4/#valdef-font-variant-emoji-normal": {"displayText":"normal","export":true,"for_":["font-variant-emoji"],"level":"4","normative":true,"shortname":"css-fonts","spec":"css-fonts-4","status":"current","text":"normal","type":"value","url":"https://drafts.csswg.org/css-fonts-4/#valdef-font-variant-emoji-normal"},
+"https://drafts.csswg.org/css-fonts-4/#valdef-font-variant-emoji-unicode": {"displayText":"unicode","export":true,"for_":["font-variant-emoji"],"level":"4","normative":true,"shortname":"css-fonts","spec":"css-fonts-4","status":"current","text":"unicode","type":"value","url":"https://drafts.csswg.org/css-fonts-4/#valdef-font-variant-emoji-unicode"},
 "https://drafts.csswg.org/css-gaps-1/#propdef-rule-color": {"displayText":"rule-color","export":true,"for_":[],"level":"1","normative":true,"shortname":"css-gaps","spec":"css-gaps-1","status":"current","text":"rule-color","type":"property","url":"https://drafts.csswg.org/css-gaps-1/#propdef-rule-color"},
 "https://drafts.csswg.org/css-pseudo-4/#selectordef-selection": {"displayText":"::selection","export":true,"for_":[],"level":"4","normative":true,"shortname":"css-pseudo","spec":"css-pseudo-4","status":"current","text":"::selection","type":"selector","url":"https://drafts.csswg.org/css-pseudo-4/#selectordef-selection"},
 "https://drafts.csswg.org/css-scrollbars-1/#propdef-scrollbar-color": {"displayText":"scrollbar-color","export":true,"for_":[],"level":"1","normative":true,"shortname":"css-scrollbars","spec":"css-scrollbars-1","status":"current","text":"scrollbar-color","type":"property","url":"https://drafts.csswg.org/css-scrollbars-1/#propdef-scrollbar-color"},
@@ -3408,6 +3428,7 @@ let refsData = {
 "https://drafts.csswg.org/cssom-1/#dom-window-getcomputedstyle": {"displayText":"getComputedStyle(elt)","export":true,"for_":["Window"],"level":"1","normative":true,"shortname":"cssom","spec":"cssom-1","status":"current","text":"getComputedStyle(elt)","type":"method","url":"https://drafts.csswg.org/cssom-1/#dom-window-getcomputedstyle"},
 "https://drafts.csswg.org/mediaqueries-5/#descdef-media-forced-colors": {"displayText":"forced-colors","export":true,"for_":["@media"],"level":"5","normative":true,"shortname":"mediaqueries","spec":"mediaqueries-5","status":"current","text":"forced-colors","type":"descriptor","url":"https://drafts.csswg.org/mediaqueries-5/#descdef-media-forced-colors"},
 "https://drafts.csswg.org/mediaqueries-5/#descdef-media-prefers-color-scheme": {"displayText":"prefers-color-scheme","export":true,"for_":["@media"],"level":"5","normative":true,"shortname":"mediaqueries","spec":"mediaqueries-5","status":"current","text":"prefers-color-scheme","type":"descriptor","url":"https://drafts.csswg.org/mediaqueries-5/#descdef-media-prefers-color-scheme"},
+"https://drafts.csswg.org/mediaqueries-5/#descdef-media-prefers-contrast": {"displayText":"prefers-contrast","export":true,"for_":["@media"],"level":"5","normative":true,"shortname":"mediaqueries","spec":"mediaqueries-5","status":"current","text":"prefers-contrast","type":"descriptor","url":"https://drafts.csswg.org/mediaqueries-5/#descdef-media-prefers-contrast"},
 "https://drafts.csswg.org/mediaqueries-5/#media-query": {"displayText":"media query","export":true,"for_":[],"level":"5","normative":true,"shortname":"mediaqueries","spec":"mediaqueries-5","status":"current","text":"media query","type":"dfn","url":"https://drafts.csswg.org/mediaqueries-5/#media-query"},
 "https://drafts.csswg.org/mediaqueries-5/#valdef-media-prefers-color-scheme-dark": {"displayText":"dark","export":true,"for_":["@media/prefers-color-scheme"],"level":"5","normative":true,"shortname":"mediaqueries","spec":"mediaqueries-5","status":"current","text":"dark","type":"value","url":"https://drafts.csswg.org/mediaqueries-5/#valdef-media-prefers-color-scheme-dark"},
 "https://drafts.fxtf.org/fill-stroke-3/#propdef-fill": {"displayText":"fill","export":true,"for_":[],"level":"3","normative":true,"shortname":"fill-stroke","spec":"fill-stroke-3","status":"current","text":"fill","type":"property","url":"https://drafts.fxtf.org/fill-stroke-3/#propdef-fill"},
