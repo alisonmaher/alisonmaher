@@ -8,7 +8,7 @@
   <meta content="Bikeshed version 60c422380, updated Thu Feb 20 19:11:22 2025 -0800" name="generator">
   <link href="https://www.w3.org/TR/webdriver-bidi/" rel="canonical">
   <link href="https://www.w3.org/2008/site/images/favicon.ico" rel="icon">
-  <meta content="d213ffe6c4093ef388b93ba4eef09c5ac1b3be5e" name="revision">
+  <meta content="40e8129c4518488d9ec1fd11827fc6c665766dc5" name="revision">
   <meta content="dark light" name="color-scheme">
   <link href="https://www.w3.org/StyleSheets/TR/2021/dark.css" media="(prefers-color-scheme: dark)" rel="stylesheet" type="text/css">
 <style>
@@ -641,7 +641,7 @@ var[data-var-color="6"] { --var-vg: #FFBCF2; }
   <div class="head">
    <p data-fill-with="logo"><a class="logo" href="https://www.w3.org/"> <img alt="W3C" height="48" src="https://www.w3.org/StyleSheets/TR/2021/logos/W3C" width="72"> </a> </p>
    <h1 class="p-name no-ref" id="title">WebDriver BiDi</h1>
-   <p id="w3c-state"><a href="https://www.w3.org/standards/types/#ED">Editor’s Draft</a>, <time class="dt-updated" datetime="2025-07-24">24 July 2025</time></p>
+   <p id="w3c-state"><a href="https://www.w3.org/standards/types/#ED">Editor’s Draft</a>, <time class="dt-updated" datetime="2025-07-25">25 July 2025</time></p>
    <details open>
     <summary>More details about this document</summary>
     <div data-fill-with="spec-metadata">
@@ -4914,8 +4914,6 @@ before the <a data-link-type="dfn" href="#run-webdriver-bidi-preload-scripts" id
          <li data-md>
           <p>Let <var>theme</var> be <a data-link-type="dfn" href="#forced-colors-mode-theme-overrides-map" id="ref-for-forced-colors-mode-theme-overrides-map①">forced colors mode theme overrides map</a>[<var>user context</var>].</p>
          <li data-md>
-          <p>If <var>theme</var> is null, set <var>theme</var> to "<code>none</code>".</p>
-         <li data-md>
           <p><a data-link-type="dfn" href="https://drafts.csswg.org/css-color-adjust-1/#set-emulated-forced-colors-theme-data" id="ref-for-set-emulated-forced-colors-theme-data">Set emulated forced colors theme data</a> with <var>navigable</var> and <var>theme</var>.</p>
         </ol>
        <li data-md>
@@ -5783,11 +5781,11 @@ emulation.ForcedColorsModeTheme = "light" / "dark"
     <ol>
      <li data-md>
       <p>If <var>command parameters</var> <a data-link-type="dfn" href="https://infra.spec.whatwg.org/#map-exists" id="ref-for-map-exists③②">contains</a> "<code>userContexts</code>"
- and <var>command parameters</var> <a data-link-type="dfn" href="https://infra.spec.whatwg.org/#map-exists" id="ref-for-map-exists③③">contains</a> "<code>context</code>",
+ and <var>command parameters</var> <a data-link-type="dfn" href="https://infra.spec.whatwg.org/#map-exists" id="ref-for-map-exists③③">contains</a> "<code>contexts</code>",
  return <a data-link-type="dfn" href="https://w3c.github.io/webdriver/#errors" id="ref-for-errors⑤⑦">error</a> with <a data-link-type="dfn" href="https://w3c.github.io/webdriver/#dfn-error-code" id="ref-for-dfn-error-code⑤②">error code</a> <a data-link-type="dfn" href="https://w3c.github.io/webdriver/#dfn-invalid-argument" id="ref-for-dfn-invalid-argument②①">invalid argument</a>.</p>
      <li data-md>
       <p>If <var>command parameters</var> doesn’t <a data-link-type="dfn" href="https://infra.spec.whatwg.org/#map-exists" id="ref-for-map-exists③④">contain</a> "<code>userContexts</code>"
- and <var>command parameters</var> doesn’t <a data-link-type="dfn" href="https://infra.spec.whatwg.org/#map-exists" id="ref-for-map-exists③⑤">contain</a> "<code>context</code>",
+ and <var>command parameters</var> doesn’t <a data-link-type="dfn" href="https://infra.spec.whatwg.org/#map-exists" id="ref-for-map-exists③⑤">contain</a> "<code>contexts</code>",
  return <a data-link-type="dfn" href="https://w3c.github.io/webdriver/#errors" id="ref-for-errors⑤⑧">error</a> with <a data-link-type="dfn" href="https://w3c.github.io/webdriver/#dfn-error-code" id="ref-for-dfn-error-code⑤③">error code</a> <a data-link-type="dfn" href="https://w3c.github.io/webdriver/#dfn-invalid-argument" id="ref-for-dfn-invalid-argument②②">invalid argument</a>.</p>
      <li data-md>
       <p>Let <var>navigables</var> be a <a data-link-type="dfn" href="https://infra.spec.whatwg.org/#ordered-set" id="ref-for-ordered-set⑤③">set</a>.</p>
@@ -5803,10 +5801,14 @@ emulation.ForcedColorsModeTheme = "light" / "dark"
        <li data-md>
         <p>Let <var>user contexts</var> be the result of <a data-link-type="dfn" href="https://w3c.github.io/webdriver/#dfn-try" id="ref-for-dfn-try③⑥">trying</a> to <a data-link-type="dfn" href="#get-valid-user-contexts" id="ref-for-get-valid-user-contexts①">get valid user contexts</a> with <var>command parameters</var>["<code>userContexts</code>"].</p>
        <li data-md>
+        <p>Let <var>theme</var> be <var>command parameters</var>["<code>theme</code>"].</p>
+       <li data-md>
+        <p>If <var>theme</var> is null, set <var>theme</var> to "<code>none</code>".</p>
+       <li data-md>
         <p>For each <var>user context</var> of <var>user contexts</var>:</p>
         <ol>
          <li data-md>
-          <p><a data-link-type="dfn" href="https://infra.spec.whatwg.org/#map-set" id="ref-for-map-set⑤">Set</a> <a data-link-type="dfn" href="#forced-colors-mode-theme-overrides-map" id="ref-for-forced-colors-mode-theme-overrides-map②">forced colors mode theme overrides map</a>[<var>user context</var>] to <var>command parameters</var>["<code>theme</code>"].</p>
+          <p><a data-link-type="dfn" href="https://infra.spec.whatwg.org/#map-set" id="ref-for-map-set⑤">Set</a> <a data-link-type="dfn" href="#forced-colors-mode-theme-overrides-map" id="ref-for-forced-colors-mode-theme-overrides-map②">forced colors mode theme overrides map</a>[<var>user context</var>] to <var>theme</var>.</p>
          <li data-md>
           <p><a data-link-type="dfn" href="https://infra.spec.whatwg.org/#list-iterate" id="ref-for-list-iterate⑤">For each</a> <var>top-level traversable</var> of the list of all <a data-link-type="dfn" href="https://html.spec.whatwg.org/multipage/document-sequences.html#top-level-traversable" id="ref-for-top-level-traversable④①">top-level traversables</a> whose <a data-link-type="dfn" href="#associated-user-context" id="ref-for-associated-user-context①⑨">associated user context</a> is <var>user context</var>:</p>
           <ol>
@@ -5815,10 +5817,6 @@ emulation.ForcedColorsModeTheme = "light" / "dark"
           </ol>
         </ol>
       </ol>
-     <li data-md>
-      <p>Let <var>theme</var> be <var>command parameters</var>["<code>theme</code>"].</p>
-     <li data-md>
-      <p>If <var>theme</var> is null, set <var>theme</var> to "<code>none</code>".</p>
      <li data-md>
       <p>For each <var>navigable</var> of <var>navigables</var>:</p>
       <ol>
